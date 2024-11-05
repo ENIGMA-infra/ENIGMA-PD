@@ -1,5 +1,8 @@
-# FS7
-ENIGMA-PD guidelines to process T1w images using FreeSurfer 7
+# Welcome to the ENIGMA-PD FreeSurfer 7 guidelines!
+
+This page is created to guide collaborating ENIGMA-PD sites through the FreeSurfer processing steps. The outcomes include cortical thickness, cortical surface area, and volume of subcortical regions and their subfields. All steps and code required are combined into the guidelines presented here. If you have any questions, concerns, or issues, please contact the ENIGMA-PD core team at enigma-pd@amsterdamumc.nl. 
+
+## Leaderboard
 
 ## BIDSification
 insert background; why important?
