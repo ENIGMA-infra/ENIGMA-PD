@@ -24,17 +24,16 @@ Resources from the BIDS community offer guidance on organizing your data, and BI
 ## Nipoppyfication
 Nipoppy is a lightweight framework for standardized organization and processing of neuroimaging-clinical datasets. Its goal is to help users adopt the FAIR principles and improve the reproducibility of studies. Essentially an extension of BIDS, Nipoppy builds on the BIDS standard to enhance data organization, processing, and integration, further supporting standardized workflows and reproducible research practices.
 
-The ongoing collaboration between the ENIGMA-PD team and Nipoppy developers has significantly improved dataset organization for the Amsterdam and open datasets. It has also streamlined the standardization of analysis workflows, made re-running pipelines for version updates easier, and simplified tracking of which datasets have been processed with specific analysis pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. Please get started at: 
-[Nipoppy documentation](https://nipoppy.readthedocs.io/en/latest/index.html)
+The ongoing collaboration between the ENIGMA-PD team and Nipoppy developers has significantly improved dataset organization for the Amsterdam and open datasets. It has also streamlined the standardization of analysis workflows, made re-running pipelines for version updates easier, and simplified tracking of which datasets have been processed with specific analysis pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. Please get started at the [Nipoppy documentation](https://nipoppy.readthedocs.io/en/latest/index.html)
 
 ## Running FreeSurfer 7
-The first step of running FS7 is to prepare your work environment with either Apptainer or Docker. We prefer Apptainer, but Docker can be used if you don't have access to a Linux system.
+The first step of running FS7 is to prepare your work environment with either Apptainer or Docker. We prefer Apptainer, but Docker can be used if you don't have admin rights or access to a Linux system.
 
-[Install Apptainer](https://github.com/apptainer/apptainer/blob/main/INSTALL.md)
+### Installation
+- [Install Apptainer](https://github.com/apptainer/apptainer/blob/main/INSTALL.md)
+- [Install Docker](https://docs.docker.com/engine/install/)
 
-[Install Docker](https://docs.docker.com/engine/install/)
-
-Once you have succesfully installed Apptainer or Docker, we can finally start with the actual work. We apply the FreeSurfer tools that are included in the fMRIPrep pipeline. How to download the fMRIPrep container depends on whether you use Docker or Apptainer.
+Once you have succesfully installed Apptainer or Docker, we get started with the actual work. We apply the FreeSurfer functionalities that are included in the fMRIPrep pipeline. How to download the fMRIPrep container depends on whether you use Docker or Apptainer.
 
 For Apptainer, run:
 ```
@@ -54,9 +53,16 @@ For more information on fMRIPrep, see the [fMRIPrep documentation](https://fmrip
 (link to subsegmentation page)
 (include extraction script in container)
 
-## Quality Check; running fsqc
+## Quality Assessment part 1: Running the FS-QC pipeline
 [fsqc documentation](https://deep-mi.org/fsqc/dev/index.html)
-linkt to ENIGMA QC guide
+
+## Quality Assessment part 1: Performing a visual quality assessment
+link to ENIGMA QC guide
 
 ## Data sharing
-SURFdrive?
+After completing all of the above steps, you're ready to share your derived data with the ENIGMA-PD core team. Please:
+
+- Review the .csv spreadsheets for completeness, ensuring all participants are included, there are no missing or unexpected data points, and quality assessment scores have been assigned to each ROI and participant.
+- Confirm whether you are authorized to share the quality check .png files. These will be used, along with your quality assessment scores, to help train automated machine learning models for ENIGMA's quality checking pipelines, to eliminate the need for manual checking in the future.
+
+Once these checks are complete, email enigma-pd@amsterdamumc.nl to receive a personalized and secure link to a SURFdrive folder where you can temporarily upload the .csv files and, if applicable, the QA .png files. If your site has another preferred method for sharing data, please let us know, and we will try to accommodate it. We will then move the files to our central storage on the LONI server hosted by USC.
