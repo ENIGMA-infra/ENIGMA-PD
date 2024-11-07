@@ -6,9 +6,20 @@ This page is created to guide collaborating ENIGMA-PD sites through the FreeSurf
 To help motivate and monitor each site's progress, we maintain a leaderboard that outlines all the steps detailed in these guidelines. If you are in charge of data processing at your site, please request access and regularly update your progress on the current steps on the [ENIGMA-PD Leaderboard](https://docs.google.com/spreadsheets/d/13iGfh-97ZYnAyjT5egBDHmGhqXbsl1yo1A6QnPXQYbY/edit?usp=sharing).
 
 ## BIDSification
-insert background; why important?
-[BIDS documentation](https://bids-website.readthedocs.io/en/latest/index.html)
-[Recommended converter; BIDScoin](https://bidscoin.readthedocs.io/en/stable/)
+Before starting the analysis, organizing your data is essential — it will benefit this analysis and streamline any follow-up ENIGMA-PD work. We know it can be challenging, but we’re here to support you. 
+
+For this analysis, please ensure T1-weighted images are organized according to the Brain Imaging Data Structure (BIDS) format. BIDS is a standardized format for organizing and labeling neuroimaging data to ensure consistency and make data easily shareable and analyzable across studies. Although we’re focusing on T1-weighted images for this analysis, organizing available diffusion-weighted or functional MRI data in BIDS will make future analyses easier.
+
+Here are the core principles for organizing your neuroimaging data in BIDS format:
+- Use consistent file and folder names
+- Separate modalities
+- Include metadata files
+- Validate the structure
+
+Resources from the BIDS community offer guidance on organizing your data, and BIDS converters can help automate this process, saving time and reducing manual errors. We recommend using Dcm2Bids (for DICOM's) and BIDScoin (for NIfTI's). Resources:
+- [BIDS documentation](https://bids-website.readthedocs.io/en/latest/index.html)
+- [Recommended converter; BIDScoin](https://bidscoin.readthedocs.io/en/stable/)
+- [BIDS tutorials](https://www.youtube.com/watch?v=pAv9WuyyF3g&list=PLtJYlrqQ3YK_M4YgkUx6akJqlHF1R7A5g)
 
 ## Nipoppyfication
 insert background; why important?
