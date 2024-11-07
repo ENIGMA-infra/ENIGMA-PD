@@ -16,13 +16,15 @@ Here are the core principles for organizing your neuroimaging data in BIDS forma
 - Include metadata files
 - Validate the structure
 
-Resources from the BIDS community offer guidance on organizing your data, and BIDS converters can help automate this process, saving time and reducing manual errors. We recommend using Dcm2Bids (for DICOM's) and BIDScoin (for NIfTI's). Resources:
+Resources from the BIDS community offer guidance on organizing your data, and BIDS converters can help automate this process, saving time and reducing manual errors. We recommend using Dcm2Bids (for DICOM's) and BIDScoin (for NIfTI's).
 - [BIDS documentation](https://bids-website.readthedocs.io/en/latest/index.html)
 - [Recommended converter; BIDScoin](https://bidscoin.readthedocs.io/en/stable/)
 - [BIDS tutorials](https://www.youtube.com/watch?v=pAv9WuyyF3g&list=PLtJYlrqQ3YK_M4YgkUx6akJqlHF1R7A5g)
 
 ## Nipoppyfication
-insert background; why important?
+Nipoppy is a lightweight framework for standardized organization and processing of neuroimaging-clinical datasets. Its goal is to help users adopt the FAIR principles and improve the reproducibility of studies. Essentially an extension of BIDS, Nipoppy builds on the BIDS standard to enhance data organization, processing, and integration, further supporting standardized workflows and reproducible research practices.
+
+The ongoing collaboration between the ENIGMA-PD team and Nipoppy developers has significantly improved dataset organization for the Amsterdam and open datasets. It has also streamlined the standardization of analysis workflows, made re-running pipelines for version updates easier, and simplified tracking of which datasets have been processed with specific analysis pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. Please get started at: 
 [Nipoppy documentation](https://nipoppy.readthedocs.io/en/latest/index.html)
 
 ## Running FreeSurfer 7
