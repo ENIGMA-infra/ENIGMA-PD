@@ -53,8 +53,44 @@ For more information on fMRIPrep, see the [fMRIPrep documentation](https://fmrip
 (link to subsegmentation page)
 (include extraction script in container)
 
-## Quality Assessment part 1: Running the FS-QC pipeline
-[fsqc documentation](https://deep-mi.org/fsqc/dev/index.html)
+## Quality Assessment part 1: Running the FS-QC toolbox
+The [FreeSurfer Quality Control (FS-QC) toolbox](https://github.com/Deep-MI/fsqc) takes existing FreeSurfer or FastSurfer output and computes a set of quality control metrics. These will be reported in a summary table and/or .html page with screenshots to allow for visual inspection of the segmentations.
+
+### Getting the container
+For Apptainer:
+- Go to a path where you want the image (.sif) to be saved and create the image using the docker tag. Check the [latest tags](https://hub.docker.com/r/deepmi/fsqcdocker/tags) on the fsqc docker hub. Creating the image takes <3 min.
+```
+cd /path/to/your/containers
+```
+```
+apptainer build fsqc-latest.sif docker://deepmi/fsqcdocker:latest
+```
+- Get a FreeSurfer licence (free at [the FreeSurfer website](https://surfer.nmr.mgh.harvard.edu/registration.html))
+- Print the command usage to test if you can run the container
+```
+apptainer run /path/to/fsqc-latest.sif
+```
+
+### Running the FS-QC command
+Please read more about the required and optional arguments here. For ENIGMA-PD, we ask you to run the command below to produce several screenshots at different slices and also include the subsegmentations. 
+
+For Apptainer, adjust the paths to the FreeSurfer output directory and container directory and run:
+```
+apptainer run --bind /path/to/FreeSurfer/output/dir/:/data_fsqc \
+/path/to/container/fsqc-latest.sif \
+--subjects_dir /data_fsqc/ \
+--output_dir /data_fsqc/fsqc_output_aparc_aseg \
+--screenshots-html \
+--screenshots_overlay aparc+aseg.mgz \
+--screenshots_views x=-20 x=-10 x=10 x=20 y=-10 y=0 y=10 y=20 z=0 z=10 z=20 z=30 \
+--screenshots_layout 3 4 \
+--surfaces-html \
+--skullstrip-html \
+--hypothalamus-html \
+--hippocampus-html \
+--hippocampus-label T1.v22 \
+--outlier
+```
 
 ## Quality Assessment part 1: Performing a visual quality assessment
 link to ENIGMA QC guide
