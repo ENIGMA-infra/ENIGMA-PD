@@ -97,7 +97,8 @@ apptainer run --bind /path/to/FreeSurfer/output/dir/:/data_fsqc \
 --outlier
 ```
 
-## Quality Assessment part 1: Performing a visual quality assessment
+## Quality Assessment part 2: Performing a visual quality assessment
+@Eva to complete
 link to ENIGMA QC guide
 
 ## Data sharing
