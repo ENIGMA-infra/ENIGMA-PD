@@ -77,7 +77,7 @@ apptainer run /path/to/fsqc-latest.sif
 ```
 
 ### Running the FS-QC command
-Please read more about the required and optional arguments [here](FS7/FS-QC.md). For ENIGMA-PD, we ask you to run the command below to produce several screenshots at different slices and also include the subsegmentations. 
+Please read more about the required and optional arguments [here](FS-QC.md). For ENIGMA-PD, we ask you to run the command below to produce several screenshots at different slices and also include the subsegmentations. 
 
 For Apptainer, adjust the paths to the FreeSurfer output directory and container directory and run:
 ```
