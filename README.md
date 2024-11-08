@@ -24,7 +24,9 @@ Resources from the BIDS community offer guidance on organizing your data, and BI
 ## Nipoppyfication
 Nipoppy is a lightweight framework for standardized organization and processing of neuroimaging-clinical datasets. Its goal is to help users adopt the FAIR principles and improve the reproducibility of studies. Essentially an extension of BIDS, Nipoppy builds on the BIDS standard to enhance data organization, processing, and integration, further supporting standardized workflows and reproducible research practices.
 
-The ongoing collaboration between the ENIGMA-PD team and Nipoppy developers has significantly improved dataset organization for the Amsterdam and open datasets. It has also streamlined the standardization of analysis workflows, made re-running pipelines for version updates easier, and simplified tracking of which datasets have been processed with specific analysis pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. Please get started at the [Nipoppy documentation](https://nipoppy.readthedocs.io/en/latest/index.html)
+The ongoing collaboration between the ENIGMA-PD team and Nipoppy developers has significantly improved dataset organization for the Amsterdam and open datasets. It has also streamlined the standardization of analysis workflows, made re-running pipelines for version updates easier, and simplified tracking of which datasets have been processed with specific analysis pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. Please get started at the [Nipoppy documentation](https://nipoppy.readthedocs.io/en/latest/index.html).
+
+<something about the general steps/first step?>
 
 ## Running FreeSurfer 7
 The first step of running FS7 is to prepare your work environment with either Apptainer or Docker. We prefer Apptainer, but Docker can be used if you don't have admin rights or access to a Linux system.
@@ -45,11 +47,14 @@ For Docker, run:
 docker pull nipreps/fmriprep:24.1.1
 ```
 For more information on fMRIPrep, see the [fMRIPrep documentation](https://fmriprep.org/en/stable/)
+
+<@Emile to fix/explain>
 ```
 --anat-only
 ```
 
 ## Running subsegmentations
+<@Eva to complete>
 (link to subsegmentation page)
 (include extraction script in container)
 
@@ -72,7 +77,7 @@ apptainer run /path/to/fsqc-latest.sif
 ```
 
 ### Running the FS-QC command
-Please read more about the required and optional arguments here. For ENIGMA-PD, we ask you to run the command below to produce several screenshots at different slices and also include the subsegmentations. 
+Please read more about the required and optional arguments [here](FS7/FS-QC.md). For ENIGMA-PD, we ask you to run the command below to produce several screenshots at different slices and also include the subsegmentations. 
 
 For Apptainer, adjust the paths to the FreeSurfer output directory and container directory and run:
 ```
