@@ -31,7 +31,7 @@ To install Nipoppy...
 
 Once Nipoppy is succesfully installed, please follow all steps listed on the [Quickstart page](https://nipoppy.readthedocs.io/en/latest/quickstart.html)
 <maybe change order with BIDSification?>
-<FS license file?>
+In the global_config file, you will need to add the path to a FreeSurfer license. You can get a FreeSurfer licence for free at [the FreeSurfer website](https://surfer.nmr.mgh.harvard.edu/registration.html).
 
 ## Running FreeSurfer 7
 The first step of running FS7 is to prepare your work environment with either Apptainer or Docker. We prefer Apptainer, but Docker can be used if you don't have admin rights or access to a Linux system.
@@ -40,7 +40,7 @@ The first step of running FS7 is to prepare your work environment with either Ap
 - [Install Apptainer](https://github.com/apptainer/apptainer/blob/main/INSTALL.md)
 - [Install Docker](https://docs.docker.com/engine/install/)
 
-Once you have succesfully installed Apptainer or Docker, we get started with the actual work. We apply the FreeSurfer functionalities that are included in the fMRIPrep pipeline. How to download the fMRIPrep container depends on whether you use Docker or Apptainer.
+We will apply the FreeSurfer functionalities that are included in the fMRIPrep pipeline. Once you have succesfully installed Apptainer or Docker, you can pull the fMRIPrep container. How to do this depends on whether you use Docker or Apptainer.
 
 For Apptainer, run:
 ```
@@ -58,10 +58,11 @@ Make sure that you have the fMRIPrep container stored in the container_pipelines
 Next, open the global_config file, check whether the correct fMRIPrep version is included under PROC_PIPELINES, and add `--anat-only` under ARGS (we are not interested in processing functional scans for now).
 
 ### Run pipeline
-Run the following line of code, specifying the path to your dataset root.
+Finally, simply run the following line of code, specifying the path to your dataset root.
 ```
-nipoppy run --pipeline fmriprep --pipeline-version 24.1.1 dataset_root
+nipoppy run --pipeline fmriprep --pipeline-version 24.1.1 [dataset_root]
 ```
+This should initiate the FS7 segmentation of all your T1-weighted images! Once processing has completed, you can move on to the subsegmentations.
 
 ## Running subsegmentations
 <@Eva to complete>
@@ -80,7 +81,6 @@ cd /path/to/your/containers
 ```
 apptainer build fsqc-latest.sif docker://deepmi/fsqcdocker:latest
 ```
-- Get a FreeSurfer licence (free at [the FreeSurfer website](https://surfer.nmr.mgh.harvard.edu/registration.html))
 - Print the command usage to test if you can run the container
 ```
 apptainer run /path/to/fsqc-latest.sif
