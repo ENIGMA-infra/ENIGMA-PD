@@ -24,9 +24,14 @@ Resources from the BIDS community offer guidance on organizing your data, and BI
 ## Nipoppyfication
 Nipoppy is a lightweight framework for standardized organization and processing of neuroimaging-clinical datasets. Its goal is to help users adopt the FAIR principles and improve the reproducibility of studies. Essentially an extension of BIDS, Nipoppy builds on the BIDS standard to enhance data organization, processing, and integration, further supporting standardized workflows and reproducible research practices.
 
-The ongoing collaboration between the ENIGMA-PD team and Nipoppy developers has significantly improved dataset organization for the Amsterdam and open datasets. It has also streamlined the standardization of analysis workflows, made re-running pipelines for version updates easier, and simplified tracking of which datasets have been processed with specific analysis pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. Please get started at the [Nipoppy documentation](https://nipoppy.readthedocs.io/en/latest/index.html).
+The ongoing collaboration between the ENIGMA-PD team and Nipoppy developers has significantly improved dataset organization for the Amsterdam and open datasets. It has also streamlined the standardization of analysis workflows, made re-running pipelines for version updates easier, and simplified tracking of which datasets have been processed with specific analysis pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. For more information, see the [Nipoppy documentation](https://nipoppy.readthedocs.io/en/latest/index.html).
 
-<something about the general steps/first step?>
+To install Nipoppy...
+<Installation>
+
+Once Nipoppy is succesfully installed, please follow all steps listed on the [Quickstart page](https://nipoppy.readthedocs.io/en/latest/quickstart.html)
+<maybe change order with BIDSification?>
+<FS license file?>
 
 ## Running FreeSurfer 7
 The first step of running FS7 is to prepare your work environment with either Apptainer or Docker. We prefer Apptainer, but Docker can be used if you don't have admin rights or access to a Linux system.
@@ -40,7 +45,7 @@ Once you have succesfully installed Apptainer or Docker, we get started with the
 For Apptainer, run:
 ```
 singularity build /my_images/fmriprep-<version>.simg \
-                    docker://nipreps/fmriprep:<version>
+                    docker://nipreps/fmriprep:24.1.1
 ```
 For Docker, run:
 ```
@@ -48,9 +53,14 @@ docker pull nipreps/fmriprep:24.1.1
 ```
 For more information on fMRIPrep, see the [fMRIPrep documentation](https://fmriprep.org/en/stable/)
 
-<@Emile to fix/explain>
+### Setting up configuration
+Make sure that you have the fMRIPrep container stored in the container_pipelines folder within the Nipoppy data structure <check whether this changed in update>. 
+Next, open the global_config file, check whether the correct fMRIPrep version is included under PROC_PIPELINES, and add `--anat-only` under ARGS (we are not interested in processing functional scans for now).
+
+### Run pipeline
+Run the following line of code, specifying the path to your dataset root.
 ```
---anat-only
+nipoppy run --pipeline fmriprep --pipeline-version 24.1.1 dataset_root
 ```
 
 ## Running subsegmentations
