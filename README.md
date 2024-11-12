@@ -14,6 +14,8 @@ The ongoing collaboration between the ENIGMA-PD team and Nipoppy developers has 
 
 To install Nipoppy, we refer to the [Installation page](https://nipoppy.readthedocs.io/en/latest/installation.html). Once Nipoppy is succesfully installed, please follow all steps listed on the [Quickstart page](https://nipoppy.readthedocs.io/en/latest/quickstart.html). In the global config file, you will need to add the path to a FreeSurfer license. You can get a FreeSurfer licence for free at [the FreeSurfer website](https://surfer.nmr.mgh.harvard.edu/registration.html). When you reach the end of the Quickstart, it is time to copy and [reorganize](https://nipoppy.readthedocs.io/en/latest/user_guide/organizing_imaging.html) your raw imaging data. The next step is converting your data to the BIDS standard.
 
+To join the Nipoppy support community, we recommend joining their [Discord channel](https://discord.gg/dQGYADCCMB). Here you can ask questions and find answers while working with Nipoppy.
+
 ## BIDSification
 Before starting the analysis, organizing your data is essential — it will benefit this analysis and streamline any follow-up ENIGMA-PD work. We know it can be challenging, but we’re here to support you. The Brain Imaging Data Structure (BIDS) format is a standardized format for organizing and labeling neuroimaging data to ensure consistency and make data easily shareable and analyzable across studies. Although we’re focusing on T1-weighted images for this analysis, organizing available diffusion-weighted or functional MRI data in BIDS will make future analyses easier.
 
