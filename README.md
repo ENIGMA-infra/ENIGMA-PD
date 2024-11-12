@@ -64,9 +64,7 @@ nipoppy run --pipeline fmriprep --pipeline-version 24.1.1 [dataset_root]
 This should initiate the FS7 segmentation of all your T1-weighted images! Once processing has completed, you can move on to the subsegmentations.
 
 ## Running subsegmentations
-<@Eva to complete>
-(link to subsegmentation page)
-(include extraction script in container)
+This part of the workflow is currently in the final testing stages. We will update this information as soon as the container is ready to be used for processing.
 
 ## Quality Assessment part 1: Running the FS-QC toolbox
 The [FreeSurfer Quality Control (FS-QC) toolbox](https://github.com/Deep-MI/fsqc) takes existing FreeSurfer or FastSurfer output and computes a set of quality control metrics. These will be reported in a summary table and/or .html page with screenshots to allow for visual inspection of the segmentations.
@@ -107,7 +105,7 @@ apptainer run --bind /path/to/FreeSurfer/output/dir/:/data_fsqc \
 ```
 
 ## Quality Assessment part 2: Performing a visual quality assessment
-@Eva to complete
+Quality checking is essential to make sure the output that you have produced is accurate and reliable. Even small errors or artifacts in images can lead to big mistakes in analysis and interpretation, so careful checks help us to verify whether we can savely include a certain region of interest or participant in our analysis. For the FreeSurfer output, we will follow the ENIGMA-QC guide with instructions on how to decide on the quality of the cortical and subcortical segmentations. 
 [link to ENIGMA QC guide](https://drive.google.com/file/d/1P4z42tNPRwwX3U7-L_wsPkxsatGLZaCJ/edit?pli=1)
 
 ## Data sharing
