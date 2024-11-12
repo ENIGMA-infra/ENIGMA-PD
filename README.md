@@ -28,7 +28,7 @@ Resources from the BIDS community offer guidance on organizing your data, and BI
 - [Recommended converter; BIDScoin](https://bidscoin.readthedocs.io/en/stable/)
 - [BIDS tutorials](https://www.youtube.com/watch?v=pAv9WuyyF3g&list=PLtJYlrqQ3YK_M4YgkUx6akJqlHF1R7A5g)
 
-[Here](https://nipoppy.readthedocs.io/en/latest/user_guide/bids_conversion.html) you can find how to perform the BIDSification within the Nipoppy framework.
+[Here](https://nipoppy.readthedocs.io/en/latest/user_guide/bids_conversion.html) you can find how to perform the BIDSification within the Nipoppy framework (recommended).
 
 ## Running FreeSurfer 7
 When you reach this point, the hardest part is behind you and we can finally come to the real stuff. The first step of running FS7 is to prepare your work environment with either Apptainer or Docker. We prefer Apptainer, but Docker can be used if you don't have admin rights or access to a Linux system.
