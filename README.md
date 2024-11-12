@@ -106,7 +106,7 @@ apptainer run --bind /path/to/FreeSurfer/output/dir/:/data_fsqc \
 
 ## Quality Assessment part 2: Performing a visual quality assessment
 @Eva to complete
-link to ENIGMA QC guide
+[link to ENIGMA QC guide](https://drive.google.com/file/d/1P4z42tNPRwwX3U7-L_wsPkxsatGLZaCJ/edit?pli=1)
 
 ## Data sharing
 After completing all of the above steps, you're ready to share your derived data with the ENIGMA-PD core team. Please:
