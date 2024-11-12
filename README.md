@@ -106,7 +106,7 @@ apptainer run --bind /path/to/FreeSurfer/output/dir/:/data_fsqc \
 
 ## Quality Assessment part 2: Performing a visual quality assessment
 Quality checking is essential to make sure the output that you have produced is accurate and reliable. Even small errors or artifacts in images can lead to big mistakes in analysis and interpretation, so careful checks help us to verify whether we can savely include a certain region of interest or participant in our analysis. For the FreeSurfer output, we will follow the ENIGMA-QC guide with instructions on how to decide on the quality of the cortical and subcortical segmentations. 
-You can find a collection of ENIGMA QC guides [here](https://drive.google.com/file/d/1P4z42tNPRwwX3U7-L_wsPkxsatGLZaCJ/edit?pli=1)
+You can find a collection of ENIGMA QC guides [here](https://drive.google.com/file/d/1P4z42tNPRwwX3U7-L_wsPkxsatGLZaCJ/edit?pli=1).
 
 ## Data sharing
 After completing all of the above steps, you're ready to share your derived data with the ENIGMA-PD core team. Please:
