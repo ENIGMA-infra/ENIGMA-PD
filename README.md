@@ -5,12 +5,18 @@ This page is created to guide collaborating ENIGMA-PD sites through the FreeSurf
 ## Leaderboard
 To help motivate and monitor each site's progress, we maintain a leaderboard that outlines all the steps detailed in these guidelines. If you are in charge of data processing at your site, please request access and regularly update your progress on the current steps on the [ENIGMA-PD Leaderboard](https://docs.google.com/spreadsheets/d/13iGfh-97ZYnAyjT5egBDHmGhqXbsl1yo1A6QnPXQYbY/edit?usp=sharing).
 
-## Nipoppyfication
-Nipoppy is a lightweight framework for standardized organization and processing of neuroimaging-clinical datasets. Its goal is to help users adopt the FAIR principles and improve the reproducibility of studies. Essentially an extension of BIDS, Nipoppy builds on the BIDS standard to enhance data organization, processing, and integration, further supporting standardized workflows and reproducible research practices.
+## Overview
+The figure shows the expected outcomes and corresponding processing steps - most of which can be performed using the Nipoppy framework and helper python pacakge. We strongly recommend adoption of Nipoppy tools to simplify coordination and ensure reproducibilty of this end-to-end process across all sites. 
+- TODO: Add overview figure
 
-![Nipoppy framework](https://raw.githubusercontent.com/nipoppy/nipoppy/main/docs/source/_static/img/nipoppy_protocol.jpg)
+## Setting up Nipoppy framework
+Nipoppy is a lightweight framework for standardized data organization and processing of neuroimaging-clinical datasets. Its goal is to help users adopt the FAIR principles and improve the reproducibility of studies. 
 
-The ongoing collaboration between the ENIGMA-PD team and Nipoppy developers has significantly improved dataset organization for the Amsterdam and open datasets. It has also streamlined the standardization of analysis workflows, made re-running pipelines for version updates easier, and simplified tracking of which datasets have been processed with specific analysis pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. For more information, see the [Nipoppy documentation](https://nipoppy.readthedocs.io/en/stable/index.html).
+The ongoing collaboration between the ENIGMA-PD team and Nipoppy team has strealined data curation, processing, and analysis workflows, which signficantly simplifies tracking of data availability, addition of new pipelines and upgrading of existing pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. 
+
+**Here, primairly we will use Nipoppy to help sites with 1) BIDSification, 2) FreeSurfer7 processing.** Additionally, we are testing out Nipoppy to also help with running 1) Sub-segmentation and 2) FS-QC containers - stay tuned for updates. 
+
+For more information, see the [Nipoppy documentation](https://nipoppy.readthedocs.io/en/stable/index.html).
 
 ### Getting started with Nipoppy
 
@@ -25,7 +31,7 @@ To join the Nipoppy support community, we recommend joining their [Discord chann
 #### Starting from source data (either DICOMs or NIfTIs that are *not yet* in BIDS)
 
 This is the scenario assumed by the Nipoppy [Quickstart page](https://nipoppy.readthedocs.io/en/stable/quickstart.html). Follow this guide to:
-1. Create an empty Nipoppy dataset
+1. Create an empty Nipoppy dataset (i.e. directory tree)
 2. Write a manifest file representing your data
 3. Modify the global config file with paths to e.g., your FreeSurfer license file
 
@@ -41,10 +47,7 @@ If your dataset is already in BIDS, then the manifest-generation step can be ski
 nipoppy init [dataset_root] --bids-source [path_to_existing_bids_data]
 ```
 
-This command will do the following:
-1. Create a Nipoppy dataset
-2. Copy the BIDSified data into it (may take a long time for large datasets)
-3. Automatically generate a manifest file based on the content of the BIDS dataset
+This command will witll create a Nipoppy dataset (i.e. directory tree) from preexisting BIDS dataset and automatically generate a manifest file for you! 
 
 Then you will just need to fill in some information in `<dataset_root>/global_config.json` and go straight to [processing data with fMRIPrep/FreeSurfer](#running-freesurfer-7)!
 
@@ -64,9 +67,8 @@ Existing FreeSurfer output data should be moved/copied/symlinked to `<dataset_ro
 - `<version>` is the exact FreeSurfer version that was used (e.g., `7.3.2`, `7.4.1`)
 - `<session_id>` matched what is in the manifest
 
-Note: the default tracker configuration for FreeSurfer assumes that the FreeSurfer subject directories are named with BIDS participant IDs (i.e. with the `sub-` prefix). If that is not the case, you will need to manually change the tracker configuration file for the [tracking](https://nipoppy.readthedocs.io/en/stable/user_guide/tracking.html) to work properly:
+Note: Nipoppy can automatically track participant-level data availability using `nipoppy track` command. The default tracker configuration for FreeSurfer assumes that the FreeSurfer subject directories are named with BIDS participant IDs (i.e. with the `sub-` prefix). If that is not the case, you will need to manually change the tracker configuration file for the [tracking](https://nipoppy.readthedocs.io/en/stable/user_guide/tracking.html) to work properly:
 - In `<dataset_root>/pipelines/freesurfer-<version>/tracker_config.json`, replace `[[NIPOPPY_BIDS_PARTICIPANT_ID]]` by `[[NIPOPPY_PARTICIPANT_ID]]`
-- If there is a significant mismatch between the FreeSurfer subject directory names and the `participant_id`s in the manifest (i.e. more than presence/absence of the prefix), then the FreeSurfer directories will have to be renamed.
 
 ##### If the FreeSurfer version was not `7.3.2`
 
@@ -74,7 +76,7 @@ For the [tracking](https://nipoppy.readthedocs.io/en/stable/user_guide/tracking.
 1. Modify `<dataset_root>/global_config.json` so that the FreeSurfer version in `PROC_PIPELINES` is the correct version
 2. Move/copy `<dataset_root>/pipelines/freesurfer-7.3.2` to `<dataset_root>/pipelines/freesurfer-<correct_version>`
 
-## BIDSification
+## Why do BIDSification? 
 Before starting the analysis, organizing your data is essential — it will benefit this analysis and streamline any follow-up ENIGMA-PD work. We know it can be challenging, but we’re here to support you. The Brain Imaging Data Structure (BIDS) format is a standardized format for organizing and labeling neuroimaging data to ensure consistency and make data easily shareable and analyzable across studies. Although we’re focusing on T1-weighted images for this analysis, organizing available diffusion-weighted or functional MRI data in BIDS will make future analyses easier.
 
 Here are the core principles for organizing your neuroimaging data in BIDS format:
