@@ -7,7 +7,7 @@ To help motivate and monitor each site's progress, we maintain a leaderboard tha
 
 ## Overview
 The figure shows the expected outcomes and corresponding processing steps - most of which can be performed using the Nipoppy framework and helper python pacakge. We strongly recommend adoption of Nipoppy tools to simplify coordination and ensure reproducibilty of this end-to-end process across all sites. 
-- TODO: Add overview figure
+![enigma-nipoppy-FS7-upgrade-overview](https://github.com/user-attachments/assets/aae8449c-58cf-4889-92de-979f79082e28)
 
 ## Setting up Nipoppy framework
 Nipoppy is a lightweight framework for standardized data organization and processing of neuroimaging-clinical datasets. Its goal is to help users adopt the FAIR principles and improve the reproducibility of studies. 
