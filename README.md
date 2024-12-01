@@ -61,20 +61,7 @@ The FreeSurfer outputs will use the dummy session name, i.e. the results will be
 
 #### Starting from data already processed with FS7
 
-You should still follow one of the previous two sections to initialize the Nipoppy dataset and create a manifest file. Ideally, if the data is not already in BIDS, it should be BIDSified so that additional processing pipelines can be run easily in the future.
-
-Existing FreeSurfer output data should be moved/copied/symlinked to `<dataset_root>/derivatives/freesurfer/<version>/output/ses-<session_id>`, where
-- `<version>` is the exact FreeSurfer version that was used (e.g., `7.3.2`, `7.4.1`)
-- `<session_id>` matched what is in the manifest
-
-Note: Nipoppy can automatically track participant-level data availability using `nipoppy track` command. The default tracker configuration for FreeSurfer assumes that the FreeSurfer subject directories are named with BIDS participant IDs (i.e. with the `sub-` prefix). If that is not the case, you will need to manually change the tracker configuration file for the [tracking](https://nipoppy.readthedocs.io/en/stable/user_guide/tracking.html) to work properly:
-- In `<dataset_root>/pipelines/freesurfer-<version>/tracker_config.json`, replace `[[NIPOPPY_BIDS_PARTICIPANT_ID]]` by `[[NIPOPPY_PARTICIPANT_ID]]`
-
-##### If the FreeSurfer version was not `7.3.2`
-
-For the [tracking](https://nipoppy.readthedocs.io/en/stable/user_guide/tracking.html) to work properly, you will need to:
-1. Modify `<dataset_root>/global_config.json` so that the FreeSurfer version in `PROC_PIPELINES` is the correct version
-2. Move/copy `<dataset_root>/pipelines/freesurfer-7.3.2` to `<dataset_root>/pipelines/freesurfer-<correct_version>`
+We still encourage you to use Nipoppy to organize your source and/or BIDS data with your processed FS7 output to make use of automated trackers and downstream subsegmentation processing. However you may need to some help depending on your version of FreeSurfer and naming convention of `participant_id`s. Reach out to us on our [Discord channel](https://discord.gg/dQGYADCCMB) and we would be happy to help! 
 
 ## Why do BIDSification? 
 Before starting the analysis, organizing your data is essential — it will benefit this analysis and streamline any follow-up ENIGMA-PD work. We know it can be challenging, but we’re here to support you. The Brain Imaging Data Structure (BIDS) format is a standardized format for organizing and labeling neuroimaging data to ensure consistency and make data easily shareable and analyzable across studies. Although we’re focusing on T1-weighted images for this analysis, organizing available diffusion-weighted or functional MRI data in BIDS will make future analyses easier.
