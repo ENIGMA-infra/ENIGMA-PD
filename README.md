@@ -6,11 +6,11 @@ This page is created to guide collaborating ENIGMA-PD sites through the FreeSurf
 To help motivate and monitor each site's progress, we maintain a leaderboard that outlines all the steps detailed in these guidelines. If you are in charge of data processing at your site, please request access and regularly update your progress on the current steps on the [ENIGMA-PD Leaderboard](https://docs.google.com/spreadsheets/d/13iGfh-97ZYnAyjT5egBDHmGhqXbsl1yo1A6QnPXQYbY/edit?usp=sharing).
 
 ## Overview
-The figure shows the expected outcomes and corresponding processing steps - most of which can be performed using the Nipoppy framework and helper python pacakge. We strongly recommend adoption of Nipoppy tools to simplify coordination and ensure reproducibilty of this end-to-end process across all sites. 
+The figure shows the expected outcomes and corresponding processing steps - most of which can be performed using the Nipoppy framework and helper Python pacakge. We strongly recommend adoption of Nipoppy tools to simplify coordination and ensure reproducibility of this end-to-end process across all sites. 
 ![enigma-nipoppy-FS7-upgrade-overview](https://github.com/user-attachments/assets/aae8449c-58cf-4889-92de-979f79082e28)
 
-## Setting up Nipoppy framework
-Nipoppy is a lightweight framework for standardized data organization and processing of neuroimaging-clinical datasets. Its goal is to help users adopt the FAIR principles and improve the reproducibility of studies. 
+## Setting up Nipoppy
+Nipoppy is a lightweight framework for standardized data organization and processing of neuroimaging-clinical datasets. Its goal is to help users adopt the [FAIR principles](https://www.go-fair.org/fair-principles/) and improve the reproducibility of studies. 
 
 The ongoing collaboration between the ENIGMA-PD team and Nipoppy team has strealined data curation, processing, and analysis workflows, which signficantly simplifies tracking of data availability, addition of new pipelines and upgrading of existing pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. 
 
@@ -18,7 +18,7 @@ The ongoing collaboration between the ENIGMA-PD team and Nipoppy team has streal
 
 For more information, see the [Nipoppy documentation](https://nipoppy.readthedocs.io/en/stable/index.html).
 
-### Getting started with Nipoppy
+### Getting started
 
 To install Nipoppy, we refer to the [Installation page](https://nipoppy.readthedocs.io/en/stable/installation.html). 
 
@@ -55,13 +55,13 @@ Then you will just need to fill in some information in `<dataset_root>/global_co
 If the existing BIDS data does not have session-level folders, Nipoppy will create "dummy sessions" (called `unnamed`) in the manifest. This is because the Nipoppy manifest still requires a non-empty `session_id` value when imaging data is available for a participant.
 
 If it is feasible to redo the BIDSification to include session folders, we recommend doing so since this is considered good practice. Otherwise, Nipoppy can still be run, but you will need to make some manual changes for the [tracking](https://nipoppy.readthedocs.io/en/stable/user_guide/tracking.html) to work properly:
-1. In the fMRIPrep tracker configuration file (`<dataset_root>/pipelines/fmriprep-24.1.1/tracker_config.json`), remove all instances of `[[NIPOPPY_BIDS_SESSION_ID]]` along with leading/trailing `/` and `_` characters
+1. In the fMRIPrep tracker configuration file (`<dataset_root>/pipelines/fmriprep-24.1.1/tracker_config.json`), remove all instances of `[[NIPOPPY_BIDS_SESSION_ID]]` along with leading or trailing `/` and `_` characters
 
 The FreeSurfer outputs will use the dummy session name, i.e. the results will be stored in `<dataset_root>/derivatives/freesurfer/7.3.2/output/ses-unnamed`.
 
 #### Starting from data already processed with FS7
 
-We still encourage you to use Nipoppy to organize your source and/or BIDS data with your processed FS7 output to make use of automated trackers and downstream subsegmentation processing. However you may need to some help depending on your version of FreeSurfer and naming convention of `participant_id`s. Reach out to us on our [Discord channel](https://discord.gg/dQGYADCCMB) and we would be happy to help! 
+We still encourage you to use Nipoppy to organize your source and/or BIDS data with your processed FS7 output to make use of automated trackers and downstream subsegmentation processing. However, you may need to some help depending on your version of FreeSurfer and naming convention of `participant_id`s. Reach out to us on our [Discord channel](https://discord.gg/dQGYADCCMB) and we would be happy to help! 
 
 ## Why do BIDSification? 
 Before starting the analysis, organizing your data is essential — it will benefit this analysis and streamline any follow-up ENIGMA-PD work. We know it can be challenging, but we’re here to support you. The Brain Imaging Data Structure (BIDS) format is a standardized format for organizing and labeling neuroimaging data to ensure consistency and make data easily shareable and analyzable across studies. Although we’re focusing on T1-weighted images for this analysis, organizing available diffusion-weighted or functional MRI data in BIDS will make future analyses easier.
@@ -82,7 +82,7 @@ Resources from the BIDS community offer guidance on organizing your data, and BI
 ## Running FreeSurfer 7
 When you reach this point, the hardest part is behind you and we can finally come to the real stuff. We will run FreeSurfer 7 through fMRIPrep using Nipoppy. See [here](https://nipoppy.readthedocs.io/en/stable/user_guide/processing.html) for additional information about running processing pipelines with Nipoppy.
 
-The first step of running FS7 is to prepare your work environment with either Apptainer or Docker. We prefer Apptainer, but Docker can be used if you don't have admin rights or access to a Linux system.
+The first step of running FS7 is to prepare your work environment with either Apptainer or Docker. We prefer Apptainer/Singularity, which is fully supported by Nipoppy, but Docker can be used if you don't have admin rights or access to a Linux system. Using Nipoppy with Docker is possible though will likely require help -- reach out to us on our [Discord channel](https://discord.gg/dQGYADCCMB) and we would be happy to chat!
 
 ### Installation
 - [Install Apptainer](https://github.com/apptainer/apptainer/blob/main/INSTALL.md)
