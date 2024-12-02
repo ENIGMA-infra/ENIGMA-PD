@@ -5,18 +5,65 @@ This page is created to guide collaborating ENIGMA-PD sites through the FreeSurf
 ## Leaderboard
 To help motivate and monitor each site's progress, we maintain a leaderboard that outlines all the steps detailed in these guidelines. If you are in charge of data processing at your site, please request access and regularly update your progress on the current steps on the [ENIGMA-PD Leaderboard](https://docs.google.com/spreadsheets/d/13iGfh-97ZYnAyjT5egBDHmGhqXbsl1yo1A6QnPXQYbY/edit?usp=sharing).
 
-## Nipoppyfication
-Nipoppy is a lightweight framework for standardized organization and processing of neuroimaging-clinical datasets. Its goal is to help users adopt the FAIR principles and improve the reproducibility of studies. Essentially an extension of BIDS, Nipoppy builds on the BIDS standard to enhance data organization, processing, and integration, further supporting standardized workflows and reproducible research practices.
+## Overview
+The figure shows the expected outcomes and corresponding processing steps - most of which can be performed using the Nipoppy framework and helper Python pacakge. We strongly recommend adoption of Nipoppy tools to simplify coordination and ensure reproducibility of this end-to-end process across all sites. 
+![enigma-nipoppy-FS7-upgrade-overview](https://github.com/user-attachments/assets/aae8449c-58cf-4889-92de-979f79082e28)
 
-![Nipoppy framework](https://raw.githubusercontent.com/nipoppy/nipoppy/main/docs/source/_static/img/nipoppy_protocol.jpg)
+## Setting up Nipoppy
+Nipoppy is a lightweight framework for standardized data organization and processing of neuroimaging-clinical datasets. Its goal is to help users adopt the [FAIR principles](https://www.go-fair.org/fair-principles/) and improve the reproducibility of studies. 
 
-The ongoing collaboration between the ENIGMA-PD team and Nipoppy developers has significantly improved dataset organization for the Amsterdam and open datasets. It has also streamlined the standardization of analysis workflows, made re-running pipelines for version updates easier, and simplified tracking of which datasets have been processed with specific analysis pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. For more information, see the [Nipoppy documentation](https://nipoppy.readthedocs.io/en/latest/index.html).
+The ongoing collaboration between the ENIGMA-PD team and Nipoppy team has strealined data curation, processing, and analysis workflows, which signficantly simplifies tracking of data availability, addition of new pipelines and upgrading of existing pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. 
 
-To install Nipoppy, we refer to the [Installation page](https://nipoppy.readthedocs.io/en/latest/installation.html). Once Nipoppy is succesfully installed, please follow all steps listed on the [Quickstart page](https://nipoppy.readthedocs.io/en/latest/quickstart.html). In the global config file, you will need to add the path to a FreeSurfer license. You can get a FreeSurfer licence for free at [the FreeSurfer website](https://surfer.nmr.mgh.harvard.edu/registration.html). When you reach the end of the Quickstart, it is time to copy and [reorganize](https://nipoppy.readthedocs.io/en/latest/user_guide/organizing_imaging.html) your raw imaging data. The next step is converting your data to the BIDS standard.
+**Here, primairly we will use Nipoppy to help sites with 1) BIDSification, 2) FreeSurfer7 processing.** Additionally, we are testing out Nipoppy to also help with running 1) Sub-segmentation and 2) FS-QC containers - stay tuned for updates. 
+
+For more information, see the [Nipoppy documentation](https://nipoppy.readthedocs.io/en/stable/index.html).
+
+### Getting started
+
+To install Nipoppy, we refer to the [Installation page](https://nipoppy.readthedocs.io/en/stable/installation.html). 
+
+Once Nipoppy is successfully installed, you will need to create a Nipoppy dataset and populate it with your data. There are a few different starting points depending on the current state of your dataset. These are detailed below.
+
+Note: in the global config file, you will need to add the path to a FreeSurfer license. You can get a FreeSurfer licence for free at [the FreeSurfer website](https://surfer.nmr.mgh.harvard.edu/registration.html). 
 
 To join the Nipoppy support community, we recommend joining their [Discord channel](https://discord.gg/dQGYADCCMB). Here you can ask questions and find answers while working with Nipoppy.
 
-## BIDSification
+#### Starting from source data (either DICOMs or NIfTIs that are *not yet* in BIDS)
+
+This is the scenario assumed by the Nipoppy [Quickstart page](https://nipoppy.readthedocs.io/en/stable/quickstart.html). Follow this guide to:
+1. Create an empty Nipoppy dataset (i.e. directory tree)
+2. Write a manifest file representing your data
+3. Modify the global config file with paths to e.g., your FreeSurfer license file
+
+Note: if your dataset is cross-sectional (i.e. only has one session), you still need to create a `session_id` for the manifest. In this case the value would be the same for all participants.
+
+When you reach the end of the Quickstart, it is time to [copy and reorganize](https://nipoppy.readthedocs.io/en/stable/user_guide/organizing_imaging.html) your raw imaging data to prepare them for BIDS conversion. Once this is done, see [the section of BIDSification](#bidsification).
+
+#### Starting with BIDSified data
+
+If your dataset is already in BIDS, then the manifest-generation step can be skipped by initializing the Nipoppy dataset with this command:
+
+```
+nipoppy init [dataset_root] --bids-source [path_to_existing_bids_data]
+```
+
+This command will witll create a Nipoppy dataset (i.e. directory tree) from preexisting BIDS dataset and automatically generate a manifest file for you! 
+
+Then you will just need to fill in some information in `<dataset_root>/global_config.json` and go straight to [processing data with fMRIPrep/FreeSurfer](#running-freesurfer-7)!
+
+##### BIDS datasets without sessions
+If the existing BIDS data does not have session-level folders, Nipoppy will create "dummy sessions" (called `unnamed`) in the manifest. This is because the Nipoppy manifest still requires a non-empty `session_id` value when imaging data is available for a participant.
+
+If it is feasible to redo the BIDSification to include session folders, we recommend doing so since this is considered good practice. Otherwise, Nipoppy can still be run, but you will need to make some manual changes for the [tracking](https://nipoppy.readthedocs.io/en/stable/user_guide/tracking.html) to work properly:
+1. In the fMRIPrep tracker configuration file (`<dataset_root>/pipelines/fmriprep-24.1.1/tracker_config.json`), remove all instances of `[[NIPOPPY_BIDS_SESSION_ID]]` along with leading or trailing `/` and `_` characters
+
+The FreeSurfer outputs will use the dummy session name, i.e. the results will be stored in `<dataset_root>/derivatives/freesurfer/7.3.2/output/ses-unnamed`.
+
+#### Starting from data already processed with FS7
+
+We still encourage you to use Nipoppy to organize your source and/or BIDS data with your processed FS7 output to make use of automated trackers and downstream subsegmentation processing. However, you may need to some help depending on your version of FreeSurfer and naming convention of `participant_id`s. Reach out to us on our [Discord channel](https://discord.gg/dQGYADCCMB) and we would be happy to help! 
+
+## Why do BIDSification? 
 Before starting the analysis, organizing your data is essential — it will benefit this analysis and streamline any follow-up ENIGMA-PD work. We know it can be challenging, but we’re here to support you. The Brain Imaging Data Structure (BIDS) format is a standardized format for organizing and labeling neuroimaging data to ensure consistency and make data easily shareable and analyzable across studies. Although we’re focusing on T1-weighted images for this analysis, organizing available diffusion-weighted or functional MRI data in BIDS will make future analyses easier.
 
 Here are the core principles for organizing your neuroimaging data in BIDS format:
@@ -30,10 +77,12 @@ Resources from the BIDS community offer guidance on organizing your data, and BI
 - [Recommended converter; BIDScoin](https://bidscoin.readthedocs.io/en/stable/)
 - [BIDS tutorials](https://www.youtube.com/watch?v=pAv9WuyyF3g&list=PLtJYlrqQ3YK_M4YgkUx6akJqlHF1R7A5g)
 
-[Here](https://nipoppy.readthedocs.io/en/latest/user_guide/bids_conversion.html) you can find how to perform the BIDSification within the Nipoppy framework (recommended).
+[Here](https://nipoppy.readthedocs.io/en/stable/user_guide/bids_conversion.html) you can find how to perform the BIDSification within the Nipoppy framework (recommended).
 
 ## Running FreeSurfer 7
-When you reach this point, the hardest part is behind you and we can finally come to the real stuff. The first step of running FS7 is to prepare your work environment with either Apptainer or Docker. We prefer Apptainer, but Docker can be used if you don't have admin rights or access to a Linux system.
+When you reach this point, the hardest part is behind you and we can finally come to the real stuff. We will run FreeSurfer 7 through fMRIPrep using Nipoppy. See [here](https://nipoppy.readthedocs.io/en/stable/user_guide/processing.html) for additional information about running processing pipelines with Nipoppy.
+
+The first step of running FS7 is to prepare your work environment with either Apptainer or Docker. We prefer Apptainer/Singularity, which is fully supported by Nipoppy, but Docker can be used if you don't have admin rights or access to a Linux system. Using Nipoppy with Docker is possible though will likely require help -- reach out to us on our [Discord channel](https://discord.gg/dQGYADCCMB) and we would be happy to chat!
 
 ### Installation
 - [Install Apptainer](https://github.com/apptainer/apptainer/blob/main/INSTALL.md)
@@ -43,7 +92,7 @@ We will apply the FreeSurfer functionalities that are included in the fMRIPrep p
 
 For Apptainer, run:
 ```
-singularity build /my_images/fmriprep-<version>.simg \
+apptainer build /my_images/fmriprep-<version>.sif \
                     docker://nipreps/fmriprep:24.1.1
 ```
 For Docker, run:
@@ -54,14 +103,20 @@ For more information on fMRIPrep, see the [fMRIPrep documentation](https://fmrip
 
 ### Setting up configuration
 Make sure that you have the fMRIPrep container stored in the containers folder that you reference to in your global config file. 
-Next, open the global config file, check whether the correct fMRIPrep version is included under PROC_PIPELINES, and add `--anat-only` under ARGS (we are not interested in processing functional scans for now).
+Next, open the global config file and check whether the correct fMRIPrep version is included under `PROC_PIPELINES`.
 
 ### Run pipeline
 Finally, simply run the following line of code, specifying the path to your dataset root.
 ```
-nipoppy run --pipeline fmriprep --pipeline-version 24.1.1 [dataset_root]
+nipoppy run --pipeline fmriprep --pipeline-version 24.1.1 <dataset_root>
 ```
-This should initiate the FS7 segmentation of all your T1-weighted images! Once processing has completed, you can move on to the subsegmentations.
+This should initiate the FS7 segmentation of all your T1-weighted images! Note: this will run all the participants and sessions in a loop, which is likely inefficient. You can use the `--participant-id` and/or `-session-id` flag to run only a single participant and/or session.
+
+### Track pipeline output
+
+The `nipoppy track` command can help keep track of which participants/sessions have all the expected output files for a given processing pipeline. See [here](https://nipoppy.readthedocs.io/en/stable/user_guide/tracking.html) for more information.
+
+Once processing has completed, you can move on to the subsegmentations.
 
 ## Running subsegmentations
 This part of the workflow is currently in the final testing stages. We will update this information as soon as the container is ready to be used for processing.
