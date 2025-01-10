@@ -51,6 +51,28 @@ This command will witll create a Nipoppy dataset (i.e. directory tree) from pree
 
 Then you will just need to fill in some information in `<dataset_root>/global_config.json` and go straight to [processing data with fMRIPrep/FreeSurfer](#running-freesurfer-7)!
 
+#### Specifying paths in the global config file
+
+Nipoppy encourages the use of a common directory for storing container images, which can be shared across datasets/individuals. This directory can be anywhere on a system, and `<PATH_TO_CONTAINER_STORE_DIRECTORY>` should be replaced by the actual path to that directory.
+- Note: we encourage you to create a symlink from the `<DATASET_ROOT>/containers` directory inside the Nipoppy dataset to the shared container store location, as this would allow anyone looking at the dataset easily find the containers. In that case this substitution entry can be deleted, since by default Nipoppy will use `<DATASET_ROOT>/containers`.
+
+The following paths under the `SUBSTITUTIONS` field should also be replaced:
+- `<PATH_TO_FREESURFER_LICENSE_FILE>` (required to run FreeSurfer)
+- `<PATH_TO_TEMPLATEFLOW_DIRECTORY>` (see below section on Templateflow)
+
+If doing BIDS conversion with Nipoppy, the path to the config file for the relevant BIDS converter should be set as well. Entries for other BIDS converters can be ignored/deleted.
+- `<PATH_TO_HEURISTIC_FILE>` for HeuDiConv
+- `<PATH_TO_CONFIG_FILE>` for `dcm2bids`
+
+#### Clarifications about Templateflow
+
+[Templateflow](https://www.templateflow.org/) is a library of neuroimaging templates (e.g. `MNI152NLin2009cAsym`) used by several popular processing pipelines, including fMRIPrep (which we are using to run FreeSurfer 7) and MRIQC.
+
+By default the templates are stored in `~/.templateflow`, but in general it is a good idea to store them somewhere more central/visible, so that the same templates can be used by different people in a research group. Another reason to specify another path is that the home directory often has limited storage on some servers.
+  - In the Nipoppy global config file, `<PATH_TO_TEMPLATEFLOW_DIRECTORY>` should be replaced by the *path to an empty directory*, possibly in a similar location as (parallel to) the container store directory.
+
+The first time fMRIPrep is run, it will attempt to download templates to the Templateflow directory, which will require the computer to be connected to the internet. If you are running fMRIPRep on a cluster where compute nodes do not have access to the Internet, see [here](https://fmriprep.org/en/24.1.1/faq.html#how-do-you-use-templateflow-in-the-absence-of-access-to-the-internet) and feel free to reach out to us for help.
+
 ##### BIDS datasets without sessions
 If the existing BIDS data does not have session-level folders, Nipoppy will create "dummy sessions" (called `unnamed`) in the manifest. This is because the Nipoppy manifest still requires a non-empty `session_id` value when imaging data is available for a participant.
 
