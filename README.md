@@ -114,7 +114,7 @@ We will apply the FreeSurfer functionalities that are included in the fMRIPrep p
 
 For Apptainer, run:
 ```
-apptainer build /my_images/fmriprep-<version>.sif \
+apptainer build /my_images/fmriprep_<version>.sif \
                     docker://nipreps/fmriprep:24.1.1
 ```
 For Docker, run:
