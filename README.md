@@ -104,7 +104,7 @@ Resources from the BIDS community offer guidance on organizing your data, and BI
 ## Running FreeSurfer 7
 When you reach this point, the hardest part is behind you and we can finally come to the real stuff. We will run FreeSurfer 7 through fMRIPrep using Nipoppy. See [here](https://nipoppy.readthedocs.io/en/stable/user_guide/processing.html) for additional information about running processing pipelines with Nipoppy.
 
-The first step of running FS7 is to prepare your work environment with either Apptainer or Docker. We prefer Apptainer/Singularity, which is fully supported by Nipoppy, but Docker can be used if you don't have admin rights or access to a Linux system. Using Nipoppy with Docker is possible though will likely require help -- reach out to us on our [Discord channel](https://discord.gg/dQGYADCCMB) and we would be happy to chat!
+The first step of running FS7 is to prepare your work environment with either Apptainer or Docker. We prefer Apptainer/Singularity, which is fully supported by Nipoppy. Docker can be used if you have admin rights to the computer/server you are using, or you work on something other than a Linux system (like a Mac). Using Nipoppy with Docker is possible though will likely require help -- reach out to us on our [Discord channel](https://discord.gg/dQGYADCCMB) and we would be happy to chat!
 
 ### Installation
 - [Install Apptainer](https://github.com/apptainer/apptainer/blob/main/INSTALL.md)
