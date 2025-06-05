@@ -200,14 +200,14 @@ Download the required pipeline configuration files [from the ENIGMA-PD pipelines
 - `config.json`
 - `tracker_config.json`
 
-Create a new folder named freesurfer_subseg-0.2 inside <dataset_root>/pipelines/processing/, and place the files there.
+Create a new folder named `freesurfer_subseg-0.2` inside `<dataset_root>/pipelines/processing/`, and place the files in there.
 
 ### Run pipeline
 
 To run the subsegmentation pipeline, use the following command:
 
 ```bash
-nipoppy process --pipeline freesurfer_subseg --pipeline-version 0.2 --session-id ses-T0
+nipoppy process --pipeline freesurfer_subseg --pipeline-version 0.2 --session-id <session_id>
 
 ### Track pipeline output
 
