@@ -143,9 +143,9 @@ Once processing has completed, you can move on to the subsegmentations.
 ## Running the FreeSurfer subsegmentations
 
 🎉 **It’s go time!**  
-The **subsegmentations pipeline** is now ready to be run! Since you’ve all just been through `fMRIPrep` in Nipoppy, this next step will feel familiar, running this pipeline follows a very similar workflow.
+The **subsegmentations pipeline** is now ready to be run! Since you’ve all just been through fMRIPrep in Nipoppy, this next step will feel familiar as running this pipeline follows a very similar workflow.
 
-About the pipeline:
+**About the pipeline:**
 This pipeline uses existing FreeSurfer 7 functionalities to extract subnuclei volumes from subcortical regions like the *thalamus*, *hippocampus*, *brainstem*, *hypothalamus*, *amygdala*, and *hippocampus*. It requires completed FreeSurfer output (`recon-all`) and integrates the subsegmentation outputs directly into the existing `/mri` and `/stats` directories.
 
 ### Pulling the Docker image
