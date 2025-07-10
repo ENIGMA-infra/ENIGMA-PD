@@ -222,7 +222,7 @@ This helps you confirm whether the pipeline ran successfully across your dataset
 ---
 
 ## Quality Assessment part 1: Running the FS-QC toolbox
-The [FreeSurfer Quality Control (FS-QC) toolbox](https://github.com/Deep-MI/fsqc) takes existing FreeSurfer or FastSurfer output and computes a set of quality control metrics. These will be reported in a summary table and/or .html page with screenshots to allow for visual inspection of the segmentations.
+The [FreeSurfer Quality Control (FS-QC) toolbox](https://github.com/Deep-MI/fsqc) takes existing FreeSurfer (or FastSurfer) output and computes a set of quality control metrics. These will be reported in a summary table and/or .html page with screenshots to allow for visual inspection of the segmentations.
 
 ### Getting the container
 For Apptainer:
@@ -258,6 +258,28 @@ apptainer run --bind /path/to/FreeSurfer/output/dir/:/data_fsqc \
 --hippocampus-label T1.v22 \
 --outlier
 ```
+
+### Expected FS-QC output
+
+After running the command, you will find all results inside the folder specified by the `--output_dir` argument. The output will include:
+
+- **Several folders** corresponding to the flags used in the command, such as: `screenshots_html/`, `surfaces_html/`, `skullstrip_html/`, `hypothalamus_html/`, `hippocampus_html/`
+
+- **A CSV file** (`fsqc-results.csv`) summarizing quantitative quality control metrics for all subjects.
+
+- **A main HTML summary file** (`fsqc-results.html`) that aggregates all subject screenshots for easy visual inspection.
+
+---
+
+#### Important notes for viewing and copying files
+
+- We **strongly recommend downloading the entire output folder locally** before opening the HTML files. Opening the HTML on a server or network drive is often slow and may cause images not to load properly.
+
+- When copying files, **make sure to include all generated folders** (such as `screenshots`, `surfaces`, etc.) along with the `fsqc-results.html` file. These folders contain the images referenced in the HTML and are essential for proper display.
+
+- When opening the `fsqc-results.html` file locally:  
+  - Scroll through the subjects to confirm all images load and no data is missing.  
+- Click on any image to zoom in, or right-click and choose “Open in new tab” and inspect details more closely.
 
 ## Quality Assessment part 2: Performing a visual quality assessment
 Quality checking is essential to make sure the output that you have produced is accurate and reliable. Even small errors or artifacts in images can lead to big mistakes in analysis and interpretation, so careful checks help us to verify whether we can savely include a certain region of interest or participant in our analysis. For the FreeSurfer output, we will follow the ENIGMA-QC guide with instructions on how to decide on the quality of the cortical and subcortical segmentations. 
