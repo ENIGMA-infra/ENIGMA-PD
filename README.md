@@ -269,7 +269,8 @@ After running the command, you will find all results inside the folder specified
 
 - **A main HTML summary file** (`fsqc-results.html`) that aggregates all subject screenshots for easy visual inspection.
 
-#### Important notes for viewing and copying files
+
+#### Important notes for viewing and copying files:
 
 - We **strongly recommend downloading the entire output folder locally** before opening the HTML files. Opening the HTML on a server or network drive is often slow and may cause images not to load properly.
 
