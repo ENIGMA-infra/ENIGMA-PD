@@ -168,8 +168,6 @@ apptainer build freesurfer_subseg_0.2.sif docker://nichyconsortium/freesurfer_su
 
 Make sure the resulting image file is placed in the container directory referenced in your global Nipoppy configuration.
 
----
-
 ### Setting up configuration
 Make sure that you have the freesurfer_subseg container stored in the containers folder that you reference to in your global config file. 
 Next, open the global config file and add the freesurfer_subseg container and the correct version under `PIPELINE_VARIABLES`:
