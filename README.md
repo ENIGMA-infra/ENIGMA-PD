@@ -287,6 +287,8 @@ Quality checking is essential to make sure the output that you have produced is 
 
 You can find the updated ENIGMA-PD QC instructions for visual inspection [here](ENIGMA-PD_visual_QC_instructions.md).
 
+---
+
 ## Data sharing
 After completing all of the above steps, you're ready to share your derived data with the ENIGMA-PD core team. Please:
 
