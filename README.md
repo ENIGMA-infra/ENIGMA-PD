@@ -140,6 +140,8 @@ The `nipoppy track` command can help keep track of which participants/sessions h
 
 Once processing has completed, you can move on to the subsegmentations.
 
+---
+
 ## Running the FreeSurfer subsegmentations
 
 🎉 **It’s go time!**  
@@ -263,13 +265,11 @@ apptainer run --bind /path/to/FreeSurfer/output/dir/:/data_fsqc \
 
 After running the command, you will find all results inside the folder specified by the `--output_dir` argument. The output will include:
 
-- **Several folders** corresponding to the flags used in the command, such as: `screenshots_html/`, `surfaces_html/`, `skullstrip_html/`, `hypothalamus_html/`, `hippocampus_html/`
+- **Several folders** corresponding to the flags used in the command, such as: `screenshots_html`, `surfaces_html`, `skullstrip_html`, `hypothalamus_html`, `hippocampus_html`
 
 - **A CSV file** (`fsqc-results.csv`) summarizing quantitative quality control metrics for all subjects.
 
 - **A main HTML summary file** (`fsqc-results.html`) that aggregates all subject screenshots for easy visual inspection.
-
----
 
 #### Important notes for viewing and copying files
 
@@ -280,6 +280,8 @@ After running the command, you will find all results inside the folder specified
 - When opening the `fsqc-results.html` file locally:  
   - Scroll through the subjects to confirm all images load and no data is missing.  
 - Click on any image to zoom in, or right-click and choose “Open in new tab” and inspect details more closely.
+
+---
 
 ## Quality Assessment part 2: Performing a visual quality assessment
 Quality checking is essential to make sure the output that you have produced is accurate and reliable. Even small errors or artifacts in images can lead to big mistakes in analysis and interpretation, so careful checks help us to verify whether we can savely include a certain region of interest or participant in our analysis. For the FreeSurfer output, we will follow the ENIGMA-QC guide with instructions on how to decide on the quality of the cortical and subcortical segmentations. 
