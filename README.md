@@ -143,6 +143,7 @@ Once processing has completed, you can move on to the subsegmentations.
 ---
 
 ## Running the FreeSurfer subsegmentations
+Note: the subsegmentations pipeline is almost ready to share! We will send an email to the full working group whenever it is ready. The instructions below have already been updated to be able to finetune them.
 
 🎉 **It’s go time!**  
 The **subsegmentations pipeline** is now ready to be run! Since you’ve all just been through fMRIPrep in Nipoppy, this next step will feel familiar as running this pipeline follows a very similar workflow.
@@ -157,13 +158,13 @@ Before setting up the pipeline configuration, you need to download the container
 Use the following command to pull the image from Docker Hub:
 
 ```bash
-docker pull nichyconsortium/freesurfer_subseg:0.2
+docker pull nichyconsortium/freesurfer_subseg:0.3
 ```
 
 If you are using Apptainer/Singularity instead of Docker, you can convert the image like this:
 
 ```bash
-apptainer build freesurfer_subseg_0.2.sif docker://nichyconsortium/freesurfer_subseg:0.2
+apptainer build freesurfer_subseg_0.3.sif docker://nichyconsortium/freesurfer_subseg:0.3
 ```
 
 Make sure the resulting image file is placed in the container directory referenced in your global Nipoppy configuration.
@@ -183,7 +184,7 @@ Next, open the global config file and add the freesurfer_subseg container and th
       }
     },
     "freesurfer_subseg": {
-      "0.2": {
+      "0.3": {
         "FREESURFER_LICENSE_FILE": "path/to/license/file/license.txt"
       }
     }
@@ -200,14 +201,14 @@ Download the required pipeline configuration files [from the ENIGMA-PD pipelines
 - `config.json`
 - `tracker_config.json`
 
-Create a new folder named `freesurfer_subseg-0.2` inside `<dataset_root>/pipelines/processing/`, and place the files in there.
+Create a new folder named `freesurfer_subseg-0.3` inside `<dataset_root>/pipelines/processing/`, and place the files in there.
 
 ### Run pipeline
 
 To run the subsegmentation pipeline, use the following command:
 
 ```bash
-nipoppy process --pipeline freesurfer_subseg --pipeline-version 0.2 --session-id <session_id>
+nipoppy process --pipeline freesurfer_subseg --pipeline-version 0.3 --session-id <session_id>
 
 ### Track pipeline output
 
