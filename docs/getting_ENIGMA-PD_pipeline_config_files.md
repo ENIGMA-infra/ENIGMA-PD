@@ -11,7 +11,7 @@ A quick way to download these four files is by running: `nipoppy pipeline instal
 
 Rename the downloaded folder into `<pipeline>-<version>` and move it inside `<dataset_root>/pipelines/processing/` (in case it's a processing pipeline). 
 
-Please read more instructions about adding a pipeline to a dataset (on the nipoppy documentation page)[https://nipoppy.readthedocs.io/en/latest/how_to_guides/pipeline_install/index.html].
+Please read more instructions about adding a pipeline to a dataset [on the nipoppy documentation page](https://nipoppy.readthedocs.io/en/latest/how_to_guides/pipeline_install/index.html).
 
 ## Examples
 
