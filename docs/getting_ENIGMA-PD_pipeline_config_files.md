@@ -18,9 +18,11 @@ Please read more instructions about adding a pipeline to a dataset [on the nipop
 ### freesurfer_subseg
 
 Latest pipeline version: `freesurfer_subseg-0.4`
+
 Zenodo id: 
 
 ### fsqc
 
 Latest pipeline version: `fsqc-2.1.1`
+
 Zenodo id: 
