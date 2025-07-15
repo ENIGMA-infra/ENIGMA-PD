@@ -151,27 +151,28 @@ The **subsegmentations pipeline** is now ready to be run! Since you’ve all jus
 **About the pipeline:**
 This pipeline uses existing FreeSurfer 7 functionalities to extract subnuclei volumes from subcortical regions like the *thalamus*, *hippocampus*, *brainstem*, *hypothalamus*, *amygdala*, and *hippocampus*. It requires completed FreeSurfer output (`recon-all`) and integrates the subsegmentation outputs directly into the existing `/mri` and `/stats` directories.
 
+### Getting the Nipoppy pipeline specification files for this pipeline
+
+Read more about this step (here)[https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md].
+
 ### Pulling the Docker image
 
-Before setting up the pipeline configuration, you need to download the container image that will run the subsegmentations.
-
-Use the following command to pull the image from Docker Hub:
+You also need to download the container image that will run the subsegmentations. Use the following command to pull the image from Docker Hub:
 
 ```bash
-docker pull nichyconsortium/freesurfer_subseg:0.3
+docker pull nichyconsortium/freesurfer_subseg:0.4
 ```
 
-If you are using Apptainer/Singularity instead of Docker, you can convert the image like this:
+If you are using Apptainer/Singularity instead of Docker, you can get the image like this:
 
 ```bash
-apptainer build freesurfer_subseg_0.3.sif docker://nichyconsortium/freesurfer_subseg:0.3
+apptainer build freesurfer_subseg-0.4.sif docker://nichyconsortium/freesurfer_subseg:0.4
 ```
 
 Make sure the resulting image file is placed in the container directory referenced in your global Nipoppy configuration.
 
-### Setting up configuration
-Make sure that you have the freesurfer_subseg container stored in the containers folder that you reference to in your global config file. 
-Next, open the global config file and add the freesurfer_subseg container and the correct version under `PIPELINE_VARIABLES`:
+### Change your global config file
+Open the global config file and add the freesurfer_subseg container and the correct version under `PIPELINE_VARIABLES`:
 
 ```json
 "PIPELINE_VARIABLES": {
@@ -184,7 +185,7 @@ Next, open the global config file and add the freesurfer_subseg container and th
       }
     },
     "freesurfer_subseg": {
-      "0.3": {
+      "0.4": {
         "FREESURFER_LICENSE_FILE": "path/to/license/file/license.txt"
       }
     }
@@ -192,25 +193,19 @@ Next, open the global config file and add the freesurfer_subseg container and th
 }
 ```
 
-### Getting the container configuration files
+#### Final check
 
-Download the required pipeline configuration files [from the ENIGMA-PD pipelines page on Zenodo](https://zenodo.org/communities/enigma-pd/records?q=&l=list&p=1&s=10&sort=newest). Together, these files allow Nipoppy to recognize, configure, run, and monitor the custom container image as part of its structured processing framework. You will need the following:
+Before trying to run the pipeline, confirm that the pipeline is recognized by running `nipoppy pipeline list`. This will print a list of the available pipelines.
 
-- `descriptor.json`
-- `invocation.json`
-- `config.json`
-- `tracker_config.json`
-
-Create a new folder named `freesurfer_subseg-0.3` inside `<dataset_root>/pipelines/processing/`, and place the files in there.
-
-### Run pipeline
+### Running the pipeline
 
 To run the subsegmentation pipeline, use the following command:
 
 ```bash
-nipoppy process --pipeline freesurfer_subseg --pipeline-version 0.3 --session-id <session_id>
+nipoppy process --pipeline freesurfer_subseg --pipeline-version 0.4
+```
 
-### Track pipeline output
+### Tracking pipeline output
 
 Use the `nipoppy track` command to check which participants/sessions have complete output:
 
@@ -225,39 +220,58 @@ This helps you confirm whether the pipeline ran successfully across your dataset
 ## Quality Assessment part 1: Running the FS-QC toolbox
 The [FreeSurfer Quality Control (FS-QC) toolbox](https://github.com/Deep-MI/fsqc) takes existing FreeSurfer (or FastSurfer) output and computes a set of quality control metrics. These will be reported in a summary table and/or .html page with screenshots to allow for visual inspection of the segmentations.
 
-### Getting the container
-For Apptainer:
-- Go to a path where you want the image (.sif) to be saved and create the image using the docker tag. Check the [latest tags](https://hub.docker.com/r/deepmi/fsqcdocker/tags) on the fsqc docker hub. Creating the image takes <3 min.
-```
-cd /path/to/your/containers
-```
-```
-apptainer build fsqc-latest.sif docker://deepmi/fsqcdocker:latest
-```
-- Print the command usage to test if you can run the container
-```
-apptainer run /path/to/fsqc-latest.sif
+### Getting the Nipoppy pipeline specification files for this pipeline
+
+Read more about this step (here)[https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md].
+
+### Pulling the Docker image
+
+You also need to download the container image that will run the freesurfer quality control pipeline. Use the following command to pull the image from Docker Hub:
+
+```bash
+docker pull deepmi/fsqcdocker:2.1.1
 ```
 
-### Running the FS-QC command
-Please read more about the required and optional arguments [here](FS-QC.md). For ENIGMA-PD, we ask you to run the command below to produce several screenshots at different slices and also include the subsegmentations. 
+If you are using Apptainer/Singularity instead of Docker, you can get the image like this:
 
-For Apptainer, adjust the paths to the FreeSurfer output directory and container directory and run:
+```bash
+apptainer build fsqc-2.1.1.sif docker://deepmi/fsqcdocker:2.1.1
 ```
-apptainer run --bind /path/to/FreeSurfer/output/dir/:/data_fsqc \
-/path/to/container/fsqc-latest.sif \
---subjects_dir /data_fsqc/ \
---output_dir /data_fsqc/fsqc_output_aparc_aseg \
---screenshots-html \
---screenshots_overlay aparc+aseg.mgz \
---screenshots_views x=-20 x=-10 x=10 x=20 y=-10 y=0 y=10 y=20 z=0 z=10 z=20 z=30 \
---screenshots_layout 3 4 \
---surfaces-html \
---skullstrip-html \
---hypothalamus-html \
---hippocampus-html \
---hippocampus-label T1.v22 \
---outlier
+
+Make sure the resulting image file is placed in the container directory referenced in your global Nipoppy configuration.
+
+### Change your global config file
+Open the global config file and add the freesurfer_subseg container and the correct version under `PIPELINE_VARIABLES`:
+
+```json
+"PIPELINE_VARIABLES": {
+  "BIDSIFICATION": {},
+  "PROCESSING": {
+    "fmriprep": {
+      "24.1.1": {
+        "FREESURFER_LICENSE_FILE": null,
+        "TEMPLATEFLOW_HOME": null
+      }
+    },
+    "fsqc": {
+      "2.1.1": {
+        "FREESURFER_LICENSE_FILE": "path/to/license/file/license.txt"
+      }
+    }
+  }
+}
+```
+
+#### Final check
+
+Before trying to run the pipeline, confirm that the pipeline is recognized by running `nipoppy pipeline list`. This will print a list of the available pipelines.
+
+### Running the pipeline
+
+To run the subsegmentation pipeline, use the following command:
+
+```bash
+nipoppy process --pipeline freesurfer_subseg --pipeline-version 0.4
 ```
 
 ### Expected FS-QC output
@@ -269,7 +283,6 @@ After running the command, you will find all results inside the folder specified
 - **A CSV file** (`fsqc-results.csv`) summarizing quantitative quality control metrics for all subjects.
 
 - **A main HTML summary file** (`fsqc-results.html`) that aggregates all subject screenshots for easy visual inspection.
-
 
 #### Important notes for viewing and copying files:
 
