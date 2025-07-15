@@ -153,7 +153,7 @@ This pipeline uses existing FreeSurfer 7 functionalities to extract subnuclei vo
 
 ### Getting the Nipoppy pipeline specification files for this pipeline
 
-Read more about this step (here)[https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md].
+Read more about this step [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md).
 
 ### Pulling the Docker image
 
@@ -222,7 +222,7 @@ The [FreeSurfer Quality Control (FS-QC) toolbox](https://github.com/Deep-MI/fsqc
 
 ### Getting the Nipoppy pipeline specification files for this pipeline
 
-Read more about this step (here)[https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md].
+Read more about this step [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md).
 
 ### Pulling the Docker image
 
