@@ -16,6 +16,7 @@ These templates should be filled in manually. The cortical template contains two
 1. **Learn about the scoring**
 
   In the template spreadsheet, all regions are by default marked as a `"pass"`. Raters are asked to provide a score for each region: **either `"pass"` or `"fail"`**, no other values should be used.
+  
   **Be conservative when failing**: Use the `"fail"` label only when there are **obvious, serious issues** that would make the regional estimates **unreliable or unusable**.  Small flaws or mild asymmetries are typically not enough to justify a fail.
   
   There are two types of scores to complete during quality control: an overall score for external QC, and a specific score for each region, assessed separately for the left and right hemispheres. By the end of the QC process, every region must have a score with **no empty cells left** in the spreadsheet.
