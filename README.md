@@ -130,7 +130,7 @@ Next, open the global config file and check whether the correct fMRIPrep version
 ### Run pipeline
 Finally, simply run the following line of code, specifying the path to your dataset root.
 ```
-nipoppy run --pipeline fmriprep --pipeline-version 24.1.1 <dataset_root>
+nipoppy process --pipeline fmriprep --pipeline-version 24.1.1 --dataset <dataset_root>
 ```
 This should initiate the FS7 segmentation of all your T1-weighted images! Note: this will run all the participants and sessions in a loop, which is likely inefficient. You can use the `--participant-id` and/or `-session-id` flag to run only a single participant and/or session.
 
@@ -202,7 +202,7 @@ Before trying to run the pipeline, confirm that the pipeline is recognized by ru
 To run the subsegmentation pipeline, use the following command:
 
 ```bash
-nipoppy process --pipeline freesurfer_subseg --pipeline-version 0.4
+nipoppy process --pipeline freesurfer_subseg --pipeline-version 0.4 --dataset <dataset_root>
 ```
 
 ### Tracking pipeline output
@@ -210,7 +210,7 @@ nipoppy process --pipeline freesurfer_subseg --pipeline-version 0.4
 Use the `nipoppy track` command to check which participants/sessions have complete output:
 
 ```bash
-nipoppy track --pipeline freesurfer_subseg <dataset_root>
+nipoppy track-processing --pipeline freesurfer_subseg --dataset <dataset_root>
 ```
 
 This helps you confirm whether the pipeline ran successfully across your dataset.
@@ -255,7 +255,8 @@ Open the global config file and add the freesurfer_subseg container and the corr
     },
     "fsqc": {
       "2.1.1": {
-        "FREESURFER_LICENSE_FILE": "path/to/license/file/license.txt"
+        "FREESURFER_LICENSE_FILE": "path/to/license/file/license.txt",
+        "FREESURFER_VERSION": "7.3.2"
       }
     }
   }
@@ -271,12 +272,12 @@ Before trying to run the pipeline, confirm that the pipeline is recognized by ru
 To run the subsegmentation pipeline, use the following command:
 
 ```bash
-nipoppy process --pipeline freesurfer_subseg --pipeline-version 0.4
+nipoppy process --pipeline fsqc --pipeline-version 2.1.1 --dataset <dataset_root>
 ```
 
 ### Expected FS-QC output
 
-After running the command, you will find all results inside the folder specified by the `--output_dir` argument. The output will include:
+After running the command, you will find all results inside the derivatives folder. The output will include:
 
 - **Several folders** corresponding to the flags used in the command, such as: `screenshots_html`, `surfaces_html`, `skullstrip_html`, `hypothalamus_html`, `hippocampus_html`
 
