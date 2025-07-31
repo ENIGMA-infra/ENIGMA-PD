@@ -23,4 +23,4 @@ Zenodo id: 15600883
 
 Latest pipeline version: `fsqc-2.1.1`
 
-Zenodo id: 16628273
+Zenodo id: 16637854
