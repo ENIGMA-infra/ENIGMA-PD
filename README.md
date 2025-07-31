@@ -172,7 +172,7 @@ apptainer build freesurfer_subseg-0.4.sif docker://nichyconsortium/freesurfer_su
 Make sure the resulting image file is placed in the container directory referenced in your global Nipoppy configuration.
 
 ### Change your global config file
-Open the global config file and add the freesurfer_subseg container and the correct version under `PIPELINE_VARIABLES`:
+Open the global config file and add the path to your freesurfer license file under the freesurfer_subseg pipeline:
 
 ```json
 "PIPELINE_VARIABLES": {
@@ -241,7 +241,7 @@ apptainer build fsqc-2.1.1.sif docker://deepmi/fsqcdocker:2.1.1
 Make sure the resulting image file is placed in the container directory referenced in your global Nipoppy configuration.
 
 ### Change your global config file
-Open the global config file and add the freesurfer_subseg container and the correct version under `PIPELINE_VARIABLES`:
+Open the global config file and add the correct freesurfer version under the fsqc pipeline:
 
 ```json
 "PIPELINE_VARIABLES": {
@@ -255,7 +255,6 @@ Open the global config file and add the freesurfer_subseg container and the corr
     },
     "fsqc": {
       "2.1.1": {
-        "FREESURFER_LICENSE_FILE": "path/to/license/file/license.txt",
         "FREESURFER_VERSION": "7.3.2"
       }
     }
