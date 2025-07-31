@@ -166,7 +166,7 @@ docker pull nichyconsortium/freesurfer_subseg:0.4
 If you are using Apptainer/Singularity instead of Docker, you can get the image like this:
 
 ```bash
-apptainer build freesurfer_subseg-0.4.sif docker://nichyconsortium/freesurfer_subseg:0.4
+apptainer build freesurfer_subseg_0.4.sif docker://nichyconsortium/freesurfer_subseg:0.4
 ```
 
 Make sure the resulting image file is placed in the container directory referenced in your global Nipoppy configuration.
@@ -235,7 +235,7 @@ docker pull deepmi/fsqcdocker:2.1.1
 If you are using Apptainer/Singularity instead of Docker, you can get the image like this:
 
 ```bash
-apptainer build fsqc-2.1.1.sif docker://deepmi/fsqcdocker:2.1.1
+apptainer build fsqc_2.1.1.sif docker://deepmi/fsqcdocker:2.1.1
 ```
 
 Make sure the resulting image file is placed in the container directory referenced in your global Nipoppy configuration.
