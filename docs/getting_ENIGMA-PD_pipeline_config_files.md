@@ -9,8 +9,6 @@ You need to download the required pipeline configuration files [from the ENIGMA-
 
 A quick way to download these four files is by running: `nipoppy pipeline install --dataset <DATASET_ROOT> <ZENODO_ID>`
 
-Rename the downloaded folder into `<pipeline>-<version>` and move it inside `<dataset_root>/pipelines/processing/` (in case it's a processing pipeline). 
-
 Please read more instructions about adding a pipeline to a dataset [on the nipoppy documentation page](https://nipoppy.readthedocs.io/en/latest/how_to_guides/pipeline_install/index.html).
 
 ## Examples
@@ -19,10 +17,10 @@ Please read more instructions about adding a pipeline to a dataset [on the nipop
 
 Latest pipeline version: `freesurfer_subseg-0.4`
 
-Zenodo id: 
+Zenodo id: 15600883
 
 ### fsqc
 
 Latest pipeline version: `fsqc-2.1.1`
 
-Zenodo id: 
+Zenodo id: 16628273
