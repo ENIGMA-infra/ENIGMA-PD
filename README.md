@@ -299,7 +299,7 @@ After running the command, you will find all results inside the derivatives fold
 ## Quality Assessment part 2: Performing a visual quality assessment
 Quality checking is essential to make sure the output that you have produced is accurate and reliable. Even small errors or artifacts in images can lead to big mistakes in analysis and interpretation, so careful checks help us to verify whether we can savely include a certain region of interest or participant in our analysis. For the FreeSurfer output, we will follow standardized ENIGMA instructions on how to decide on the quality of the cortical and subcortical segmentations. **At this stage, visual quality assessment of the subsegmentations (e.g., thalamic or hippocampal nuclei) is not required, as there are no established protocols yet and the process would be highly time-consuming; statistical checks (e.g., outlier detection) can be used instead. This may be followed up at a later stage, once there is a project that specifically focuses on these outcomes and the necessary anatomical expertise is available to develop a dedicated quality control manual.**
 
-You can find the updated ENIGMA-PD QC instructions for visual inspection [here](ENIGMA-PD_visual_QC_instructions.md).
+You can find the updated ENIGMA-PD QC instructions for visual inspection [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/ENIGMA-PD_visual_QC_instructions.md).
 
 ---
 
