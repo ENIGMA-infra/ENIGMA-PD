@@ -32,7 +32,7 @@ This is the scenario assumed by the Nipoppy [Quickstart page](https://nipoppy.re
 
 Note: if your dataset is cross-sectional (i.e. only has one session), you still need to create a `session_id` for the manifest. In this case the value would be the same for all participants.
 
-When you reach the end of the Quickstart, it is time to [copy and reorganize](https://nipoppy.readthedocs.io/en/stable/user_guide/organizing_imaging.html) your raw imaging data to prepare them for BIDS conversion. Once this is done, see [the section of BIDSification](#bidsification).
+When you reach the end of the Quickstart, it is time to [copy and reorganize](https://nipoppy.readthedocs.io/en/stable/user_guide/organizing_imaging.html) your raw imaging data to prepare them for BIDS conversion. Once this is done, you can find how to perform the BIDSification within the Nipoppy framework [here](https://nipoppy.readthedocs.io/en/stable/how_to_guides/user_guide/bids_conversion.html).
 
 #### Starting with BIDSified data
 
@@ -45,12 +45,6 @@ nipoppy init [dataset_root] --bids-source [path_to_existing_bids_data]
 This command will create a Nipoppy dataset (i.e. directory tree) from preexisting BIDS dataset and automatically generate a manifest file for you! 
 
 Then you will just need to fill in some information in `<dataset_root>/global_config.json` and go straight to [processing data with fMRIPrep/FreeSurfer](#running-freesurfer-7)!
-
-#### Specifying paths in the global config file
-
-Nipoppy encourages the use of a common directory for storing container images, which can be shared across datasets/individuals. This directory can be anywhere on a system, and `<NIPOPPY_DPATH_CONTAINERS>` should be replaced by the actual path to that directory.
-- Note: we encourage you to create a symlink from the `<DATASET_ROOT>/containers` directory inside the Nipoppy dataset to the shared container store location, as this would allow anyone looking at the dataset easily find the containers. In that case this substitution entry can be deleted, since by default Nipoppy will use `<DATASET_ROOT>/containers`.
-Every time a new pipeline is installed, you will need to change some paths in the global config file, depending on the pipeline.
 
 ##### BIDS datasets without sessions
 If the existing BIDS data does not have session-level folders, Nipoppy will create "dummy sessions" (called `unnamed`) in the manifest. This is because the Nipoppy manifest still requires a non-empty `session_id` value when imaging data is available for a participant.
@@ -78,7 +72,11 @@ Resources from the BIDS community offer guidance on organizing your data, and BI
 - [Recommended converter; BIDScoin](https://bidscoin.readthedocs.io/en/stable/)
 - [BIDS tutorials](https://www.youtube.com/watch?v=pAv9WuyyF3g&list=PLtJYlrqQ3YK_M4YgkUx6akJqlHF1R7A5g)
 
-[Here](https://nipoppy.readthedocs.io/en/stable/user_guide/bids_conversion.html) you can find how to perform the BIDSification within the Nipoppy framework (recommended).
+## Installing pipelines and containers
+
+Nipoppy encourages the use of a common directory for storing container images, which can be shared across datasets/individuals. This directory can be anywhere on a system, and `<NIPOPPY_DPATH_CONTAINERS>` should be replaced by the actual path to that directory.
+- Note: we encourage you to create a symlink from the `<DATASET_ROOT>/containers` directory inside the Nipoppy dataset to the shared container store location, as this would allow anyone looking at the dataset easily find the containers. In that case this substitution entry can be deleted, since by default Nipoppy will use `<DATASET_ROOT>/containers`.
+Every time a new pipeline is installed, you will need to change some paths in the global config file, depending on the pipeline.
 
 ## Running FreeSurfer 7
 When you reach this point, the hardest part is behind you and we can finally come to the real stuff. We will run FreeSurfer 7 through fMRIPrep using Nipoppy. See [here](https://nipoppy.readthedocs.io/en/stable/user_guide/processing.html) for additional information about running processing pipelines with Nipoppy.
