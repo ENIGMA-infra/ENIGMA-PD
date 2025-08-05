@@ -12,28 +12,23 @@ The figure shows the expected outcomes and corresponding processing steps - most
 ## Setting up Nipoppy
 Nipoppy is a lightweight framework for standardized data organization and processing of neuroimaging-clinical datasets. Its goal is to help users adopt the [FAIR principles](https://www.go-fair.org/fair-principles/) and improve the reproducibility of studies. 
 
-The ongoing collaboration between the ENIGMA-PD team and Nipoppy team has streamlined data curation, processing, and analysis workflows, which signficantly simplifies tracking of data availability, addition of new pipelines and upgrading of existing pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. 
+The ongoing collaboration between the ENIGMA-PD team and Nipoppy team has streamlined data curation, processing, and analysis workflows, which signficantly simplifies tracking of data availability, addition of new pipelines and upgrading of existing pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. To join the Nipoppy support community, we recommend joining their [Discord channel](https://discord.gg/dQGYADCCMB). Here you can ask questions and find answers while working with Nipoppy.
 
-**Here, primairly we will use Nipoppy to help sites with 1) BIDSification, 2) FreeSurfer7 processing.** Additionally, we are testing out Nipoppy to also help with running 1) Sub-segmentation and 2) FS-QC containers - stay tuned for updates. 
+**Here, primairly we will use Nipoppy to help you with 1) BIDSification, 2) FreeSurfer7 processing, 3) Sub-segmentation and 4) Quality control.** 
 
 For more information, see the [Nipoppy documentation](https://nipoppy.readthedocs.io/en/stable/index.html).
 
 ### Getting started
+To install Nipoppy, we refer to the [Installation page](https://nipoppy.readthedocs.io/en/stable/overview/installation.html). 
 
-To install Nipoppy, we refer to the [Installation page](https://nipoppy.readthedocs.io/en/stable/installation.html). 
-
-Once Nipoppy is successfully installed, you will need to create a Nipoppy dataset and populate it with your data. There are a few different starting points depending on the current state of your dataset. These are detailed below.
-
-Note: in the global config file, you will need to add the path to a FreeSurfer license. You can get a FreeSurfer licence for free at [the FreeSurfer website](https://surfer.nmr.mgh.harvard.edu/registration.html). 
-
-To join the Nipoppy support community, we recommend joining their [Discord channel](https://discord.gg/dQGYADCCMB). Here you can ask questions and find answers while working with Nipoppy.
+Once Nipoppy is successfully installed, you will need to create a Nipoppy dataset and populate it with your data. There are a few different starting points depending on the current state of your dataset. If you have your data already in BIDS format, click [here](#starting-with-bidsified-data). If you have DICOM of NIFTI files that are not yet in BIDS, continue below.
 
 #### Starting from source data (either DICOMs or NIfTIs that are *not yet* in BIDS)
 
-This is the scenario assumed by the Nipoppy [Quickstart page](https://nipoppy.readthedocs.io/en/stable/quickstart.html). Follow this guide to:
+This is the scenario assumed by the Nipoppy [Quickstart page](https://nipoppy.readthedocs.io/en/stable/overview/quickstart.html). Follow this guide to:
 1. Create an empty Nipoppy dataset (i.e. directory tree)
 2. Write a manifest file representing your data
-3. Modify the global config file with paths to e.g., your FreeSurfer license file
+3. Modify the global config file with paths to e.g., path to your container directory
 
 Note: if your dataset is cross-sectional (i.e. only has one session), you still need to create a `session_id` for the manifest. In this case the value would be the same for all participants.
 
@@ -53,25 +48,9 @@ Then you will just need to fill in some information in `<dataset_root>/global_co
 
 #### Specifying paths in the global config file
 
-Nipoppy encourages the use of a common directory for storing container images, which can be shared across datasets/individuals. This directory can be anywhere on a system, and `<PATH_TO_CONTAINER_STORE_DIRECTORY>` should be replaced by the actual path to that directory.
+Nipoppy encourages the use of a common directory for storing container images, which can be shared across datasets/individuals. This directory can be anywhere on a system, and `<NIPOPPY_DPATH_CONTAINERS>` should be replaced by the actual path to that directory.
 - Note: we encourage you to create a symlink from the `<DATASET_ROOT>/containers` directory inside the Nipoppy dataset to the shared container store location, as this would allow anyone looking at the dataset easily find the containers. In that case this substitution entry can be deleted, since by default Nipoppy will use `<DATASET_ROOT>/containers`.
-
-The following paths under the `SUBSTITUTIONS` field should also be replaced:
-- `<PATH_TO_FREESURFER_LICENSE_FILE>` (required to run FreeSurfer)
-- `<PATH_TO_TEMPLATEFLOW_DIRECTORY>` (see below section on Templateflow)
-
-If doing BIDS conversion with Nipoppy, the path to the config file for the relevant BIDS converter should be set as well. Entries for other BIDS converters can be ignored/deleted.
-- `<PATH_TO_HEURISTIC_FILE>` for HeuDiConv
-- `<PATH_TO_CONFIG_FILE>` for `dcm2bids`
-
-#### Clarifications about Templateflow
-
-[Templateflow](https://www.templateflow.org/) is a library of neuroimaging templates (e.g. `MNI152NLin2009cAsym`) used by several popular processing pipelines, including fMRIPrep (which we are using to run FreeSurfer 7) and MRIQC.
-
-By default the templates are stored in `~/.templateflow`, but in general it is a good idea to store them somewhere more central/visible, so that the same templates can be used by different people in a research group. Another reason to specify another path is that the home directory often has limited storage on some servers.
-  - In the Nipoppy global config file, `<PATH_TO_TEMPLATEFLOW_DIRECTORY>` should be replaced by the *path to an empty directory*, possibly in a similar location as (parallel to) the container store directory.
-
-The first time fMRIPrep is run, it will attempt to download templates to the Templateflow directory, which will require the computer to be connected to the internet. If you are running fMRIPRep on a cluster where compute nodes do not have access to the Internet, see [here](https://fmriprep.org/en/24.1.1/faq.html#how-do-you-use-templateflow-in-the-absence-of-access-to-the-internet) and feel free to reach out to us for help.
+Every time a new pipeline is installed, you will need to change some paths in the global config file, depending on the pipeline.
 
 ##### BIDS datasets without sessions
 If the existing BIDS data does not have session-level folders, Nipoppy will create "dummy sessions" (called `unnamed`) in the manifest. This is because the Nipoppy manifest still requires a non-empty `session_id` value when imaging data is available for a participant.
@@ -124,8 +103,23 @@ docker pull nipreps/fmriprep:24.1.1
 For more information on fMRIPrep, see the [fMRIPrep documentation](https://fmriprep.org/en/stable/)
 
 ### Setting up configuration
-Make sure that you have the fMRIPrep container stored in the containers folder that you reference to in your global config file. 
-Next, open the global config file and check whether the correct fMRIPrep version is included under `PROC_PIPELINES`.
+Make sure that you have the fMRIPrep container stored in the containers folder that you reference to in your global config file.
+
+Next, we will need to install the fMRIPrep pipeline within Nipoppy. Read more about this step [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md).
+Once the pipeline is installed, open the global config file and check whether the correct fMRIPrep version is included under `PIPELINE_VARIABLES`.
+The following paths should also be replaced here:
+- `<FREESURFER_LICENSE_FILE>` (required to run FreeSurfer)
+- `<TEMPLATEFLOW_HOME>` (see below section on Templateflow)
+You can get a FreeSurfer licence for free at [the FreeSurfer website](https://surfer.nmr.mgh.harvard.edu/registration.html).
+
+#### Clarifications about Templateflow
+
+[Templateflow](https://www.templateflow.org/) is a library of neuroimaging templates (e.g. `MNI152NLin2009cAsym`) used by several popular processing pipelines, including fMRIPrep (which we are using to run FreeSurfer 7) and MRIQC.
+
+By default the templates are stored in `~/.templateflow`, but in general it is a good idea to store them somewhere more central/visible, so that the same templates can be used by different people in a research group. Another reason to specify another path is that the home directory often has limited storage on some servers.
+  - In the Nipoppy global config file, `<PATH_TO_TEMPLATEFLOW_DIRECTORY>` should be replaced by the *path to an empty directory*, possibly in a similar location as (parallel to) the container store directory.
+
+The first time fMRIPrep is run, it will attempt to download templates to the Templateflow directory, which will require the computer to be connected to the internet. If you are running fMRIPRep on a cluster where compute nodes do not have access to the Internet, see [here](https://fmriprep.org/en/24.1.1/faq.html#how-do-you-use-templateflow-in-the-absence-of-access-to-the-internet) and feel free to reach out to us for help.
 
 ### Run pipeline
 Finally, simply run the following line of code, specifying the path to your dataset root.
@@ -136,7 +130,7 @@ This should initiate the FS7 segmentation of all your T1-weighted images! Note: 
 
 ### Track pipeline output
 
-The `nipoppy track` command can help keep track of which participants/sessions have all the expected output files for a given processing pipeline. See [here](https://nipoppy.readthedocs.io/en/stable/user_guide/tracking.html) for more information.
+The `nipoppy track-processing` command can help keep track of which participants/sessions have all the expected output files for a given processing pipeline. See [here](https://nipoppy.readthedocs.io/en/stable/user_guide/tracking.html) for more information.
 
 Once processing has completed, you can move on to the subsegmentations.
 
