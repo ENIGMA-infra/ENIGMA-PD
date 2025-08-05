@@ -24,7 +24,7 @@ These templates should be filled in manually. The cortical template contains two
 
 2. **Familiarize yourself with ENIGMA quality control standards**  
 
-Before starting, review the ENIGMA quality control instructions below, including common segmentation errors and regions that are more prone to segmentation failure. You can find the ENIGMA manual, adapted for the PD group [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Cortical_QC_ENIGMA-PD_July25.pdf) and a version including the powerpoint notes (i.e. answers to the quiz) [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Cortical_QC_ENIGMA-PD_July25_withnotes.pdf). We recommend not focusing too heavily on the manual. Though it does provide some useful examples, hands-on practice is key to learning quality control, and the quality of someone’s visual assessment improves primarily through experience.
+Before starting, review the ENIGMA quality control instructions below, including common segmentation errors and regions that are more prone to segmentation failure. You can find the ENIGMA manual, adapted for the PD group [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Cortical_QC_ENIGMA-PD_July25.pdf) and a version including the powerpoint notes (i.e. answers to the quiz) [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Cortical_QC_ENIGMA-PD_July25_quiz_answers.pdf). We recommend not focusing too heavily on the manual. Though it does provide some useful examples, hands-on practice is key to learning quality control, and the quality of someone’s visual assessment improves primarily through experience.
 
 3. **Warm-up: dynamically check a few subjects across all regions**  
 
