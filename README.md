@@ -47,7 +47,7 @@ If your dataset is already in BIDS, then the manifest-generation step can be ski
 nipoppy init [dataset_root] --bids-source [path_to_existing_bids_data]
 ```
 
-This command will witll create a Nipoppy dataset (i.e. directory tree) from preexisting BIDS dataset and automatically generate a manifest file for you! 
+This command will create a Nipoppy dataset (i.e. directory tree) from preexisting BIDS dataset and automatically generate a manifest file for you! 
 
 Then you will just need to fill in some information in `<dataset_root>/global_config.json` and go straight to [processing data with fMRIPrep/FreeSurfer](#running-freesurfer-7)!
 
