@@ -8,8 +8,8 @@ This page outlines the recommended approach to visually inspect and rate FreeSur
 ## Step-by-step instructions for visual inspection
 
 ### 1. Download the template spreadsheets
-- Download the [Cortical_template](https://github.com/ENIGMA-PD/FS7/blob/main/docs/ENIGMA-PD_Cortical_QC_Template.xlsx)
-- Download the [Subcortical template](https://github.com/ENIGMA-PD/FS7/blob/main/docs/ENIGMA-PD_Subcortical_QC_Template.xlsx)
+- Download the [Cortical QC template](https://github.com/ENIGMA-PD/FS7/blob/main/docs/ENIGMA-PD_Cortical_QC_Template.xlsx)
+- Download the [Subcortical QC template](https://github.com/ENIGMA-PD/FS7/blob/main/docs/ENIGMA-PD_Subcortical_QC_Template.xlsx)
 
 These templates should be filled in manually. The only changes to be made to these templates are 1) adding all subjects from your dataset in the first column (you can copy over file names from your nipoppy manifest file), and 2) changing quality control scores from `"pass"` to `"fail"` if needed. The cortical template contains two tabs: the first tab is used to record the visual inspection scores, while the second tab provides additional context on common quality control issues observed in ENIGMA projects.  You do **not** need to review or complete the second tab — it is included to stay consistent with the standard ENIGMA consortium template. The subcortical template consists of one tab, with the selected subcortical areas for visual inspection.
 
