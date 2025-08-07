@@ -34,12 +34,11 @@ We recommend **not focusing too heavily on the manuals**. Though they do provide
 ### 4. Check out the fsqc-generated html page with screenshots
 
 Open the `fsqc-results.html` in your browser. This page shows several different images for each subject of your dataset:
-- Screenshots: Internal QC of the cortical and subcortical areas
-- Skullstrip:
-- Surfaces:
-- Hypothalamus:
-- Hippocampus:
-
+- Screenshots: For internal quality control of the cortical areas and to inspect the subcortical areas
+- Skullstrip: To confirm if skullstripping was successful, if not, this often results in all regions failing quality control
+- Surfaces: For external quality control of the cortical areas
+- Hypothalamus: For quality control of the hypothalamus subsegmentations
+- Hippocampus: For quality control of the hippocampus and amygdala subsegmentations
 
 ### 5. Cortical Quality Control
 
