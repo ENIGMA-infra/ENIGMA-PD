@@ -39,7 +39,7 @@ When you reach the end of the Quickstart, it is time to [copy and reorganize](ht
 If your dataset is already in BIDS, then the manifest-generation step can be skipped by initializing the Nipoppy dataset with this command:
 
 ```
-nipoppy init [dataset_root] --bids-source [path_to_existing_bids_data]
+nipoppy init <dataset_root> --bids-source <path_to_existing_bids_data>
 ```
 
 This command will create a Nipoppy dataset (i.e. directory tree) from preexisting BIDS dataset and automatically generate a manifest file for you! 
@@ -67,39 +67,44 @@ For Docker, run:
 ```
 docker pull nipreps/fmriprep:24.1.1
 ```
+Make sure that you have the fMRIPrep container stored in the containers folder that you reference to in your global config file.
+
 For more information on fMRIPrep, see the [fMRIPrep documentation](https://fmriprep.org/en/stable/)
 
 ### Setting up configuration
-Make sure that you have the fMRIPrep container stored in the containers folder that you reference to in your global config file.
-
 Next, we will need to install the fMRIPrep pipeline within Nipoppy. Read more about this step [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md).
 Once the pipeline is installed, open the global config file and check whether the correct fMRIPrep version is included under `PIPELINE_VARIABLES`.
 The following paths should be replaced here under the correct version of the fMRIPrep pipeline in the global config file:
 - `<FREESURFER_LICENSE_FILE>` (required to run FreeSurfer)
-- `<TEMPLATEFLOW_HOME>` (see below section on Templateflow)
+- `<TEMPLATEFLOW_HOME>` (see [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Templateflow_info.md) for more info on Templateflow)
 You can get a FreeSurfer licence for free at [the FreeSurfer website](https://surfer.nmr.mgh.harvard.edu/registration.html).
-
-#### Clarifications about Templateflow
-
-[Templateflow](https://www.templateflow.org/) is a library of neuroimaging templates (e.g. `MNI152NLin2009cAsym`) used by several popular processing pipelines, including fMRIPrep (which we are using to run FreeSurfer 7) and MRIQC.
-
-By default the templates are stored in `~/.templateflow`, but in general it is a good idea to store them somewhere more central/visible, so that the same templates can be used by different people in a research group. Another reason to specify another path is that the home directory often has limited storage on some servers.
-  - In the Nipoppy global config file, `<PATH_TO_TEMPLATEFLOW_DIRECTORY>` should be replaced by the *path to an empty directory*, possibly in a similar location as (parallel to) the container store directory.
-
-The first time fMRIPrep is run, it will attempt to download templates to the Templateflow directory, which will require the computer to be connected to the internet. If you are running fMRIPRep on a cluster where compute nodes do not have access to the Internet, see [here](https://fmriprep.org/en/24.1.1/faq.html#how-do-you-use-templateflow-in-the-absence-of-access-to-the-internet) and feel free to reach out to us for help.
 
 ### Run pipeline
 Finally, simply run the following line of code, specifying the path to your dataset root.
 ```
 nipoppy process --pipeline fmriprep --pipeline-version 24.1.1 --dataset <dataset_root>
 ```
-This should initiate the FS7 segmentation of all your T1-weighted images! Note: this will run all the participants and sessions in a loop, which is likely inefficient. You can use the `--participant-id` and/or `-session-id` flag to run only a single participant and/or session.
+This should initiate the FS7 segmentation of your T1-weighted images! 
+
+**Note:** the command above will run all the participants and sessions in a loop, which may be inefficient. If you're using an HPC, you may want to submit a batch job to process all participants/sessions. In this case, you can use the `--participant-id` and/or `-session-id` flag to select a single participant and/or session within an array. Need help with your job script? Please reach out!
 
 ### Track pipeline output
 
 The `nipoppy track-processing` command can help keep track of which participants/sessions have all the expected output files for a given processing pipeline. See [here](https://nipoppy.readthedocs.io/en/latest/how_to_guides/user_guide/tracking.html) for more information. Running this command will update the `processing_status.tsv` under the `derivatives` folder.
 
-Once processing has completed, you can move on to the subsegmentations.
+### Extract pipeline output
+
+For automatic extraction of the cortical thickness, cortical surface area and subcortical volume into .tsv files, you can use another [Nipoppy pipeline](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md), called fs_stats. The Zenodo ID for this pipeline is 15427856, so you can install it with the following command:
+```
+nipoppy pipeline install --dataset <dataset_root> 15427856
+```
+Remember to define the freesurfer licens file path in your global config file under the newly installed pipeline. Then, you can simply run 
+```
+nipoppy extract --pipeline fs_stats --dataset <dataset_root>
+```
+to get things going. You can find the extracted data under `<dataset_root>/derivatives/freesurfer/7.3.2/idp/`.
+
+Once FS7 processing and extraction has completed, you can move on to the subsegmentations.
 
 ---
 
@@ -145,7 +150,7 @@ Open the global config file and add the path to your freesurfer license file und
     "fmriprep": {
       "24.1.1": {
         "FREESURFER_LICENSE_FILE": "path/to/license/file/license.txt",
-        "TEMPLATEFLOW_HOME": "path/to/templateflow/
+        "TEMPLATEFLOW_HOME": "path/to/templateflow/"
       }
     },
     "freesurfer_subseg": {
@@ -178,6 +183,10 @@ nipoppy track-processing --pipeline freesurfer_subseg --dataset <dataset_root>
 ```
 
 This helps you confirm whether the pipeline ran successfully across your dataset (again, check `processing_status.tsv` under the `derivatives` folder).
+
+### Extracting pipeline output
+
+The pipeline for extraction of data from the subsegmentation is under construction. Stay tuned for updates! You can already extract data from the standard FreeSurfer 7 segementation (see [here](#extract-pipeline-output)).
 
 ---
 
@@ -251,7 +260,7 @@ You can find the updated ENIGMA-PD QC instructions for visual inspection [here](
 ## Data sharing
 After completing all of the above steps, you're ready to share your derived data with the ENIGMA-PD core team. Please:
 
-- Review the .csv spreadsheets for completeness, ensuring all participants are included, there are no missing or unexpected data points, and quality assessment scores have been assigned to each ROI and participant.
+- Review the .tsv and Excel spreadsheets for completeness, ensuring all participants are included, there are no missing or unexpected data points, and quality assessment scores have been assigned to each ROI and participant.
 - Confirm whether you are authorized to share the quality check .png files. These will be used, along with your quality assessment scores, to help train automated machine learning models for ENIGMA's quality checking pipelines, to eliminate the need for manual checking in the future.
 
 Once these checks are complete, email enigma-pd@amsterdamumc.nl to receive a personalized and secure link to a SURFdrive folder where you can temporarily upload the .csv files and, if applicable, the QA .png files. If your site has another preferred method for sharing data, please let us know, and we will try to accommodate it. We will then move the files to our central storage on the LONI server hosted by USC.
