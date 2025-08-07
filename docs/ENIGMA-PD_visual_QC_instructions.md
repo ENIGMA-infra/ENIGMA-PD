@@ -31,7 +31,17 @@ Before starting, review the ENIGMA quality control instructions, including commo
 
 We recommend **not focusing too heavily on the manuals**. Though they do provide some useful examples, hands-on practice is key to learning quality control, and the quality of someone’s visual assessment improves primarily through experience.
 
-### 4. Cortical Quality Control
+### 4. Check out the fsqc-generated html page with screenshots
+
+Open the `fsqc-results.html` in your browser. This page shows several different images for each subject of your dataset:
+- Screenshots: Internal QC of the cortical and subcortical areas
+- Skullstrip:
+- Surfaces:
+- Hypothalamus:
+- Hippocampus:
+
+
+### 5. Cortical Quality Control
 
 #### Warm-up: dynamically check a few subjects across all regions
 Start by quickly scrolling through around 5–10 subjects to get a sense of the typical variability in cortical segmentations. This dynamic review helps you become familiar with how correctly segmented regions usually appear and what kinds of errors to expect.
@@ -39,7 +49,7 @@ Start by quickly scrolling through around 5–10 subjects to get a sense of the 
 #### For the full dataset, go per region  
 Most raters prefer evaluating one cortical region at a time across all subjects. This helps with consistency and speeds up spotting systematic issues. As you go, **flag any doubtful cases**, either to revisit later or to share with the ENIGMA core team for second opinion.
 
-### 5. Subcortical Quality Control
+### 6. Subcortical Quality Control
 After the cortical regions, the subcortical quality control is a piece of cake. Subcortical regions are located close together and can usually be assessed in a single glance (in contrast to the region-by-region approach of the cortical segmentations). Segmentation errors are uncommon, and most regions should pass. Approve unless there are clear, severe distortions, which often affect multiple or all neighboring subcortical regions rather than just one.
 
 ---
