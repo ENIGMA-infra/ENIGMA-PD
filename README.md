@@ -12,167 +12,136 @@ The figure shows the expected outcomes and corresponding processing steps - most
 ## Setting up Nipoppy
 Nipoppy is a lightweight framework for standardized data organization and processing of neuroimaging-clinical datasets. Its goal is to help users adopt the [FAIR principles](https://www.go-fair.org/fair-principles/) and improve the reproducibility of studies. 
 
-The ongoing collaboration between the ENIGMA-PD team and Nipoppy team has streamlined data curation, processing, and analysis workflows, which signficantly simplifies tracking of data availability, addition of new pipelines and upgrading of existing pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. 
+The ongoing collaboration between the ENIGMA-PD team and Nipoppy team has streamlined data curation, processing, and analysis workflows, which signficantly simplifies tracking of data availability, addition of new pipelines and upgrading of existing pipelines. The ENIGMA-PD and Nipoppy team is available to support and guide users through the process of implementing the framework, ensuring a smooth transition. To join the Nipoppy support community, we recommend joining their [Discord channel](https://discord.gg/dQGYADCCMB). Here you can ask questions and find answers while working with Nipoppy. 
 
-**Here, primairly we will use Nipoppy to help sites with 1) BIDSification, 2) FreeSurfer7 processing.** Additionally, we are testing out Nipoppy to also help with running 1) Sub-segmentation and 2) FS-QC containers - stay tuned for updates. 
+**Here, primairly we will use Nipoppy to help you with 1) BIDSification, 2) FreeSurfer7 processing, 3) Sub-segmentation and 4) Quality control.** 
 
 For more information, see the [Nipoppy documentation](https://nipoppy.readthedocs.io/en/stable/index.html).
 
 ### Getting started
+To install Nipoppy, we refer to the [Installation page](https://nipoppy.readthedocs.io/en/stable/overview/installation.html). 
 
-To install Nipoppy, we refer to the [Installation page](https://nipoppy.readthedocs.io/en/stable/installation.html). 
-
-Once Nipoppy is successfully installed, you will need to create a Nipoppy dataset and populate it with your data. There are a few different starting points depending on the current state of your dataset. These are detailed below.
-
-Note: in the global config file, you will need to add the path to a FreeSurfer license. You can get a FreeSurfer licence for free at [the FreeSurfer website](https://surfer.nmr.mgh.harvard.edu/registration.html). 
-
-To join the Nipoppy support community, we recommend joining their [Discord channel](https://discord.gg/dQGYADCCMB). Here you can ask questions and find answers while working with Nipoppy.
+Once Nipoppy is successfully installed, you will need to create a Nipoppy dataset and populate it with your data. There are a few different starting points depending on the current state of your dataset. If you have your data already in BIDS format, click [here](#starting-with-bidsified-data). If you have DICOM of NIFTI files that are not yet in BIDS, continue below. If you're not sure what BIDS is or if you're wondering why you should convert your data into BIDS at all, you can find more info [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/BIDS_info.md).
 
 #### Starting from source data (either DICOMs or NIfTIs that are *not yet* in BIDS)
 
-This is the scenario assumed by the Nipoppy [Quickstart page](https://nipoppy.readthedocs.io/en/stable/quickstart.html). Follow this guide to:
+This is the scenario assumed by the Nipoppy [Quickstart page](https://nipoppy.readthedocs.io/en/stable/overview/quickstart.html). Follow this guide to:
 1. Create an empty Nipoppy dataset (i.e. directory tree)
 2. Write a manifest file representing your data
-3. Modify the global config file with paths to e.g., your FreeSurfer license file
+3. Modify the global config file with paths to e.g., path to your container directory
 
 Note: if your dataset is cross-sectional (i.e. only has one session), you still need to create a `session_id` for the manifest. In this case the value would be the same for all participants.
 
-When you reach the end of the Quickstart, it is time to [copy and reorganize](https://nipoppy.readthedocs.io/en/stable/user_guide/organizing_imaging.html) your raw imaging data to prepare them for BIDS conversion. Once this is done, see [the section of BIDSification](#bidsification).
+When you reach the end of the Quickstart, it is time to [copy and reorganize](https://nipoppy.readthedocs.io/en/stable/how_to_guides/user_guide/organizing_imaging.html) your raw imaging data to prepare them for BIDS conversion. Once this is done, you can find how to perform the BIDSification within the Nipoppy framework [here](https://nipoppy.readthedocs.io/en/stable/how_to_guides/user_guide/bids_conversion.html). Whe recommend applying a containerized BIDS-conversion pipeline that can be run within Nipoppy. [Here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Container_platforms.md) you can find how to download containers and [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md) you can find how to run them within Nipoppy.
 
 #### Starting with BIDSified data
 
 If your dataset is already in BIDS, then the manifest-generation step can be skipped by initializing the Nipoppy dataset with this command:
 
 ```
-nipoppy init [dataset_root] --bids-source [path_to_existing_bids_data]
+nipoppy init <dataset_root> --bids-source <path_to_existing_bids_data>
 ```
 
 This command will create a Nipoppy dataset (i.e. directory tree) from preexisting BIDS dataset and automatically generate a manifest file for you! 
 
-Then you will just need to fill in some information in `<dataset_root>/global_config.json` and go straight to [processing data with fMRIPrep/FreeSurfer](#running-freesurfer-7)!
-
-#### Specifying paths in the global config file
-
-Nipoppy encourages the use of a common directory for storing container images, which can be shared across datasets/individuals. This directory can be anywhere on a system, and `<PATH_TO_CONTAINER_STORE_DIRECTORY>` should be replaced by the actual path to that directory.
-- Note: we encourage you to create a symlink from the `<DATASET_ROOT>/containers` directory inside the Nipoppy dataset to the shared container store location, as this would allow anyone looking at the dataset easily find the containers. In that case this substitution entry can be deleted, since by default Nipoppy will use `<DATASET_ROOT>/containers`.
-
-The following paths under the `SUBSTITUTIONS` field should also be replaced:
-- `<PATH_TO_FREESURFER_LICENSE_FILE>` (required to run FreeSurfer)
-- `<PATH_TO_TEMPLATEFLOW_DIRECTORY>` (see below section on Templateflow)
-
-If doing BIDS conversion with Nipoppy, the path to the config file for the relevant BIDS converter should be set as well. Entries for other BIDS converters can be ignored/deleted.
-- `<PATH_TO_HEURISTIC_FILE>` for HeuDiConv
-- `<PATH_TO_CONFIG_FILE>` for `dcm2bids`
-
-#### Clarifications about Templateflow
-
-[Templateflow](https://www.templateflow.org/) is a library of neuroimaging templates (e.g. `MNI152NLin2009cAsym`) used by several popular processing pipelines, including fMRIPrep (which we are using to run FreeSurfer 7) and MRIQC.
-
-By default the templates are stored in `~/.templateflow`, but in general it is a good idea to store them somewhere more central/visible, so that the same templates can be used by different people in a research group. Another reason to specify another path is that the home directory often has limited storage on some servers.
-  - In the Nipoppy global config file, `<PATH_TO_TEMPLATEFLOW_DIRECTORY>` should be replaced by the *path to an empty directory*, possibly in a similar location as (parallel to) the container store directory.
-
-The first time fMRIPrep is run, it will attempt to download templates to the Templateflow directory, which will require the computer to be connected to the internet. If you are running fMRIPRep on a cluster where compute nodes do not have access to the Internet, see [here](https://fmriprep.org/en/24.1.1/faq.html#how-do-you-use-templateflow-in-the-absence-of-access-to-the-internet) and feel free to reach out to us for help.
-
 ##### BIDS datasets without sessions
 If the existing BIDS data does not have session-level folders, Nipoppy will create "dummy sessions" (called `unnamed`) in the manifest. This is because the Nipoppy manifest still requires a non-empty `session_id` value when imaging data is available for a participant.
 
-If it is feasible to redo the BIDSification to include session folders, we recommend doing so since this is considered good practice. Otherwise, Nipoppy can still be run, but you will need to make some manual changes for the [tracking](https://nipoppy.readthedocs.io/en/stable/user_guide/tracking.html) to work properly:
-1. In the fMRIPrep tracker configuration file (`<dataset_root>/pipelines/fmriprep-24.1.1/tracker_config.json`), remove all instances of `[[NIPOPPY_BIDS_SESSION_ID]]` along with leading or trailing `/` and `_` characters
+If it is feasible to redo the BIDSification to include session folders, we recommend doing so since this is considered good practice. Otherwise, Nipoppy can still be run, but you will need to make some manual changes. For more information, see [here](https://nipoppy.readthedocs.io/en/stable/how_to_guides/init/bids.html#bids-data-without-sessions)
 
-The FreeSurfer outputs will use the dummy session name, i.e. the results will be stored in `<dataset_root>/derivatives/freesurfer/7.3.2/output/ses-unnamed`.
+#### Starting from data already processed with FreeSurfer7
 
-#### Starting from data already processed with FS7
-
-We still encourage you to use Nipoppy to organize your source and/or BIDS data with your processed FS7 output to make use of automated trackers and downstream subsegmentation processing. However, you may need to some help depending on your version of FreeSurfer and naming convention of `participant_id`s. Reach out to us on our [Discord channel](https://discord.gg/dQGYADCCMB) and we would be happy to help! 
-
-## Why do BIDSification? 
-Before starting the analysis, organizing your data is essential — it will benefit this analysis and streamline any follow-up ENIGMA-PD work. We know it can be challenging, but we’re here to support you. The Brain Imaging Data Structure (BIDS) format is a standardized format for organizing and labeling neuroimaging data to ensure consistency and make data easily shareable and analyzable across studies. Although we’re focusing on T1-weighted images for this analysis, organizing available diffusion-weighted or functional MRI data in BIDS will make future analyses easier.
-
-Here are the core principles for organizing your neuroimaging data in BIDS format:
-- Use consistent file and folder names
-- Separate modalities
-- Include metadata files
-- Validate the structure
-
-Resources from the BIDS community offer guidance on organizing your data, and BIDS converters can help automate this process, saving time and reducing manual errors. We recommend using Dcm2Bids (for DICOM's) and BIDScoin (for NIfTI's).
-- [BIDS documentation](https://bids-website.readthedocs.io/en/latest/index.html)
-- [Recommended converter; BIDScoin](https://bidscoin.readthedocs.io/en/stable/)
-- [BIDS tutorials](https://www.youtube.com/watch?v=pAv9WuyyF3g&list=PLtJYlrqQ3YK_M4YgkUx6akJqlHF1R7A5g)
-
-[Here](https://nipoppy.readthedocs.io/en/stable/user_guide/bids_conversion.html) you can find how to perform the BIDSification within the Nipoppy framework (recommended).
+We still encourage you to use Nipoppy to organize your source and/or BIDS data with your processed FS7 output to make use of automated trackers and downstream subsegmentation processing. However, you may need to some help depending on your version of FreeSurfer and naming convention of `participant_id`. Reach out to us on our [Discord channel](https://discord.gg/dQGYADCCMB) and we would be happy to help! 
 
 ## Running FreeSurfer 7
-When you reach this point, the hardest part is behind you and we can finally come to the real stuff. We will run FreeSurfer 7 through fMRIPrep using Nipoppy. See [here](https://nipoppy.readthedocs.io/en/stable/user_guide/processing.html) for additional information about running processing pipelines with Nipoppy.
+When you reach this point, the hardest part is behind you and we can finally come to the real stuff. We will run FreeSurfer 7 through fMRIPrep using Nipoppy. See [here](https://nipoppy.readthedocs.io/en/latest/how_to_guides/user_guide/processing.html) for additional information about running processing pipelines with Nipoppy.
 
-The first step of running FS7 is to prepare your work environment with either Apptainer or Docker. We prefer Apptainer/Singularity, which is fully supported by Nipoppy. Docker can be used if you have admin rights to the computer/server you are using, or you work on something other than a Linux system (like a Mac). Using Nipoppy with Docker is possible though will likely require help -- reach out to us on our [Discord channel](https://discord.gg/dQGYADCCMB) and we would be happy to chat!
-
-### Installation
-- [Install Apptainer](https://github.com/apptainer/apptainer/blob/main/INSTALL.md)
-- [Install Docker](https://docs.docker.com/engine/install/)
-
-We will apply the FreeSurfer functionalities that are included in the fMRIPrep pipeline. Once you have succesfully installed Apptainer or Docker, you can pull the fMRIPrep container. How to do this depends on whether you use Docker or Apptainer.
+We will apply the FreeSurfer functionalities that are included in the fMRIPrep pipeline. Once you have succesfully installed Apptainer or Docker (see [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Container_platforms.md)), you can pull the fMRIPrep container. How to do this depends on whether you use Docker or Apptainer.
 
 For Apptainer, run:
 ```
-apptainer build /my_images/fmriprep_<version>.sif \
+apptainer build fmriprep_24.1.1.sif \
                     docker://nipreps/fmriprep:24.1.1
 ```
 For Docker, run:
 ```
 docker pull nipreps/fmriprep:24.1.1
 ```
+Make sure that you have the fMRIPrep container stored in the containers folder that you reference to in your global config file.
+
 For more information on fMRIPrep, see the [fMRIPrep documentation](https://fmriprep.org/en/stable/)
 
 ### Setting up configuration
-Make sure that you have the fMRIPrep container stored in the containers folder that you reference to in your global config file. 
-Next, open the global config file and check whether the correct fMRIPrep version is included under `PROC_PIPELINES`.
+Next, we will need to install the fMRIPrep pipeline within Nipoppy. Read more about this step [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md).
+Once the pipeline is installed, open the global config file and check whether the correct fMRIPrep version is included under `PIPELINE_VARIABLES`.
+The following paths should be replaced here under the correct version of the fMRIPrep pipeline in the global config file:
+- `<FREESURFER_LICENSE_FILE>` (required to run FreeSurfer)
+- `<TEMPLATEFLOW_HOME>` (see [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Templateflow_info.md) for more info on Templateflow)
+You can get a FreeSurfer licence for free at [the FreeSurfer website](https://surfer.nmr.mgh.harvard.edu/registration.html).
 
 ### Run pipeline
 Finally, simply run the following line of code, specifying the path to your dataset root.
 ```
 nipoppy process --pipeline fmriprep --pipeline-version 24.1.1 --dataset <dataset_root>
 ```
-This should initiate the FS7 segmentation of all your T1-weighted images! Note: this will run all the participants and sessions in a loop, which is likely inefficient. You can use the `--participant-id` and/or `-session-id` flag to run only a single participant and/or session.
+This should initiate the FS7 segmentation of your T1-weighted images! 
+
+**Note:** the command above will run all the participants and sessions in a loop, which may be inefficient. If you're using an HPC, you may want to submit a batch job to process all participants/sessions. In this case, you can use the `--participant-id` and/or `-session-id` flag to select a single participant and/or session within an array. Need help with your job script? Please reach out!
 
 ### Track pipeline output
 
-The `nipoppy track` command can help keep track of which participants/sessions have all the expected output files for a given processing pipeline. See [here](https://nipoppy.readthedocs.io/en/stable/user_guide/tracking.html) for more information.
+The `nipoppy track-processing` command can help keep track of which participants/sessions have all the expected output files for a given processing pipeline. See [here](https://nipoppy.readthedocs.io/en/latest/how_to_guides/user_guide/tracking.html) for more information. Running this command will update the `processing_status.tsv` under the `derivatives` folder.
 
-Once processing has completed, you can move on to the subsegmentations.
+### Extract pipeline output
+
+For automatic extraction of the cortical thickness, cortical surface area and subcortical volume into .tsv files, you can use another [Nipoppy pipeline](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md), called fs_stats. The Zenodo ID for this pipeline is 15427856, so you can install it with the following command:
+```
+nipoppy pipeline install --dataset <dataset_root> 15427856
+```
+Remember to define the freesurfer licens file path in your global config file under the newly installed pipeline. Then, you can simply run 
+```
+nipoppy extract --pipeline fs_stats --dataset <dataset_root>
+```
+to get things going. You can find the extracted data under `<dataset_root>/derivatives/freesurfer/7.3.2/idp/`.
+
+Once FS7 processing and extraction has completed, you can move on to the subsegmentations.
 
 ---
 
 ## Running the FreeSurfer subsegmentations
-Note: the subsegmentations pipeline is almost ready to share! We will send an email to the full working group whenever it is ready. The instructions below have already been updated to be able to finetune them.
-
 🎉 **It’s go time!**  
 The **subsegmentations pipeline** is now ready to be run! Since you’ve all just been through fMRIPrep in Nipoppy, this next step will feel familiar as running this pipeline follows a very similar workflow.
 
 **About the pipeline:**
-This pipeline uses existing FreeSurfer 7 functionalities to extract subnuclei volumes from subcortical regions like the *thalamus*, *hippocampus*, *brainstem*, *hypothalamus*, *amygdala*, and *hippocampus*. It requires completed FreeSurfer output (`recon-all`) and integrates the subsegmentation outputs directly into the existing `/mri` and `/stats` directories.
-
-### Getting the Nipoppy pipeline specification files for this pipeline
-
-Read more about this step [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md).
+This pipeline uses existing FreeSurfer 7 functionalities to extract subnuclei volumes from subcortical regions like the *thalamus*, *hippocampus*, *brainstem*, *hypothalamus*, *amygdala*, and *hippocampus*. It requires completed FreeSurfer output (`recon-all`) and integrates the subsegmentation outputs directly into the existing `/mri` and `/stats` directories. Additionally, the pipeline will perform [Sequence Adaptive Multimodal SEGmentation (SAMSEG)](https://surfer.nmr.mgh.harvard.edu/fswiki/Samseg) on T1w images in order to calculate a superior intracranial volume.
 
 ### Pulling the Docker image
 
-You also need to download the container image that will run the subsegmentations. Use the following command to pull the image from Docker Hub:
+You need to download the container image that will run the subsegmentations. Use the following command to pull the image from Docker Hub:
 
 ```bash
-docker pull nichyconsortium/freesurfer_subseg:0.4
+docker pull nichyconsortium/freesurfer_subseg:1.0
 ```
 
 If you are using Apptainer/Singularity instead of Docker, you can get the image like this:
 
 ```bash
-apptainer build freesurfer_subseg_0.4.sif docker://nichyconsortium/freesurfer_subseg:0.4
+apptainer build freesurfer_subseg_1.0.sif docker://nichyconsortium/freesurfer_subseg:1.0
 ```
 
-Make sure the resulting image file is placed in the container directory referenced in your global Nipoppy configuration.
+Make sure the resulting image file is placed in the container directory referenced in your global config file.
+
+### Getting the Nipoppy pipeline specification files for this pipeline
+
+Read more about this step [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md).
+
+**Note:** If you have multiple T1w images per subject per session, the container will throw an error. In this case, you will need to open the invocation file under `<dataset_root>/pipelines/processing/freesurfer_subseg-1.0/` and specify the name of the desired T1w image for SAMSEG in the following way:
+```
+"t1_image_path": "[[NIPOPPY_BIDS_PARTICIPANT_ID]]_[[NIPOPPY_BIDS_SESSION_ID]]_<edit-me>_T1w.nii.gz"
+```
 
 ### Change your global config file
-Open the global config file and add the path to your freesurfer license file under the freesurfer_subseg pipeline:
+Open the global config file and add the path to your freesurfer license file under the freesurfer_subseg pipeline, just like you did for the fMRIPrep pipeline:
 
 ```json
 "PIPELINE_VARIABLES": {
@@ -180,12 +149,12 @@ Open the global config file and add the path to your freesurfer license file und
   "PROCESSING": {
     "fmriprep": {
       "24.1.1": {
-        "FREESURFER_LICENSE_FILE": null,
-        "TEMPLATEFLOW_HOME": null
+        "FREESURFER_LICENSE_FILE": "path/to/license/file/license.txt",
+        "TEMPLATEFLOW_HOME": "path/to/templateflow/"
       }
     },
     "freesurfer_subseg": {
-      "0.4": {
+      "1.0": {
         "FREESURFER_LICENSE_FILE": "path/to/license/file/license.txt"
       }
     }
@@ -202,31 +171,31 @@ Before trying to run the pipeline, confirm that the pipeline is recognized by ru
 To run the subsegmentation pipeline, use the following command:
 
 ```bash
-nipoppy process --pipeline freesurfer_subseg --pipeline-version 0.4 --dataset <dataset_root>
+nipoppy process --pipeline freesurfer_subseg --pipeline-version 1.0 --dataset <dataset_root>
 ```
 
 ### Tracking pipeline output
 
-Use the `nipoppy track` command to check which participants/sessions have complete output:
+Use the `nipoppy track-processing` command to check which participants/sessions have complete output:
 
 ```bash
 nipoppy track-processing --pipeline freesurfer_subseg --dataset <dataset_root>
 ```
 
-This helps you confirm whether the pipeline ran successfully across your dataset.
+This helps you confirm whether the pipeline ran successfully across your dataset (again, check `processing_status.tsv` under the `derivatives` folder).
+
+### Extracting pipeline output
+
+The pipeline for extraction of data from the subsegmentation is under construction. Stay tuned for updates! You can already extract data from the standard FreeSurfer 7 segementation (see [here](#extract-pipeline-output)).
 
 ---
 
 ## Quality Assessment part 1: Running the FS-QC toolbox
-The [FreeSurfer Quality Control (FS-QC) toolbox](https://github.com/Deep-MI/fsqc) takes existing FreeSurfer (or FastSurfer) output and computes a set of quality control metrics. These will be reported in a summary table and/or .html page with screenshots to allow for visual inspection of the segmentations.
-
-### Getting the Nipoppy pipeline specification files for this pipeline
-
-Read more about this step [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md).
+Congratulations, you made it to the quality assessment! For this purpose, we will use FreeSurfer Quality Control (FS-QC) toolbox. The [FS-QC toolbox](https://github.com/Deep-MI/fsqc) takes existing FreeSurfer (or FastSurfer) output and computes a set of quality control metrics. These will be reported in a summary table and/or .html page with screenshots to allow for visual inspection of the segmentations.
 
 ### Pulling the Docker image
 
-You also need to download the container image that will run the freesurfer quality control pipeline. Use the following command to pull the image from Docker Hub:
+You need to download the container image that will run the freesurfer quality control pipeline. Use the following command to pull the image from Docker Hub:
 
 ```bash
 docker pull deepmi/fsqcdocker:2.1.1
@@ -240,27 +209,12 @@ apptainer build fsqc_2.1.1.sif docker://deepmi/fsqcdocker:2.1.1
 
 Make sure the resulting image file is placed in the container directory referenced in your global Nipoppy configuration.
 
-### Change your global config file
-Open the global config file and add the correct freesurfer version under the fsqc pipeline:
+### Getting the Nipoppy pipeline specification files for this pipeline
 
-```json
-"PIPELINE_VARIABLES": {
-  "BIDSIFICATION": {},
-  "PROCESSING": {
-    "fmriprep": {
-      "24.1.1": {
-        "FREESURFER_LICENSE_FILE": null,
-        "TEMPLATEFLOW_HOME": null
-      }
-    },
-    "fsqc": {
-      "2.1.1": {
-        "FREESURFER_VERSION": "7.3.2"
-      }
-    }
-  }
-}
-```
+Read more about this step [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md).
+
+### Change your global config file
+Open the global config file and add the correct freesurfer version (7.3.2) under the fsqc pipeline.
 
 #### Final check
 
@@ -306,7 +260,7 @@ You can find the updated ENIGMA-PD QC instructions for visual inspection [here](
 ## Data sharing
 After completing all of the above steps, you're ready to share your derived data with the ENIGMA-PD core team. Please:
 
-- Review the .csv spreadsheets for completeness, ensuring all participants are included, there are no missing or unexpected data points, and quality assessment scores have been assigned to each ROI and participant.
+- Review the .tsv and Excel spreadsheets for completeness, ensuring all participants are included, there are no missing or unexpected data points, and quality assessment scores have been assigned to each ROI and participant.
 - Confirm whether you are authorized to share the quality check .png files. These will be used, along with your quality assessment scores, to help train automated machine learning models for ENIGMA's quality checking pipelines, to eliminate the need for manual checking in the future.
 
 Once these checks are complete, email enigma-pd@amsterdamumc.nl to receive a personalized and secure link to a SURFdrive folder where you can temporarily upload the .csv files and, if applicable, the QA .png files. If your site has another preferred method for sharing data, please let us know, and we will try to accommodate it. We will then move the files to our central storage on the LONI server hosted by USC.
