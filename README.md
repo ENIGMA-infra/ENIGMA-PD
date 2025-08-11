@@ -186,7 +186,7 @@ This helps you confirm whether the pipeline ran successfully across your dataset
 
 ### Extracting pipeline output
 
-The pipeline for extraction of data from the subsegmentation is under construction. Stay tuned for updates! You can already extract data from the standard FreeSurfer 7 segementation (see [here](#extract-pipeline-output)).
+The pipeline for extraction of data from the subsegmentation is under construction. Stay tuned for updates! You can already extract data from the standard FreeSurfer 7 segementation (see [here](#extract-pipeline-output)) and continue with running the fsqc toolbox as described below.
 
 ---
 
