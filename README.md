@@ -198,13 +198,13 @@ Congratulations, you made it to the quality assessment! For this purpose, we wil
 You need to download the container image that will run the freesurfer quality control pipeline. Use the following command to pull the image from Docker Hub:
 
 ```bash
-docker pull deepmi/fsqcdocker:2.1.3
+docker pull deepmi/fsqcdocker:2.1.1
 ```
 
 If you are using Apptainer/Singularity instead of Docker, you can get the image like this:
 
 ```bash
-apptainer build fsqc_2.1.1.sif docker://deepmi/fsqcdocker:2.1.3
+apptainer build fsqc_2.1.1.sif docker://deepmi/fsqcdocker:2.1.1
 ```
 
 Make sure the resulting image file is placed in the container directory referenced in your global Nipoppy configuration.
@@ -225,7 +225,7 @@ Before trying to run the pipeline, confirm that the pipeline is recognized by ru
 To run the subsegmentation pipeline, use the following command:
 
 ```bash
-nipoppy process --pipeline fsqc --pipeline-version 2.1.3 --dataset <dataset_root>
+nipoppy process --pipeline fsqc --pipeline-version 2.1.1 --dataset <dataset_root>
 ```
 
 ### Expected FS-QC output
