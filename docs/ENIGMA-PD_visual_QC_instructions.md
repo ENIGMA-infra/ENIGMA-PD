@@ -35,7 +35,7 @@ We recommend **not focusing too heavily on the manuals**. Though they do provide
 
 Open the `fsqc-results.html` in your browser. This page shows several different images for each subject of your dataset:
 - Screenshots: For internal quality control of the cortical areas and to inspect the subcortical areas
-- Skullstrip: To confirm if skullstripping was successful, if not, this often results in all regions failing quality control
+- Skullstrip: To confirm whether skullstripping was successful. If skullstripping failed, regions that are not covered by the extracted brain mask (but should have been) and possibly those near the edges of the brain will fail quality control (for example, the cerebellum). 
 - Surfaces: For external quality control of the cortical areas
 - Hypothalamus: For quality control of the hypothalamus subsegmentations
 - Hippocampus: For quality control of the hippocampus and amygdala subsegmentations
