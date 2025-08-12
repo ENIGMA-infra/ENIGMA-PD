@@ -36,10 +36,10 @@ When you reach the end of the Quickstart, it is time to [copy and reorganize](ht
 
 #### Starting with BIDSified data
 
-If your dataset is already in BIDS, then the manifest-generation step can be skipped by initializing the Nipoppy dataset with this command:
+If your dataset is already in BIDS, then the manifest-generation step can be skipped by initializing the Nipoppy dataset with this command, specifying the path to your new dataset and the path to your existing BIDS data:
 
-```
-nipoppy init <dataset_root> --bids-source <path_to_existing_bids_data>
+```bash
+nipoppy init --dataset <dataset_root> --bids-source <path_to_existing_bids_data>
 ```
 
 This command will create a Nipoppy dataset (i.e. directory tree) from preexisting BIDS dataset and automatically generate a manifest file for you! 
@@ -56,37 +56,41 @@ We still encourage you to use Nipoppy to organize your source and/or BIDS data w
 ## Running FreeSurfer 7
 When you reach this point, the hardest part is behind you and we can finally come to the real stuff. We will run FreeSurfer 7 through fMRIPrep using Nipoppy. See [here](https://nipoppy.readthedocs.io/en/latest/how_to_guides/user_guide/processing.html) for additional information about running processing pipelines with Nipoppy.
 
-We will apply the FreeSurfer functionalities that are included in the fMRIPrep pipeline. Once you have succesfully installed Apptainer or Docker (see [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Container_platforms.md)), you can pull the fMRIPrep container. How to do this depends on whether you use Docker or Apptainer.
+We will apply the FreeSurfer functionalities that are included in the fMRIPrep pipeline. We assume here that you have Apptainer installed as your container platform (see [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Container_platforms.md) for more info and how to get it). Now, you can pull the fMRIPrep container in the following way:
 
-For Apptainer, run:
-```
+```bash
 apptainer build fmriprep_24.1.1.sif \
                     docker://nipreps/fmriprep:24.1.1
 ```
-For Docker, run:
-```
-docker pull nipreps/fmriprep:24.1.1
-```
+
 Make sure that you have the fMRIPrep container stored in the containers folder that you reference to in your global config file.
 
 For more information on fMRIPrep, see the [fMRIPrep documentation](https://fmriprep.org/en/stable/)
 
 ### Setting up configuration
-Next, we will need to install the fMRIPrep pipeline within Nipoppy. Read more about this step [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md).
+Next, we will need to install the fMRIPrep pipeline within Nipoppy. You can do this by simply running:
+
+```bash
+nipoppy pipeline install --dataset <dataset_root> 15427833
+```
+
+15427833 is the Zenodo ID for the Nipoppy configuration files for fmriprep 24.1.1. Read more about this step [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md).
+
 Once the pipeline is installed, open the global config file and check whether the correct fMRIPrep version is included under `PIPELINE_VARIABLES`.
 The following paths should be replaced here under the correct version of the fMRIPrep pipeline in the global config file:
-- `<FREESURFER_LICENSE_FILE>` (required to run FreeSurfer)
+- `<FREESURFER_LICENSE_FILE>` (required to run FreeSurfer; you can get a FreeSurfer licence for free at [the FreeSurfer website](https://surfer.nmr.mgh.harvard.edu/registration.html))
 - `<TEMPLATEFLOW_HOME>` (see [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Templateflow_info.md) for more info on Templateflow)
-You can get a FreeSurfer licence for free at [the FreeSurfer website](https://surfer.nmr.mgh.harvard.edu/registration.html).
 
 ### Run pipeline
-Finally, simply run the following line of code, specifying the path to your dataset root.
-```
+Finally, simply run the following line of code:
+```bash
 nipoppy process --pipeline fmriprep --pipeline-version 24.1.1 --dataset <dataset_root>
 ```
 This should initiate the FS7 segmentation of your T1-weighted images! 
 
-**Note:** the command above will run all the participants and sessions in a loop, which may be inefficient. If you're using an HPC, you may want to submit a batch job to process all participants/sessions. In this case, you can use the `--participant-id` and/or `-session-id` flag to select a single participant and/or session within an array. Need help with your job script? Please reach out!
+**Note:** the command above will run all the participants and sessions in a loop, which may be inefficient. If you're using an HPC, you may want to submit a batch job to process all participants/sessions. Nipoppy can help you do this by
+1. Generate a list of "remaining" participants to be processed for your job-subission script: `nipoppy process --pipeline fmriprep --pipeline-version 24.1.1 --dataset <dataset_root> --write-list <path_to_participant_list>`
+2. Automatically submit HPC jobs for you with additional configuration (more info [here](https://nipoppy.readthedocs.io/en/latest/how_to_guides/parallelization/hpc_scheduler.html))
 
 ### Track pipeline output
 
@@ -95,11 +99,11 @@ The `nipoppy track-processing` command can help keep track of which participants
 ### Extract pipeline output
 
 For automatic extraction of the cortical thickness, cortical surface area and subcortical volume into .tsv files, you can use another [Nipoppy pipeline](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md), called fs_stats. The Zenodo ID for this pipeline is 15427856, so you can install it with the following command:
-```
+```bash
 nipoppy pipeline install --dataset <dataset_root> 15427856
 ```
 Remember to define the freesurfer licens file path in your global config file under the newly installed pipeline. Then, you can simply run 
-```
+```bash
 nipoppy extract --pipeline fs_stats --dataset <dataset_root>
 ```
 to get things going. You can find the extracted data under `<dataset_root>/derivatives/freesurfer/7.3.2/idp/`.
@@ -117,13 +121,7 @@ This pipeline uses existing FreeSurfer 7 functionalities to extract subnuclei vo
 
 ### Pulling the Docker image
 
-You need to download the container image that will run the subsegmentations. Use the following command to pull the image from Docker Hub:
-
-```bash
-docker pull nichyconsortium/freesurfer_subseg:1.0
-```
-
-If you are using Apptainer/Singularity instead of Docker, you can get the image like this:
+You need to download the container image that will run the subsegmentations. Use the following Apptainer command to pull the image from Docker Hub:
 
 ```bash
 apptainer build freesurfer_subseg_1.0.sif docker://nichyconsortium/freesurfer_subseg:1.0
@@ -132,6 +130,10 @@ apptainer build freesurfer_subseg_1.0.sif docker://nichyconsortium/freesurfer_su
 Make sure the resulting image file is placed in the container directory referenced in your global config file.
 
 ### Getting the Nipoppy pipeline specification files for this pipeline
+To get the Nipoppy specification files for the subsegmentation container, run:
+```bash
+nipoppy pipeline install --dataset <dataset_root> 15877956
+```
 
 Read more about this step [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md).
 
@@ -198,18 +200,16 @@ Congratulations, you made it to the quality assessment! For this purpose, we wil
 You need to download the container image that will run the freesurfer quality control pipeline. Use the following command to pull the image from Docker Hub:
 
 ```bash
-docker pull deepmi/fsqcdocker:2.1.1
-```
-
-If you are using Apptainer/Singularity instead of Docker, you can get the image like this:
-
-```bash
 apptainer build fsqc_2.1.1.sif docker://deepmi/fsqcdocker:2.1.1
 ```
 
 Make sure the resulting image file is placed in the container directory referenced in your global Nipoppy configuration.
 
 ### Getting the Nipoppy pipeline specification files for this pipeline
+To get the Nipoppy specification files for the FS-QC container, run:
+```bash
+nipoppy pipeline install --dataset <dataset_root> 16810923
+```
 
 Read more about this step [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md).
 
