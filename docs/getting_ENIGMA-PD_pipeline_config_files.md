@@ -29,6 +29,6 @@ Zenodo id: 15877956
 
 ### fsqc
 
-Latest pipeline version: `fsqc-2.1.3`
+Latest pipeline version: `fsqc-2.1.1`
 
 Zenodo id: 
