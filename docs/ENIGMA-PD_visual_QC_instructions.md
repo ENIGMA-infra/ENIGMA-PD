@@ -27,7 +27,7 @@ There are several types of scores to complete during the **cortical** quality co
 Before starting, review the ENIGMA quality control instructions, including common segmentation errors and regions that are more prone to segmentation failure. You can find the ENIGMA manuals, adapted for the PD group below:
 - [ENIGMA-PD Cortical Quality Control Manual](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Cortical_QC_ENIGMA-PD_July25.pdf)
   - [Version of the cortical quiz slides including the answers to the quiz](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Cortical_QC_ENIGMA-PD_July25_quiz_answers.pdf)
-- [ENIGMA-PD Subcortical Quality Control Manual]()
+- [ENIGMA-PD Subcortical Quality Control Manual](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Subcortical_QC_ENIGMA-PD_July25.pdf)
 
 We recommend **not focusing too heavily on the manuals**. Though they do provide some useful examples, hands-on practice is key to learning quality control, and the quality of someone’s visual assessment improves primarily through experience.
 
