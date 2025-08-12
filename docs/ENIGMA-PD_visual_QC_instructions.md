@@ -20,7 +20,9 @@ These templates should be filled in manually. The only changes to be made to the
   **Be conservative when failing**: Use the `"fail"` label only when there are **obvious, serious issues** that would make the regional estimates **unreliable or unusable**.  Small flaws or mild asymmetries are typically not enough to justify a fail. 
 
 #### Types of scores
-There are several types of scores to complete during the **cortical** quality control: an overall score for internal and external QC, and a specific score for each region, assessed separately for the left and right hemispheres. You may optionally add comments or a QC_code (as defined in the second tab of the spreadsheet), but these are not required for the ENIGMA-PD quality assessment. The **subcortical** quality control only requires specific scores for each region, again, assessed separately for the left and right hemisphere. 
+For the **cortical** quality control, you will complete several types of scores: an overall score for internal and external QC, and specific scores for each region, assessed separately for the left and right hemispheres. You may optionally add comments or a QC_code (as defined in the second tab of the spreadsheet), but these are not required for the ENIGMA-PD quality assessment.
+
+For the **subcortical** quality control, you will provide specific scores for each region, again assessed separately for the left and right hemispheres. In addition, there is an overarching column `Overall_subcortical_QC`. This can be set to `fail` when all individual regions fail (please still put `fail` for each column). If `Overall_subcortical_QC` is set to fail, the subject will be excluded from the subcortical analysis.
 
 ### 3. Familiarize yourself with ENIGMA quality control standards
 
