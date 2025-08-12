@@ -5,12 +5,17 @@ You may already have apptainer/singularity installed on your machine. You can tr
 
 ### Installation
 - [Install Apptainer](https://github.com/apptainer/apptainer/blob/main/INSTALL.md)
+- [Install Docker](https://docs.docker.com/engine/install/)
 
 Once you have a container platform installed, you can start building containers in the following way.
 For apptainer, run:
-```
+```bash
 apptainer build <pipeline>_<version>.sif \
                     docker://<repository>/<pipeline>:<version>
+```
+For docker, run:
+```bash
+docker pull <repository>/<pipeline>:<version>
 ```
 
 Nipoppy encourages the use of a common directory for storing container images, which can be shared across datasets/individuals. This directory can be anywhere on a system. 
