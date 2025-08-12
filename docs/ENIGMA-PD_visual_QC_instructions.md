@@ -40,6 +40,8 @@ Open the `fsqc-results.html` in your browser. This page shows several different 
 - Hypothalamus: For quality control of the hypothalamus subsegmentations
 - Hippocampus: For quality control of the hippocampus and amygdala subsegmentations
 
+For a walkthrough of how these look in practice, check out [the FSQC tour](https://github.com/ENIGMA-PD/FS7/blob/main/docs/fsqc_tour_ENIGMA-PD.pdf).
+
 ### 5. Cortical Quality Control
 
 #### Warm-up: dynamically check a few subjects across all regions
