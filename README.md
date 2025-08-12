@@ -232,7 +232,7 @@ nipoppy process --pipeline fsqc --pipeline-version 2.1.1 --dataset <dataset_root
 
 After running the command, you will find all results inside the derivatives folder. The output will include:
 
-- **Several folders** corresponding to the flags used in the command, such as: `screenshots_html`, `surfaces_html`, `skullstrip_html`, `hypothalamus_html`, `hippocampus_html`
+- **Several folders**, most of them corresponding to the flags used in the command, such as: `screenshots`, `surfaces`, `skullstrip`, `hypothalamus`, `hippocampus`, and also, `status`, `metrics`
 
 - **A CSV file** (`fsqc-results.csv`) summarizing quantitative quality control metrics for all subjects.
 
@@ -240,11 +240,16 @@ After running the command, you will find all results inside the derivatives fold
 
 #### Important notes for viewing and copying files:
 
-- We **strongly recommend downloading the entire output folder locally** before opening the HTML files. Opening the HTML on a server or network drive is often slow and may cause images not to load properly.
+##### Locally
+- We **strongly recommend downloading the entire output folder locally** before opening the HTML file. Opening the HTML on a server or network drive is often slow and may cause images not to load properly.
 
 - When copying files, **make sure to include all generated folders** (such as `screenshots`, `surfaces`, etc.) along with the `fsqc-results.html` file. These folders contain the images referenced in the HTML and are essential for proper display.
 
-- When opening the `fsqc-results.html` file locally:  
+##### On the server
+- If you have not experienced such issues before and prefer to work directly on your server, you can instead open the HTML file in your available browser (for example: `firefox fsqc-results.html`).
+
+##### Final check
+- When opening the `fsqc-results.html` file:  
   - Scroll through the subjects to confirm all images load and no data is missing.  
 - Click on any image to zoom in, or right-click and choose “Open in new tab” and inspect details more closely.
 
