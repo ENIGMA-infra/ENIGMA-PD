@@ -200,7 +200,7 @@ Congratulations, you made it to the quality assessment! For this purpose, we wil
 You need to download the container image that will run the freesurfer quality control pipeline. Use the following command to pull the image from Docker Hub:
 
 ```bash
-apptainer build fsqc_2.1.1.sif docker://deepmi/fsqcdocker:2.1.1
+apptainer build fsqc_2.1.4.sif docker://deepmi/fsqcdocker:2.1.4
 ```
 
 Make sure the resulting image file is placed in the container directory referenced in your global Nipoppy configuration.
@@ -208,7 +208,7 @@ Make sure the resulting image file is placed in the container directory referenc
 ### Getting the Nipoppy pipeline specification files for this pipeline
 To get the Nipoppy specification files for the FS-QC container, run:
 ```bash
-nipoppy pipeline install --dataset <dataset_root> 16810923
+nipoppy pipeline install --dataset <dataset_root> 17100133
 ```
 
 Read more about this step [here](https://github.com/ENIGMA-PD/FS7/blob/main/docs/getting_ENIGMA-PD_pipeline_config_files.md).
@@ -225,7 +225,7 @@ Before trying to run the pipeline, confirm that the pipeline is recognized by ru
 To run the subsegmentation pipeline, use the following command:
 
 ```bash
-nipoppy process --pipeline fsqc --pipeline-version 2.1.1 --dataset <dataset_root>
+nipoppy process --pipeline fsqc --pipeline-version 2.1.4 --pipeline-step process --dataset <dataset_root>
 ```
 
 ### Expected FS-QC output
@@ -237,6 +237,13 @@ After running the command, you will find all results inside the derivatives fold
 - **A CSV file** (`fsqc-results.csv`) summarizing quantitative quality control metrics for all subjects.
 
 - **A main HTML summary file** (`fsqc-results.html`) that aggregates all subject screenshots for easy visual inspection.
+
+You can verify that images were created for all subjects by running
+
+```bash
+nipoppy track-processing --pipeline fsqc --pipeline-step process-tracking --dataset <dataset_root>
+```
+and checking `processing_status.tsv` under the `derivatives` folder.
 
 #### Important notes for viewing and copying files:
 
