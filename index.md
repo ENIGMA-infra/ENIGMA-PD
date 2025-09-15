@@ -18,7 +18,7 @@ This site provides information on ENIGMA-PD projects, documentational, and examp
 -   :material-brain:{ .lg .middle } __Resources__
     
 
-    [:octicons-arrow-right-24: Neuroinformatic tools](resources/open_science_toolstack.md)
+    [:octicons-arrow-right-24: Current pipelines](docs/README.md)
 
 -   :material-typewriter:{ .lg .middle } __Projects__
     
