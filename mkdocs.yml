@@ -4,6 +4,7 @@ theme:
 
 features:
   - navigation.indexes
+
 nav:
   - Welcome: index.md
   - Working Group:    
@@ -11,7 +12,7 @@ nav:
     - Sites: wg/e_pd_sites.md
     
   - Ongoing Projects:
-    - Project overview: projects/README.md
+    - Project overview: ../projects/README.md
   
 
 plugins:

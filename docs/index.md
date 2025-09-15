@@ -1,6 +1,6 @@
-# Welcome to the ENIGMA infra documentation
+# Welcome to the ENIGMA PD documentation
 
-This site provides information on ENIGMA-PD projects, documentational, and examples. 
+This site provides information on ENIGMA-PD team, projects, docs.  
 
 <div class="grid cards" markdown>
 
@@ -18,7 +18,7 @@ This site provides information on ENIGMA-PD projects, documentational, and examp
 -   :material-brain:{ .lg .middle } __Resources__
     
 
-    [:octicons-arrow-right-24: Current pipelines](docs/README.md)
+    [:octicons-arrow-right-24: Current pipelines](overview.md)
 
 -   :material-typewriter:{ .lg .middle } __Projects__
     
