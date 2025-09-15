@@ -18,12 +18,12 @@ This site provides information on ENIGMA-PD team, projects, docs.
 -   :material-brain:{ .lg .middle } __Resources__
     
 
-    [:octicons-arrow-right-24: Current pipelines](overview.md)
+    [:octicons-arrow-right-24: Current pipelines](resources/overview.md)
 
 -   :material-typewriter:{ .lg .middle } __Projects__
     
 
-    [:octicons-arrow-right-24: Progress updates](../projects/README.md)
+    [:octicons-arrow-right-24: Progress updates](projects/overview.md)
 
 </div>
 
