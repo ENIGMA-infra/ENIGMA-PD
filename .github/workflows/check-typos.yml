@@ -17,3 +17,6 @@ jobs:
         uses: actions/checkout@v5
       - name: Codespell
         uses: codespell-project/actions-codespell@v2
+
+        with:
+          skip: "*.png,*.jpg,*.jpeg,*.gif,*.svg,*.ico,*.pdf,*.mp4,*.mov,*.avi,*.mkv,*.zip,*.tar,*.gz,*.7z
