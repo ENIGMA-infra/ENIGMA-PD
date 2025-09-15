@@ -1,0 +1,5 @@
+{
+    "timeout": "120s",
+    "retryOn429": true,
+    "retryCount": 5
+}
