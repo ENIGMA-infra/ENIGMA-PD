@@ -8,8 +8,8 @@ This page outlines the recommended approach to visually inspect and rate FreeSur
 ## Step-by-step instructions for visual inspection
 
 ### 1. Download the template spreadsheets
-- Download the [Cortical QC template](https://github.com/ENIGMA-PD/FS7/blob/main/docs/ENIGMA-PD_Cortical_QC_Template.xlsx)
-- Download the [Subcortical QC template](https://github.com/ENIGMA-PD/FS7/blob/main/docs/ENIGMA-PD_Subcortical_QC_Template.xlsx)
+- Download the [Cortical QC template](ENIGMA-PD_Cortical_QC_Template.xlsx)
+- Download the [Subcortical QC template](ENIGMA-PD_Subcortical_QC_Template.xlsx)
 
 These templates should be filled in manually. The only changes to be made to these templates are 1) adding all subjects from your dataset in the first column (you can copy over file names from your nipoppy manifest file), and 2) changing quality control scores from `"pass"` to `"fail"` if needed. The cortical template contains two tabs: the first tab is used to record the visual inspection scores, while the second tab provides additional context on common quality control issues observed in ENIGMA projects.  You do **not** need to review or complete the second tab — it is included to stay consistent with the standard ENIGMA consortium template. The subcortical template consists of one tab, with the selected subcortical areas for visual inspection.
 
@@ -27,9 +27,9 @@ For the **subcortical** quality control, you will provide specific scores for ea
 ### 3. Familiarize yourself with ENIGMA quality control standards
 
 Before starting, review the ENIGMA quality control instructions, including common segmentation errors and regions that are more prone to segmentation failure. You can find the ENIGMA manuals, adapted for the PD group below:
-- [ENIGMA-PD Cortical Quality Control Manual](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Cortical_QC_ENIGMA-PD_July25.pdf)
-  - [Version of the cortical quiz slides including the answers to the quiz](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Cortical_QC_ENIGMA-PD_July25_quiz_answers.pdf)
-- [ENIGMA-PD Subcortical Quality Control Manual](https://github.com/ENIGMA-PD/FS7/blob/main/docs/Subcortical_QC_ENIGMA-PD_July25.pdf)
+- [ENIGMA-PD Cortical Quality Control Manual](Cortical_QC_ENIGMA-PD_July25.pdf)
+  - [Version of the cortical quiz slides including the answers to the quiz](Cortical_QC_ENIGMA-PD_July25_quiz_answers.pdf)
+- [ENIGMA-PD Subcortical Quality Control Manual](Subcortical_QC_ENIGMA-PD_July25.pdf)
 
 We recommend **not focusing too heavily on the manuals**. Though they do provide some useful examples, hands-on practice is key to learning quality control, and the quality of someone’s visual assessment improves primarily through experience.
 
@@ -42,7 +42,7 @@ Open the `fsqc-results.html` in your browser. This page shows several different 
 - Hypothalamus: For quality control of the hypothalamus subsegmentations
 - Hippocampus: For quality control of the hippocampus and amygdala subsegmentations
 
-For a walkthrough of how these look in practice, check out [the FSQC tour](https://github.com/ENIGMA-PD/FS7/blob/main/docs/fsqc_tour_ENIGMA-PD.pdf).
+For a walkthrough of how these look in practice, check out [the FSQC tour](fsqc_tour_ENIGMA-PD.pdf).
 
 ### 5. Cortical Quality Control
 
