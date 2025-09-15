@@ -7,7 +7,7 @@ This site provides information on ENIGMA-PD projects, documentational, and examp
 -   :fontawesome-solid-people-group:{ .lg .middle } __Team__
     
 
-    [:octicons-arrow-right-24: People behind enigma-infra](wg/e_pd_core_team.md)
+    [:octicons-arrow-right-24: People behind enigma-pd](wg/e_pd_core_team.md)
 
 -   :fontawesome-solid-hospital-wide:{ .lg .middle } __Sites__
     
