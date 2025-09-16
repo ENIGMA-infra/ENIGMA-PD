@@ -1,6 +1,8 @@
 site_name: ENIGMA-PD docs
 theme:
   name: material
+  palette:
+    primary: teal
 
 features:
   - navigation.indexes
