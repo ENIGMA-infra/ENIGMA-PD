@@ -21,7 +21,7 @@ For more information, see the [Nipoppy documentation](https://nipoppy.readthedoc
 ### Getting started
 To install Nipoppy, we refer to the [Installation page](https://nipoppy.readthedocs.io/en/stable/overview/installation.html). 
 
-Once Nipoppy is successfully installed, you will need to create a Nipoppy dataset and populate it with your data. There are a few different starting points depending on the current state of your dataset. If you have your data already in BIDS format, click [here](#starting-with-bidsified-data). If you have DICOM of NIFTI files that are not yet in BIDS, continue below. If you're not sure what BIDS is or if you're wondering why you should convert your data into BIDS at all, you can find more info [here](docs/resources/BIDS_info.md).
+Once Nipoppy is successfully installed, you will need to create a Nipoppy dataset and populate it with your data. There are a few different starting points depending on the current state of your dataset. If you have your data already in BIDS format, click [here](#starting-with-bidsified-data). If you have DICOM of NIFTI files that are not yet in BIDS, continue below. If you're not sure what BIDS is or if you're wondering why you should convert your data into BIDS at all, you can find more info [here](../docs/resources/BIDS_info.md).
 
 #### Starting from source data (either DICOMs or NIfTIs that are *not yet* in BIDS)
 
@@ -32,7 +32,7 @@ This is the scenario assumed by the Nipoppy [Quickstart page](https://nipoppy.re
 
 Note: if your dataset is cross-sectional (i.e. only has one session), you still need to create a `session_id` for the manifest. In this case the value would be the same for all participants.
 
-When you reach the end of the Quickstart, it is time to [copy and reorganize](https://nipoppy.readthedocs.io/en/stable/how_to_guides/user_guide/organizing_imaging.html) your raw imaging data to prepare them for BIDS conversion. Once this is done, you can find how to perform the BIDSification within the Nipoppy framework [here](https://nipoppy.readthedocs.io/en/stable/how_to_guides/user_guide/bids_conversion.html). We recommend applying a containerized BIDS-conversion pipeline that can be run within Nipoppy. [Here](docs/resources/Container_platforms.md) you can find how to download containers and [here](docs/resources/getting_ENIGMA-PD_pipeline_config_files.md) you can find how to run them within Nipoppy.
+When you reach the end of the Quickstart, it is time to [copy and reorganize](https://nipoppy.readthedocs.io/en/stable/how_to_guides/user_guide/organizing_imaging.html) your raw imaging data to prepare them for BIDS conversion. Once this is done, you can find how to perform the BIDSification within the Nipoppy framework [here](https://nipoppy.readthedocs.io/en/stable/how_to_guides/user_guide/bids_conversion.html). We recommend applying a containerized BIDS-conversion pipeline that can be run within Nipoppy. [Here](../docs/resources/Container_platforms.md) you can find how to download containers and [here](../docs/resources/getting_ENIGMA-PD_pipeline_config_files.md) you can find how to run them within Nipoppy.
 
 #### Starting with BIDSified data
 
@@ -56,7 +56,7 @@ We still encourage you to use Nipoppy to organize your source and/or BIDS data w
 ## Running FreeSurfer 7
 When you reach this point, the hardest part is behind you and we can finally come to the real stuff. We will run FreeSurfer 7 through fMRIPrep using Nipoppy. See [here](https://nipoppy.readthedocs.io/en/latest/how_to_guides/user_guide/processing.html) for additional information about running processing pipelines with Nipoppy.
 
-We will apply the FreeSurfer functionalities that are included in the fMRIPrep pipeline. We assume here that you have Apptainer installed as your container platform (see [here](docs/resources/Container_platforms.md) for more info and how to get it). Now, you can pull the fMRIPrep container in the following way:
+We will apply the FreeSurfer functionalities that are included in the fMRIPrep pipeline. We assume here that you have Apptainer installed as your container platform (see [here](../docs/resources/Container_platforms.md) for more info and how to get it). Now, you can pull the fMRIPrep container in the following way:
 
 ```bash
 apptainer build fmriprep_24.1.1.sif \
@@ -74,12 +74,12 @@ Next, we will need to install the fMRIPrep pipeline within Nipoppy. You can do t
 nipoppy pipeline install --dataset <dataset_root> 15427833
 ```
 
-15427833 is the Zenodo ID for the Nipoppy configuration files for fmriprep 24.1.1. Read more about this step [here](docs/resources/getting_ENIGMA-PD_pipeline_config_files.md).
+15427833 is the Zenodo ID for the Nipoppy configuration files for fmriprep 24.1.1. Read more about this step [here](../docs/resources/getting_ENIGMA-PD_pipeline_config_files.md).
 
 Once the pipeline is installed, open the global config file and check whether the correct fMRIPrep version is included under `PIPELINE_VARIABLES`.
 The following paths should be replaced here under the correct version of the fMRIPrep pipeline in the global config file:
 - `<FREESURFER_LICENSE_FILE>` (required to run FreeSurfer; you can get a FreeSurfer licence for free at [the FreeSurfer website](https://surfer.nmr.mgh.harvard.edu/registration.html))
-- `<TEMPLATEFLOW_HOME>` (see [here](docs/resources/Templateflow_info.md) for more info on Templateflow)
+- `<TEMPLATEFLOW_HOME>` (see [here](../docs/resources/Templateflow_info.md) for more info on Templateflow)
 
 ### Run pipeline
 Finally, simply run the following line of code:
@@ -98,7 +98,7 @@ The `nipoppy track-processing` command can help keep track of which participants
 
 ### Extract pipeline output
 
-For automatic extraction of the cortical thickness, cortical surface area and subcortical volume into .tsv files, you can use another [Nipoppy pipeline](docs/resources/getting_ENIGMA-PD_pipeline_config_files.md), called fs_stats. The Zenodo ID for this pipeline is 15427856, so you can install it with the following command:
+For automatic extraction of the cortical thickness, cortical surface area and subcortical volume into .tsv files, you can use another [Nipoppy pipeline](../docs/resources/getting_ENIGMA-PD_pipeline_config_files.md), called fs_stats. The Zenodo ID for this pipeline is 15427856, so you can install it with the following command:
 ```bash
 nipoppy pipeline install --dataset <dataset_root> 15427856
 ```
@@ -135,7 +135,7 @@ To get the Nipoppy specification files for the subsegmentation container, run:
 nipoppy pipeline install --dataset <dataset_root> 15877956
 ```
 
-Read more about this step [here](docs/resources/getting_ENIGMA-PD_pipeline_config_files.md).
+Read more about this step [here](../docs/resources/getting_ENIGMA-PD_pipeline_config_files.md).
 
 **Note:** If you have multiple T1w images per subject per session, the container will throw an error. In this case, you will need to open the invocation file under `<dataset_root>/pipelines/processing/freesurfer_subseg-1.0/` and specify the name of the desired T1w image for SAMSEG in the following way:
 ```
@@ -211,7 +211,7 @@ To get the Nipoppy specification files for the FS-QC container, run:
 nipoppy pipeline install --dataset <dataset_root> 17100133
 ```
 
-Read more about this step [here](docs/resources/getting_ENIGMA-PD_pipeline_config_files.md).
+Read more about this step [here](../docs/resources/getting_ENIGMA-PD_pipeline_config_files.md).
 
 ### Change your global config file
 Open the global config file and add the correct freesurfer version (7.3.2) under the fsqc pipeline.
@@ -265,7 +265,7 @@ and checking `processing_status.tsv` under the `derivatives` folder.
 ## Quality Assessment part 2: Performing a visual quality assessment
 Quality checking is essential to make sure the output that you have produced is accurate and reliable. Even small errors or artifacts in images can lead to big mistakes in analysis and interpretation, so careful checks help us to verify whether we can savely include a certain region of interest or participant in our analysis. For the FreeSurfer output, we will follow standardized ENIGMA instructions on how to decide on the quality of the cortical and subcortical segmentations. **At this stage, visual quality assessment of the subsegmentations (e.g., thalamic or hippocampal nuclei) is not required, as there are no established protocols yet and the process would be highly time-consuming; statistical checks (e.g., outlier detection) can be used instead. This may be followed up at a later stage, once there is a project that specifically focuses on these outcomes and the necessary anatomical expertise is available to develop a dedicated quality control manual.**
 
-You can find the updated ENIGMA-PD QC instructions for visual inspection [here](docs/resources/ENIGMA-PD_visual_QC_instructions.md).
+You can find the updated ENIGMA-PD QC instructions for visual inspection [here](../docs/resources/ENIGMA-PD_visual_QC_instructions.md).
 
 ---
 
