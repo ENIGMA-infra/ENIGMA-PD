@@ -31,7 +31,8 @@ nav:
     - PySustain: completed_projects/py-sustain.md
     - Connectomics: completed_projects/connectomics.md
 
-  - Resources: resources/overview.md
+  - Resources: 
+    - Overview: resources/overview.md
     - ENIGMA-PD preregistrations: resources/preregistrations.md
     
   
