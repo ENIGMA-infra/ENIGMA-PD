@@ -8,10 +8,13 @@ features:
 nav:
   - Welcome: index.md
   - Working Group:    
-    - Core team: wg/e_pd_core_team.md
-    - Sites: wg/e_pd_sites.md
+    - Core team: working_group/core_team.md
+    - Sites: working_group/sites.md
+    - Information for new sites: working_group/new_sites.md
     
   - Ongoing Projects: projects/overview.md
+
+  - Completed Projects: 
 
   - Resources: resources/overview.md
     
