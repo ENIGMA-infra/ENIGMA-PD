@@ -1,8 +1,11 @@
 site_name: ENIGMA-PD docs
 theme:
   name: material
+  logo: docs/logos/enigma_300DPI_small.png
+  favicon: docs/logos/enigma_300DPI_small.png
   palette:
     primary: teal
+  
 
 features:
   - navigation.indexes
