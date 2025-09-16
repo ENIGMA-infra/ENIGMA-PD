@@ -7,16 +7,32 @@ features:
 
 nav:
   - Welcome: index.md
-  - Working Group:    
+  - About ENIGMA-PD:    
     - Core team: working_group/core_team.md
     - Sites: working_group/sites.md
     - Information for new sites: working_group/new_sites.md
     
-  - Ongoing Projects: projects/overview.md
+  - Ongoing Projects: 
+    - Overview: ongoing_projects/overview.md
+    - FreeSurfer 7: ongoing_projects/freesurfer7.md
+    - Cognitive reserve: ongoing_projects/cognitive_reserve.md
+    - White matter lesions: ongoing_projects/wml.md
+    - Spinal Cord: ongoing_projects/spinal_cord.md
+    - Imaging Genetics: ongoing_projects/imaging_genetics.md
+    - Multiple Symptom Progression Modelling: ongoing_projects/mspm.md
+    - Neuropsychiatry: ongoing_projects/neuropsych.md
+    - Normative modelling (fMRI): ongoing_projects/normative_modelling.md
 
   - Completed Projects: 
+    - Overview: completed_projects/overview.md
+    - Cortical-Subcortical: completed_projects/cort_sub.md
+    - Subcortical shape: completed_projects/shape.md
+    - Diffusion (TBSS): completed_projects/tbss.md
+    - PySustain: completed_projects/py-sustain.md
+    - Connectomics: completed_projects/connectomics.md
 
   - Resources: resources/overview.md
+    - ENIGMA-PD preregistrations: resources/preregistrations.md
     
   
 
