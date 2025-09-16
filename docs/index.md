@@ -7,12 +7,12 @@ This site provides information on ENIGMA-PD team, projects, docs.
 -   :fontawesome-solid-people-group:{ .lg .middle } __Team__
     
 
-    [:octicons-arrow-right-24: People behind enigma-pd](core_team.md)
+    [:octicons-arrow-right-24: People behind enigma-pd](working_group/core_team.md)
 
 -   :fontawesome-solid-hospital-wide:{ .lg .middle } __Sites__
     
 
-    [:octicons-arrow-right-24: Global study populations](sites.md)
+    [:octicons-arrow-right-24: Global study populations](working_group/sites.md)
 
 
 -   :material-brain:{ .lg .middle } __Resources__
