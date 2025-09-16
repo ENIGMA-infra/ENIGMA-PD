@@ -1,6 +1,6 @@
-# Welcome to the ENIGMA PD documentation
+# Welcome to the ENIGMA-PD documentation page!
 
-This site provides information on ENIGMA-PD team, projects, docs.  
+This site provides information on the ENIGMA-PD team, ongoing and completed projects, and useful resources.  
 
 <div class="grid cards" markdown>
 
