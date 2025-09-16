@@ -1,3 +1,23 @@
-# This is a space for showcasing projects! 
+# ENIGMA-PD ongoing projects showcase
 
-List ongoing / past projects in your working group. Ideally with a descriptive blurb and details of project leads.
+
+<div class="grid cards" markdown>
+
+-   :octicons-arrow-right-24: [__Update to FreeSurfer 7__](ongoing_projects/freesurfer7.md)
+
+-   :octicons-arrow-right-24: [__Cognitive reserve (fMRI)__](ongoing_projects/cognitive_reserve.md)
+
+-   :octicons-arrow-right-24: [__White Matter Lesions__](wml.md)
+
+-   :octicons-arrow-right-24: [__Multiple Symptom Progression Modelling__](mspm.md)
+
+-   :octicons-arrow-right-24: [__Neuropsychiatry__](neuropsych.md)
+
+-   :octicons-arrow-right-24: [__Spinal Cord Morphometry__](spinal_cord.md)
+
+-   :octicons-arrow-right-24: [__Imaging-Genetics__](imaging_genetics.md)
+
+-   :octicons-arrow-right-24: [__Normative Modelling (fMRI)__](normative_modelling.md)
+
+
+</div>
