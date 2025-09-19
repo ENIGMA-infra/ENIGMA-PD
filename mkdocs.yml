@@ -18,23 +18,23 @@ nav:
     - Information for new sites: working_group/new_sites.md
     
   - Ongoing Projects: 
-    - Overview: ongoing_projects/overview.md
-    - FreeSurfer 7: ongoing_projects/freesurfer7.md
-    - Cognitive reserve: ongoing_projects/cognitive_reserve.md
-    - White matter lesions: ongoing_projects/wml.md
-    - Multiple Symptom Progression Modelling: ongoing_projects/mspm.md
-    - Neuropsychiatry: ongoing_projects/neuropsych.md
-    - Spinal Cord: ongoing_projects/spinal_cord.md
-    - Imaging Genetics: ongoing_projects/imaging_genetics.md
-    - Normative modelling (fMRI): ongoing_projects/normative_modelling.md
+    - Overview: projects/ongoing/overview.md
+    - FreeSurfer 7: projects/ongoing/freesurfer7.md
+    - Cognitive reserve: projects/ongoing/cognitive_reserve.md
+    - White matter lesions: projects/ongoing/wml.md
+    - Multiple Symptom Progression Modelling: projects/ongoing/mspm.md
+    - Neuropsychiatry: projects/ongoing/neuropsych.md
+    - Spinal Cord: projects/ongoing/spinal_cord.md
+    - Imaging Genetics: projects/ongoing/imaging_genetics.md
+    - Normative modelling (fMRI): projects/ongoing/normative_modelling.md
 
   - Completed Projects: 
-    - Overview: completed_projects/overview.md
-    - Cortical-Subcortical: completed_projects/cort_sub.md
-    - Subcortical shape: completed_projects/shape.md
-    - Diffusion (TBSS): completed_projects/tbss.md
-    - PySustain: completed_projects/py-sustain.md
-    - Connectomics: completed_projects/connectomics.md
+    - Overview: projects/completed/overview.md
+    - Cortical-Subcortical: projects/completed/cort_sub.md
+    - Subcortical shape: projects/completed/shape.md
+    - Diffusion (TBSS): projects/completed/tbss.md
+    - PySustain: projects/completed/py-sustain.md
+    - Connectomics: projects/completed/connectomics.md
 
   - Resources: 
     - Overview: resources/overview.md
