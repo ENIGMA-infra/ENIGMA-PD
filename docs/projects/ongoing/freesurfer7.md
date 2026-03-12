@@ -104,7 +104,7 @@ nipoppy pipeline install --dataset <dataset_root> 15427856
 ```
 Remember to define the freesurfer licens file path in your global config file under the newly installed pipeline. Then, you can simply run 
 ```bash
-nipoppy extract --pipeline fs_stats --dataset <dataset_root>
+nipoppy extract --pipeline fs_stats --pipeline-version 0.2.1 --dataset <dataset_root>
 ```
 to get things going. You can find the extracted data under `<dataset_root>/derivatives/freesurfer/7.3.2/idp/`.
 
