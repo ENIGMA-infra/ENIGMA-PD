@@ -41,7 +41,7 @@ Quality control output (2 spreadsheet, optionally .png files)
 ### Clinical and Demographic Data
 - 1 spreadsheet containing clinical and demographic variables for all participants
 
-- 1 data dictionary created using Neurobagel
+- 1 data dictionary created [using Neurobagel](/neurobagel.md)
 
 ## Data sharing protocols
 
