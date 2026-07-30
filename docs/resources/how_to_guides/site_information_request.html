@@ -718,7 +718,7 @@
           <span class="tag">Siemens</span><em>Siemens Prisma</em>
           <span class="tag">Philips</span><em>Philips Achieva</em>
         </div>
-        <input type="text" id="p_manufacturer" name="p_manufacturer_model" required>
+        <input type="text" id="p_manufacturer" name="q16_manufacturer_model" required>
         <p class="error-msg">Please fill in the scanner manufacturer and model.</p>
       </div>
 
@@ -726,7 +726,7 @@
         <label for="p_field_strength"><span class="qnum">Q17</span> Field strength</label>
         <div class="example"><span class="tag">Example</span><em>3 Tesla (3T)</em></div>
         <div class="unit-input">
-          <input type="text" id="p_field_strength" name="p_field_strength" required>
+          <input type="text" id="p_field_strength" name="q17_field_strength" required>
           <span class="unit-suffix">Tesla</span>
         </div>
         <p class="error-msg">Please fill in the field strength.</p>
@@ -735,7 +735,7 @@
       <div class="field">
         <label for="p_head_coil"><span class="qnum">Q18</span> Head coil (type and channel count) <span class="optional-tag">optional</span></label>
         <div class="example"><span class="tag">Example</span><em>32-channel head coil</em></div>
-        <input type="text" id="p_head_coil" name="p_head_coil">
+        <input type="text" id="p_head_coil" name="q18_head_coil">
       </div>
 
       <h3 class="group-heading">Sequence</h3>
@@ -743,7 +743,7 @@
       <div class="field">
         <label for="p_sequence_name"><span class="qnum">Q19</span> Sequence name</label>
         <div class="example"><span class="tag">Example</span><em>MPRAGE, MDEFT, FLASH, SPGR, FSPGR, TFE</em></div>
-        <input type="text" id="p_sequence_name" name="p_sequence_name" required>
+        <input type="text" id="p_sequence_name" name="q19_sequence_name" required>
         <p class="error-msg">Please fill in the sequence name.</p>
       </div>
 
@@ -755,7 +755,7 @@
             <span class="tag">Philips</span><em>7.46</em>
           </div>
           <div class="unit-input">
-            <input type="text" id="p_tr" name="p_tr" required>
+            <input type="text" id="p_tr" name="q20_tr" required>
             <span class="unit-suffix">ms</span>
           </div>
           <p class="error-msg">Please fill in TR.</p>
@@ -767,7 +767,7 @@
             <span class="tag">Philips</span><em>3.49</em>
           </div>
           <div class="unit-input">
-            <input type="text" id="p_te" name="p_te" required>
+            <input type="text" id="p_te" name="q21_te" required>
             <span class="unit-suffix">ms</span>
           </div>
           <p class="error-msg">Please fill in TE.</p>
@@ -782,7 +782,7 @@
             <span class="tag">Philips</span><em>1100</em>
           </div>
           <div class="unit-input">
-            <input type="text" id="p_ti" name="p_ti">
+            <input type="text" id="p_ti" name="q22_ti">
             <span class="unit-suffix">ms</span>
           </div>
         </div>
@@ -793,7 +793,7 @@
             <span class="tag">Philips</span><em>8</em>
           </div>
           <div class="unit-input">
-            <input type="text" id="p_flip_angle" name="p_flip_angle" required style="padding-right:70px;">
+            <input type="text" id="p_flip_angle" name="q23_flip_angle" required style="padding-right:70px;">
             <span class="unit-suffix">degrees</span>
           </div>
           <p class="error-msg">Please fill in the flip angle.</p>
@@ -804,9 +804,9 @@
 
       <div class="field">
         <label><span class="qnum">Q24</span> Voxel size / spatial resolution</label>
-        <div class="radio-col" data-name="p_voxel_size_choice" role="radiogroup">
-          <label class="radio-option"><input type="radio" name="p_voxel_size_choice" value="1 x 1 x 1 mm isotropic" required> 1 x 1 x 1 mm isotropic</label>
-          <label class="radio-option"><input type="radio" name="p_voxel_size_choice" value="Other"> Other</label>
+        <div class="radio-col" data-name="q24_voxel_size_choice" role="radiogroup">
+          <label class="radio-option"><input type="radio" name="q24_voxel_size_choice" value="1 x 1 x 1 mm isotropic" required> 1 x 1 x 1 mm isotropic</label>
+          <label class="radio-option"><input type="radio" name="q24_voxel_size_choice" value="Other"> Other</label>
         </div>
         <p class="error-msg">Please select an answer.</p>
         <div class="subfield" id="p-voxel-other-block" hidden>
@@ -814,7 +814,7 @@
             <label for="p_voxel_size_other">Please specify</label>
             <div class="example"><span class="tag">Example</span><em>1 x 1 x 1.2</em></div>
             <div class="unit-input">
-              <input type="text" id="p_voxel_size_other" name="p_voxel_size_other">
+              <input type="text" id="p_voxel_size_other" name="q24_voxel_size_other">
               <span class="unit-suffix">mm</span>
             </div>
           </div>
@@ -826,14 +826,14 @@
           <label for="p_fov"><span class="qnum">Q25</span> Field of view (FOV) <span class="optional-tag">optional</span></label>
           <div class="example"><span class="tag">Example</span><em>256 x 256</em></div>
           <div class="unit-input">
-            <input type="text" id="p_fov" name="p_fov">
+            <input type="text" id="p_fov" name="q25_fov">
             <span class="unit-suffix">mm</span>
           </div>
         </div>
         <div class="field">
           <label for="p_matrix"><span class="qnum">Q26</span> Acquisition matrix</label>
           <div class="example"><span class="tag">Example</span><em>256 x 256</em></div>
-          <input type="text" id="p_matrix" name="p_acquisition_matrix" required>
+          <input type="text" id="p_matrix" name="q26_acquisition_matrix" required>
           <p class="error-msg">Please fill in the acquisition matrix.</p>
         </div>
       </div>
@@ -843,21 +843,21 @@
           <label for="p_slices"><span class="qnum">Q27</span> Number of slices <span class="optional-tag">optional</span></label>
           <div class="example"><span class="tag">Example</span><em>176</em></div>
           <div class="unit-input">
-            <input type="text" id="p_slices" name="p_num_slices">
+            <input type="text" id="p_slices" name="q27_num_slices">
             <span class="unit-suffix">slices</span>
           </div>
         </div>
         <div class="field">
           <label for="p_orientation"><span class="qnum">Q28</span> Slice orientation <span class="optional-tag">optional</span></label>
           <div class="example"><span class="tag">Example</span><em>Sagittal</em></div>
-          <input type="text" id="p_orientation" name="p_slice_orientation">
+          <input type="text" id="p_orientation" name="q28_slice_orientation">
         </div>
       </div>
 
       <div class="two-up">
         <div class="field">
           <label for="p_2d3d"><span class="qnum">Q29</span> 2D or 3D acquisition</label>
-          <select id="p_2d3d" name="p_2d_or_3d" required>
+          <select id="p_2d3d" name="q29_2d_or_3d" required>
             <option value="" disabled selected>Select an answer&hellip;</option>
             <option value="2D">2D</option>
             <option value="3D">3D</option>
@@ -891,12 +891,12 @@
           <span class="tag">Siemens</span><em>syngo MR E11</em>
           <span class="tag">Philips</span><em>Release 5.1.7</em>
         </div>
-        <input type="text" id="p_software" name="p_software_version">
+        <input type="text" id="p_software" name="q31_software_version">
       </div>
 
       <div class="field">
         <label for="p_extra"><span class="qnum">Q32</span> Anything else about the acquisition you think is relevant <span class="optional-tag">optional</span></label>
-        <textarea id="p_extra" name="p_acquisition_notes"></textarea>
+        <textarea id="p_extra" name="q32_acquisition_notes"></textarea>
       </div>
 
     </section>
@@ -1037,11 +1037,11 @@ function updateQ13bVisibility(){
 q13aRadios.forEach(r => r.addEventListener('change', updateQ13bVisibility));
 
 // ---- Voxel size: "Other" conditional ----
-const voxelRadios = document.querySelectorAll('input[name="p_voxel_size_choice"]');
+const voxelRadios = document.querySelectorAll('input[name="q24_voxel_size_choice"]');
 const voxelOtherBlock = document.getElementById('p-voxel-other-block');
 const voxelOtherInput = document.getElementById('p_voxel_size_other');
 function updateVoxelVisibility(){
-  const val = document.querySelector('input[name="p_voxel_size_choice"]:checked')?.value;
+  const val = document.querySelector('input[name="q24_voxel_size_choice"]:checked')?.value;
   const show = val === 'Other';
   voxelOtherBlock.hidden = !show;
   if(!show) voxelOtherInput.value = '';
@@ -1125,9 +1125,9 @@ form.addEventListener('submit', async (e) => {
   const acqMin = document.getElementById('p_acq_time_min').value.trim();
   const acqSec = document.getElementById('p_acq_time_sec').value.trim();
   if(acqMin || acqSec){
-    data['p_acquisition_time'] = `${acqMin || '0'} min ${acqSec || '0'} sec`;
+    data['q30_acquisition_time'] = `${acqMin || '0'} min ${acqSec || '0'} sec`;
   } else {
-    data['p_acquisition_time'] = '';
+    data['q30_acquisition_time'] = '';
   }
 
   submitBtn.disabled = true;
