@@ -332,6 +332,7 @@
     gap:16px;
   }
   .three-up input{width:100%;}
+  .two-up > .field[hidden] + .field{grid-column:1 / -1;}
   @media (max-width:560px){
     .two-up{grid-template-columns:1fr;}
     .three-up{grid-template-columns:1fr;}
@@ -862,8 +863,9 @@
       </div>
 
       <div class="two-up">
-        <div class="field">
+        <div class="field" id="q28-slices-field">
           <label for="p_slices"><span class="qnum">Q28</span> Number of slices <span class="optional-tag">optional</span></label>
+          <p class="help">Only needed for 2D acquisitions. For 3D, this is already given by the third dimension of the acquisition matrix.</p>
           <div class="example"><span class="tag">Example</span><em>176</em></div>
           <div class="unit-input">
             <input type="text" id="p_slices" name="q28_num_slices">
@@ -1067,6 +1069,8 @@ const fovZWrap = document.getElementById('q27-fov-z-wrap');
 const fovZInput = document.getElementById('q27_fov_z');
 const q26Example = document.querySelector('#q26-example em');
 const q27Example = document.querySelector('#q27-example em');
+const slicesField = document.getElementById('q28-slices-field');
+const slicesInput = document.getElementById('p_slices');
 
 function updateDimensionDependentFields(){
   const is3D = dim2d3dSelect.value === '3D';
@@ -1080,6 +1084,9 @@ function updateDimensionDependentFields(){
 
   q26Example.textContent = is3D ? '256 x 256 x 192' : '256 x 256';
   q27Example.textContent = is3D ? '256 x 256 x 192' : '256 x 256';
+
+  slicesField.hidden = is3D;
+  if(is3D) slicesInput.value = '';
 }
 dim2d3dSelect.addEventListener('change', updateDimensionDependentFields);
 
