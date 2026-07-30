@@ -469,104 +469,128 @@
       </div>
 
       <div class="field">
-        <label for="q2a"><span class="qnum">Q2a</span> <strong>Cohort</strong> name</label>
+        <label for="q2"><span class="qnum">Q2</span> <strong>Cohort</strong> name</label>
         <p class="help">As you would like us to refer to your cohort in our manuscripts. This is usually the study name as it is known locally, which helps readers recognize and find this cohort's other publications.</p>
         <div class="example"><span class="tag">Example</span><em>Cogtips</em></div>
-        <input type="text" id="q2a" name="q2a_cohort_name" required>
+        <input type="text" id="q2" name="q2_cohort_name" required>
         <p class="error-msg">Please fill in your cohort name.</p>
       </div>
 
       <div class="field">
-        <label for="q2b"><span class="qnum">Q2b</span> Cohort citation <span class="optional-tag">optional</span></label>
+        <label for="q3"><span class="qnum">Q3</span> Cohort citation <span class="optional-tag">optional</span></label>
         <p class="help">Optional: please provide one citation for this cohort.</p>
         <div class="example"><span class="tag">Example</span><em>van Balkom, T. D., Berendse, H. W., van der Werf, Y. D., et al. (2019). COGTIPS: A double-blind randomized active controlled trial protocol to study the effect of home-based, online cognitive training on cognition and brain networks in Parkinson's disease. <i>BMC Neurology</i>, <i>19</i>, Article 179. https://doi.org/10.1186/s12883-019-1403-6</em></div>
-        <textarea id="q2b" name="q2b_citation"></textarea>
+        <textarea id="q3" name="q3_citation"></textarea>
       </div>
 
       <div class="field">
-        <label><span class="qnum">Q3</span> Diagnostic criteria</label>
-        <p class="help">Diagnostic criteria used for PD diagnosis.</p>
-        <div class="radio-col" data-name="q3_diagnostic_criteria" role="radiogroup">
-          <label class="radio-option"><input type="radio" name="q3_diagnostic_criteria" value="UK Brain Bank Criteria (UKBB, 1988)" required> UK Brain Bank Criteria (UKBB, 1988)</label>
-          <label class="radio-option"><input type="radio" name="q3_diagnostic_criteria" value="MDS Clinical Diagnostic Criteria (2015)"> MDS Clinical Diagnostic Criteria (2015)</label>
-          <label class="radio-option"><input type="radio" name="q3_diagnostic_criteria" value="Queen Square Brain Bank Criteria (QSBB)"> Queen Square Brain Bank Criteria (QSBB)</label>
-          <label class="radio-option"><input type="radio" name="q3_diagnostic_criteria" value="Gelb Criteria (1999)"> Gelb Criteria (1999)</label>
-          <label class="radio-option"><input type="radio" name="q3_diagnostic_criteria" value="No formal criteria, clinical diagnosis only"> No formal criteria, clinical diagnosis only</label>
-          <label class="radio-option"><input type="radio" name="q3_diagnostic_criteria" value="Other"> Other</label>
+        <label><span class="qnum">Q4</span> Estimated time window of data collection</label>
+        <p class="help">Please indicate whether you can provide exact visit dates per subject, or only an approximate window for the whole cohort.</p>
+        <div class="radio-col" data-name="q4_time_window_type" role="radiogroup">
+          <label class="radio-option"><input type="radio" name="q4_time_window_type" value="Exact dates provided" required> I have provided exact visit dates for all my participants in the shared clinical data spreadsheet</label>
+          <label class="radio-option"><input type="radio" name="q4_time_window_type" value="Approximate dates"> I will provide an approximate start and finish date of the data collection here</label>
         </div>
         <p class="error-msg">Please select an answer.</p>
-        <div class="subfield" id="q3-other-block" hidden>
-          <div class="field">
-            <label for="q3_other">Please specify</label>
-            <input type="text" id="q3_other" name="q3_other_specify">
+        <div class="subfield" id="q4-approx-block" hidden>
+          <div class="two-up">
+            <div class="field">
+              <label for="q4_start" style="font-size:0.88rem; font-weight:500; margin-bottom:6px; display:block;">Approximate start (month and year)</label>
+              <div class="example"><span class="tag">Example</span><em>September 2017</em></div>
+              <input type="text" id="q4_start" name="q4_start_month_year">
+            </div>
+            <div class="field">
+              <label for="q4_finish" style="font-size:0.88rem; font-weight:500; margin-bottom:6px; display:block;">Approximate finish (month and year)</label>
+              <div class="example"><span class="tag">Example</span><em>June 2019</em></div>
+              <input type="text" id="q4_finish" name="q4_finish_month_year">
+            </div>
           </div>
         </div>
       </div>
 
       <div class="field">
-        <label><span class="qnum">Q4</span> Inclusion &amp; exclusion criteria</label>
+        <label><span class="qnum">Q5</span> Diagnostic criteria</label>
+        <p class="help">Diagnostic criteria used for PD diagnosis.</p>
+        <div class="radio-col" data-name="q5_diagnostic_criteria" role="radiogroup">
+          <label class="radio-option"><input type="radio" name="q5_diagnostic_criteria" value="UK Brain Bank Criteria (UKBB, 1988)" required> UK Brain Bank Criteria (UKBB, 1988)</label>
+          <label class="radio-option"><input type="radio" name="q5_diagnostic_criteria" value="MDS Clinical Diagnostic Criteria (2015)"> MDS Clinical Diagnostic Criteria (2015)</label>
+          <label class="radio-option"><input type="radio" name="q5_diagnostic_criteria" value="Queen Square Brain Bank Criteria (QSBB)"> Queen Square Brain Bank Criteria (QSBB)</label>
+          <label class="radio-option"><input type="radio" name="q5_diagnostic_criteria" value="Gelb Criteria (1999)"> Gelb Criteria (1999)</label>
+          <label class="radio-option"><input type="radio" name="q5_diagnostic_criteria" value="No formal criteria, clinical diagnosis only"> No formal criteria, clinical diagnosis only</label>
+          <label class="radio-option"><input type="radio" name="q5_diagnostic_criteria" value="Other"> Other</label>
+        </div>
+        <p class="error-msg">Please select an answer.</p>
+        <div class="subfield" id="q5-other-block" hidden>
+          <div class="field">
+            <label for="q5_other">Please specify</label>
+            <input type="text" id="q5_other" name="q5_other_specify">
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label><span class="qnum">Q6</span> Inclusion &amp; exclusion criteria</label>
         <p class="help">Inclusion and exclusion criteria used, for PD patients and, if relevant, separately for controls.</p>
 
         <div class="two-up">
           <div>
-            <label for="q4_incl_patients" style="font-size:0.88rem; font-weight:500; margin-bottom:6px; display:block;">Inclusion criteria, PD patients</label>
+            <label for="q6_incl_patients" style="font-size:0.88rem; font-weight:500; margin-bottom:6px; display:block;">Inclusion criteria, PD patients</label>
             <div class="example"><span class="tag">Example</span><em>Disease duration &lt;10 years</em></div>
-            <textarea id="q4_incl_patients" name="q4_inclusion_patients" required></textarea>
+            <textarea id="q6_incl_patients" name="q6_inclusion_patients" required></textarea>
           </div>
           <div>
-            <label for="q4_excl_patients" style="font-size:0.88rem; font-weight:500; margin-bottom:6px; display:block;">Exclusion criteria, PD patients</label>
+            <label for="q6_excl_patients" style="font-size:0.88rem; font-weight:500; margin-bottom:6px; display:block;">Exclusion criteria, PD patients</label>
             <div class="example"><span class="tag">Example</span><em>No dementia</em></div>
-            <textarea id="q4_excl_patients" name="q4_exclusion_patients" required></textarea>
+            <textarea id="q6_excl_patients" name="q6_exclusion_patients" required></textarea>
           </div>
         </div>
         <div class="two-up" style="margin-top:16px;">
           <div>
-            <label for="q4_incl_controls" style="font-size:0.88rem; font-weight:500; margin-bottom:6px; display:block;">Inclusion criteria, controls</label>
+            <label for="q6_incl_controls" style="font-size:0.88rem; font-weight:500; margin-bottom:6px; display:block;">Inclusion criteria, controls</label>
             <div class="example"><span class="tag">Example</span><em>No neurological history</em></div>
-            <textarea id="q4_incl_controls" name="q4_inclusion_controls"></textarea>
+            <textarea id="q6_incl_controls" name="q6_inclusion_controls"></textarea>
           </div>
           <div>
-            <label for="q4_excl_controls" style="font-size:0.88rem; font-weight:500; margin-bottom:6px; display:block;">Exclusion criteria, controls</label>
+            <label for="q6_excl_controls" style="font-size:0.88rem; font-weight:500; margin-bottom:6px; display:block;">Exclusion criteria, controls</label>
             <div class="example"><span class="tag">Example</span><em>No psychiatric history</em></div>
-            <textarea id="q4_excl_controls" name="q4_exclusion_controls"></textarea>
+            <textarea id="q6_excl_controls" name="q6_exclusion_controls"></textarea>
           </div>
         </div>
         <p class="error-msg">Please describe the inclusion/exclusion criteria.</p>
       </div>
 
       <div class="field">
-        <label><span class="qnum">Q5</span> Same-day MRI &amp; clinical assessment?</label>
-        <p class="help">Were the MRI and clinical assessment data (e.g. cognitive or motor assessment, questionnaires) collected on the same day for all participants? If yes, skip to Q7.</p>
-        <div class="radio-row" data-name="q5_same_day" role="radiogroup">
-          <label class="radio-option"><input type="radio" name="q5_same_day" value="Yes" required> Yes</label>
-          <label class="radio-option"><input type="radio" name="q5_same_day" value="No"> No</label>
+        <label><span class="qnum">Q7</span> Same-day MRI &amp; clinical assessment?</label>
+        <p class="help">Were the MRI and clinical assessment data (e.g. cognitive or motor assessment, questionnaires) collected on the same day for all participants? If yes, skip to Q9.</p>
+        <div class="radio-row" data-name="q7_same_day" role="radiogroup">
+          <label class="radio-option"><input type="radio" name="q7_same_day" value="Yes" required> Yes</label>
+          <label class="radio-option"><input type="radio" name="q7_same_day" value="No"> No</label>
         </div>
         <p class="error-msg">Please select an answer.</p>
       </div>
 
-      <div class="subfield" id="q6-block" hidden>
+      <div class="subfield" id="q8-block" hidden>
         <div class="field">
-          <label><span class="qnum">Q6a</span> Interval reporting level</label>
-          <p class="help">Can you provide the interval between MRI and clinical assessment collection <strong>per subject</strong>, or only as a <strong>summary for the whole cohort</strong>? If per-subject intervals are available, please collect these in a spreadsheet (subject ID + interval in days) and either email it to us, if allowed, or request a new secure SURFfilesender link from us to share these data. You can then skip Q6b.</p>
+          <label><span class="qnum">Q8a</span> Interval reporting level</label>
+          <p class="help">Can you provide the interval between MRI and clinical assessment collection <strong>per subject</strong>, or only as a <strong>summary for the whole cohort</strong>? If per-subject intervals are available, please collect these in a spreadsheet (subject ID + interval in days) and either email it to us, if allowed, or request a new secure SURFfilesender link from us to share these data. You can then skip Q8b.</p>
           <div class="example"><span class="tag">Example</span><em>Summary for the whole cohort</em></div>
-          <div class="radio-col" data-name="q6a_reporting_level" role="radiogroup">
-            <label class="radio-option"><input type="radio" name="q6a_reporting_level" value="Per subject (will share separately)"> Per subject (will share separately)</label>
-            <label class="radio-option"><input type="radio" name="q6a_reporting_level" value="Summary for the whole cohort"> Summary for the whole cohort</label>
+          <div class="radio-col" data-name="q8a_reporting_level" role="radiogroup">
+            <label class="radio-option"><input type="radio" name="q8a_reporting_level" value="Per subject (will share separately)"> Per subject (will share separately)</label>
+            <label class="radio-option"><input type="radio" name="q8a_reporting_level" value="Summary for the whole cohort"> Summary for the whole cohort</label>
           </div>
         </div>
 
-        <div class="field" id="q6b-field" hidden>
-          <label for="q6b"><span class="qnum">Q6b</span> Interval summary statistics</label>
+        <div class="field" id="q8b-field" hidden>
+          <label for="q8b"><span class="qnum">Q8b</span> Interval summary statistics</label>
           <p class="help">If whole cohort only: please provide summary statistics for the interval between MRI and clinical assessment, in days: mean &plusmn; SD, median (IQR), min-max.</p>
           <div class="example"><span class="tag">Example</span><em>Mean &plusmn; SD: 12.4 &plusmn; 8.1 days; Median (IQR): 10 (5&ndash;18) days; Min&ndash;Max: 0&ndash;30 days</em></div>
-          <textarea id="q6b" name="q6b_interval_stats"></textarea>
+          <textarea id="q8b" name="q8b_interval_stats"></textarea>
         </div>
       </div>
 
       <div class="field">
-        <label for="q7"><span class="qnum">Q7</span> Which was collected first?</label>
+        <label for="q9"><span class="qnum">Q9</span> Which was collected first?</label>
         <p class="help">Which was collected first: MRI or clinical assessment?</p>
-        <select id="q7" name="q7_collected_first" required>
+        <select id="q9" name="q9_collected_first" required>
           <option value="" disabled selected>Select an answer&hellip;</option>
           <option value="MRI first">MRI first</option>
           <option value="Clinical assessment first">Clinical assessment first</option>
@@ -576,93 +600,107 @@
       </div>
 
       <div class="field">
-        <label for="q8"><span class="qnum">Q8</span> Assessment language</label>
+        <label for="q10"><span class="qnum">Q10</span> Assessment language</label>
         <p class="help">In which language were the (clinical) assessments administered?</p>
         <div class="example"><span class="tag">Example</span><em>Dutch</em></div>
-        <input type="text" id="q8" name="q8_language" required>
+        <input type="text" id="q10" name="q10_language" required>
         <p class="error-msg">Please fill in the assessment language.</p>
       </div>
 
-      <p class="param-example-note">We've already requested data on medication state during the motor assessment, since it is essential for almost all projects. Here, we are interested whether participants were on medication when they completed the cognitive assessment and/or questionnaires (Q9) and MRI (Q10).</p>
+      <p class="param-example-note">We've already requested data on medication state during the motor assessment, since it is essential for almost all projects. Here, we are interested whether participants were on medication when they completed the cognitive assessment and/or questionnaires (Q11) and MRI (Q12).</p>
 
       <div class="field">
-        <label for="q9"><span class="qnum">Q9</span> PD medication state: clinical assessment</label>
-        <p class="help">PD medication state during clinical assessment collection: all subjects ON, all subjects OFF, or varies per subject?</p>
-        <select id="q9" name="q9_med_state_clinical" required>
+        <label for="q11"><span class="qnum">Q11</span> PD medication state: clinical assessment</label>
+        <p class="help">PD medication state during clinical assessment collection.</p>
+        <select id="q11" name="q11_med_state_clinical" required>
           <option value="" disabled selected>Select an answer&hellip;</option>
           <option value="All subjects ON">All subjects ON</option>
           <option value="All subjects OFF">All subjects OFF</option>
           <option value="Varies per subject">Varies per subject</option>
+          <option value="Varies by type of assessment">Varies by type of assessment (e.g. cognitive test vs. questionnaire)</option>
+          <option value="Varies by type of assessment and by subject">Varies by type of assessment and by subject</option>
+          <option value="Unknown">Unknown</option>
         </select>
         <p class="error-msg">Please select an answer.</p>
-        <div class="subfield" id="q9-share-block" hidden>
+
+        <div class="subfield" id="q11-details-block" hidden>
+          <div class="field">
+            <label for="q11_details">If helpful, please describe <span class="optional-tag">optional</span></label>
+            <div class="example"><span class="tag">Example</span><em>All questionnaires ON medication, MoCA OFF medication</em></div>
+            <textarea id="q11_details" name="q11_details"></textarea>
+          </div>
+        </div>
+
+        <div class="subfield" id="q11-share-block" hidden>
           <div class="field">
             <label>Can you share this per subject?</label>
             <p class="help">If so, please collect this in a spreadsheet (subject ID + medication state) and either email it to us, if allowed, or request a new secure SURFfilesender link from us to share these data.</p>
-            <div class="radio-row" data-name="q9_share_per_subject" role="radiogroup">
-              <label class="radio-option"><input type="radio" name="q9_share_per_subject" value="Yes"> Yes</label>
-              <label class="radio-option"><input type="radio" name="q9_share_per_subject" value="No"> No</label>
+            <div class="radio-row" data-name="q11_share_per_subject" role="radiogroup">
+              <label class="radio-option"><input type="radio" name="q11_share_per_subject" value="Yes"> Yes</label>
+              <label class="radio-option"><input type="radio" name="q11_share_per_subject" value="No"> No</label>
             </div>
           </div>
         </div>
       </div>
 
       <div class="field">
-        <label for="q10"><span class="qnum">Q10</span> PD medication state: MRI</label>
-        <p class="help">PD medication state during MRI collection: all subjects ON, all subjects OFF, or varies per subject?</p>
-        <select id="q10" name="q10_med_state_mri" required>
+        <label for="q12"><span class="qnum">Q12</span> PD medication state: MRI</label>
+        <p class="help">PD medication state during MRI collection: all subjects ON, all subjects OFF, varies per subject, or unknown?</p>
+        <select id="q12" name="q12_med_state_mri" required>
           <option value="" disabled selected>Select an answer&hellip;</option>
           <option value="All subjects ON">All subjects ON</option>
           <option value="All subjects OFF">All subjects OFF</option>
           <option value="Varies per subject">Varies per subject</option>
+          <option value="Unknown">Unknown</option>
         </select>
         <p class="error-msg">Please select an answer.</p>
-        <div class="subfield" id="q10-share-block" hidden>
+        <div class="subfield" id="q12-share-block" hidden>
           <div class="field">
             <label>Can you share this per subject?</label>
             <p class="help">If so, please collect this in a spreadsheet (subject ID + medication state) and either email it to us, if allowed, or request a new secure SURFfilesender link from us to share these data.</p>
-            <div class="radio-row" data-name="q10_share_per_subject" role="radiogroup">
-              <label class="radio-option"><input type="radio" name="q10_share_per_subject" value="Yes"> Yes</label>
-              <label class="radio-option"><input type="radio" name="q10_share_per_subject" value="No"> No</label>
+            <div class="radio-row" data-name="q12_share_per_subject" role="radiogroup">
+              <label class="radio-option"><input type="radio" name="q12_share_per_subject" value="Yes"> Yes</label>
+              <label class="radio-option"><input type="radio" name="q12_share_per_subject" value="No"> No</label>
             </div>
           </div>
         </div>
       </div>
 
       <div class="field">
-        <label><span class="qnum">Q11a</span> Psychiatric medication</label>
+        <label><span class="qnum">Q13a</span> Psychiatric medication</label>
         <p class="help">Was any participant in this cohort on psychiatric medication?</p>
-        <div class="radio-col" data-name="q11a_other_med_level" role="radiogroup">
-          <label class="radio-option"><input type="radio" name="q11a_other_med_level" value="Yes, per subject" required> Yes, they were on psychiatric medication, we can provide these data per subject</label>
-          <label class="radio-option"><input type="radio" name="q11a_other_med_level" value="Yes, summary for whole cohort"> Yes, they were on psychiatric medication, we can provide a summary of medication information for the whole cohort</label>
-          <label class="radio-option"><input type="radio" name="q11a_other_med_level" value="Yes, not consistently recorded"> Yes, they were (likely) on psychiatric medication but this was not consistently recorded</label>
-          <label class="radio-option"><input type="radio" name="q11a_other_med_level" value="No"> No, they were not on psychiatric medication (part of in/exclusion criteria)</label>
+        <div class="radio-col" data-name="q13a_psych_med" role="radiogroup">
+          <label class="radio-option"><input type="radio" name="q13a_psych_med" value="Yes, per subject" required> Yes, they were on psychiatric medication, we can provide these data per subject</label>
+          <label class="radio-option"><input type="radio" name="q13a_psych_med" value="Yes, summary for whole cohort"> Yes, they were on psychiatric medication, we can provide a summary of medication information for the whole cohort</label>
+          <label class="radio-option"><input type="radio" name="q13a_psych_med" value="Yes, not consistently recorded"> Yes, they were (likely) on psychiatric medication but this was not consistently recorded</label>
+          <label class="radio-option"><input type="radio" name="q13a_psych_med" value="No"> No, they were not on psychiatric medication (part of in/exclusion criteria)</label>
         </div>
         <p class="help" style="margin-top:10px;">If per subject: please collect these in a spreadsheet (subject ID + medication type(s) + any other available information such as duration and/or dosage) and either email it to us, if allowed, or request a new secure SURFfilesender link from us to share these data.</p>
         <p class="error-msg">Please select an answer.</p>
       </div>
 
-      <div class="field" id="q11b-field" hidden>
-        <label for="q11b"><span class="qnum">Q11b</span> Psychiatric medication summary</label>
+      <div class="field" id="q13b-field" hidden>
+        <label for="q13b"><span class="qnum">Q13b</span> Psychiatric medication summary</label>
         <p class="help">If whole cohort only: please describe which type(s) of medication were used, the approximate proportion of participants affected, and duration if known.</p>
         <div class="example"><span class="tag">Example</span><em>SSRI (antidepressant) in ~15% of participants; duration varies, not systematically recorded</em></div>
-        <textarea id="q11b" name="q11b_other_med_summary"></textarea>
+        <textarea id="q13b" name="q13b_psych_med_summary"></textarea>
       </div>
 
       <div class="field">
-        <label><span class="qnum">Q12</span> Caregiver-assisted completion</label>
+        <label><span class="qnum">Q14</span> Caregiver-assisted completion</label>
         <p class="help">Most clinical assessments are self-report. Were others (e.g. a caregiver) allowed to help the participant complete the clinical assessments, if needed?</p>
-        <div class="radio-row" data-name="q12_caregiver_help" role="radiogroup">
-          <label class="radio-option"><input type="radio" name="q12_caregiver_help" value="Yes" required> Yes</label>
-          <label class="radio-option"><input type="radio" name="q12_caregiver_help" value="No"> No</label>
+        <div class="radio-row" data-name="q14_caregiver_help" role="radiogroup">
+          <label class="radio-option"><input type="radio" name="q14_caregiver_help" value="Yes" required> Yes</label>
+          <label class="radio-option"><input type="radio" name="q14_caregiver_help" value="No"> No</label>
+          <label class="radio-option"><input type="radio" name="q14_caregiver_help" value="Unknown"> Unknown</label>
         </div>
         <p class="error-msg">Please select an answer.</p>
       </div>
 
       <div class="field">
-        <label for="q13"><span class="qnum">Q13</span> Anything else? <span class="optional-tag">optional</span></label>
+        <label for="q15"><span class="qnum">Q15</span> Anything else? <span class="optional-tag">optional</span></label>
         <p class="help">Is there anything else about your data collection that you think would be relevant for us to know, for this or future ENIGMA-PD projects using this cohort?</p>
-        <textarea id="q13" name="q13_anything_else"></textarea>
+        <textarea id="q15" name="q15_anything_else"></textarea>
       </div>
 
     </section>
@@ -675,7 +713,7 @@
       <h3 class="group-heading">Scanner</h3>
 
       <div class="field">
-        <label for="p_manufacturer"><span class="qnum">&#9679;</span> Manufacturer and model</label>
+        <label for="p_manufacturer"><span class="qnum">Q16</span> Manufacturer and model</label>
         <div class="example two-col">
           <span class="tag">Siemens</span><em>Siemens Prisma</em>
           <span class="tag">Philips</span><em>Philips Achieva</em>
@@ -685,14 +723,17 @@
       </div>
 
       <div class="field">
-        <label for="p_field_strength"><span class="qnum">&#9679;</span> Field strength</label>
-        <div class="example"><span class="tag">Example</span><em>3T</em></div>
-        <input type="text" id="p_field_strength" name="p_field_strength" required>
+        <label for="p_field_strength"><span class="qnum">Q17</span> Field strength</label>
+        <div class="example"><span class="tag">Example</span><em>3 Tesla (3T)</em></div>
+        <div class="unit-input">
+          <input type="text" id="p_field_strength" name="p_field_strength" required>
+          <span class="unit-suffix">Tesla</span>
+        </div>
         <p class="error-msg">Please fill in the field strength.</p>
       </div>
 
       <div class="field">
-        <label for="p_head_coil"><span class="qnum">&#9679;</span> Head coil (type and channel count) <span class="optional-tag">optional</span></label>
+        <label for="p_head_coil"><span class="qnum">Q18</span> Head coil (type and channel count) <span class="optional-tag">optional</span></label>
         <div class="example"><span class="tag">Example</span><em>32-channel head coil</em></div>
         <input type="text" id="p_head_coil" name="p_head_coil">
       </div>
@@ -700,7 +741,7 @@
       <h3 class="group-heading">Sequence</h3>
 
       <div class="field">
-        <label for="p_sequence_name"><span class="qnum">&#9679;</span> Sequence name</label>
+        <label for="p_sequence_name"><span class="qnum">Q19</span> Sequence name</label>
         <div class="example"><span class="tag">Example</span><em>MPRAGE, MDEFT, FLASH, SPGR, FSPGR, TFE</em></div>
         <input type="text" id="p_sequence_name" name="p_sequence_name" required>
         <p class="error-msg">Please fill in the sequence name.</p>
@@ -708,10 +749,10 @@
 
       <div class="two-up">
         <div class="field">
-          <label for="p_tr"><span class="qnum">&#9679;</span> TR (repetition time)</label>
+          <label for="p_tr"><span class="qnum">Q20</span> TR (repetition time)</label>
           <div class="example two-col">
-            <span class="tag">Siemens</span><em>2300 ms</em>
-            <span class="tag">Philips</span><em>7.46 ms</em>
+            <span class="tag">Siemens</span><em>2300</em>
+            <span class="tag">Philips</span><em>7.46</em>
           </div>
           <div class="unit-input">
             <input type="text" id="p_tr" name="p_tr" required>
@@ -720,10 +761,10 @@
           <p class="error-msg">Please fill in TR.</p>
         </div>
         <div class="field">
-          <label for="p_te"><span class="qnum">&#9679;</span> TE (echo time)</label>
+          <label for="p_te"><span class="qnum">Q21</span> TE (echo time)</label>
           <div class="example two-col">
-            <span class="tag">Siemens</span><em>2.98 ms</em>
-            <span class="tag">Philips</span><em>3.49 ms</em>
+            <span class="tag">Siemens</span><em>2.98</em>
+            <span class="tag">Philips</span><em>3.49</em>
           </div>
           <div class="unit-input">
             <input type="text" id="p_te" name="p_te" required>
@@ -735,10 +776,10 @@
 
       <div class="two-up">
         <div class="field">
-          <label for="p_ti"><span class="qnum">&#9679;</span> TI (inversion time)</label>
+          <label for="p_ti"><span class="qnum">Q22</span> TI (inversion time) <span class="optional-tag">optional</span></label>
           <div class="example two-col">
-            <span class="tag">Siemens</span><em>900 ms</em>
-            <span class="tag">Philips</span><em>1100 ms</em>
+            <span class="tag">Siemens</span><em>900</em>
+            <span class="tag">Philips</span><em>1100</em>
           </div>
           <div class="unit-input">
             <input type="text" id="p_ti" name="p_ti">
@@ -746,12 +787,12 @@
           </div>
         </div>
         <div class="field">
-          <label for="p_flip_angle"><span class="qnum">&#9679;</span> Flip angle</label>
+          <label for="p_flip_angle"><span class="qnum">Q23</span> Flip angle</label>
           <div class="example two-col">
-            <span class="tag">Siemens</span><em>9 degrees</em>
-            <span class="tag">Philips</span><em>8 degrees</em>
+            <span class="tag">Siemens</span><em>9</em>
+            <span class="tag">Philips</span><em>8</em>
           </div>
-          <div class="unit-input" style="--unit-w:70px;">
+          <div class="unit-input">
             <input type="text" id="p_flip_angle" name="p_flip_angle" required style="padding-right:70px;">
             <span class="unit-suffix">degrees</span>
           </div>
@@ -762,20 +803,35 @@
       <h3 class="group-heading">Spatial parameters</h3>
 
       <div class="field">
-        <label for="p_voxel_size"><span class="qnum">&#9679;</span> Voxel size / spatial resolution</label>
-        <div class="example"><span class="tag">Example</span><em>1 x 1 x 1 mm isotropic</em></div>
-        <input type="text" id="p_voxel_size" name="p_voxel_size" required>
-        <p class="error-msg">Please fill in the voxel size.</p>
+        <label><span class="qnum">Q24</span> Voxel size / spatial resolution</label>
+        <div class="radio-col" data-name="p_voxel_size_choice" role="radiogroup">
+          <label class="radio-option"><input type="radio" name="p_voxel_size_choice" value="1 x 1 x 1 mm isotropic" required> 1 x 1 x 1 mm isotropic</label>
+          <label class="radio-option"><input type="radio" name="p_voxel_size_choice" value="Other"> Other</label>
+        </div>
+        <p class="error-msg">Please select an answer.</p>
+        <div class="subfield" id="p-voxel-other-block" hidden>
+          <div class="field">
+            <label for="p_voxel_size_other">Please specify</label>
+            <div class="example"><span class="tag">Example</span><em>1 x 1 x 1.2</em></div>
+            <div class="unit-input">
+              <input type="text" id="p_voxel_size_other" name="p_voxel_size_other">
+              <span class="unit-suffix">mm</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="two-up">
         <div class="field">
-          <label for="p_fov"><span class="qnum">&#9679;</span> Field of view (FOV) <span class="optional-tag">optional</span></label>
-          <div class="example"><span class="tag">Example</span><em>256 x 256 mm</em></div>
-          <input type="text" id="p_fov" name="p_fov">
+          <label for="p_fov"><span class="qnum">Q25</span> Field of view (FOV) <span class="optional-tag">optional</span></label>
+          <div class="example"><span class="tag">Example</span><em>256 x 256</em></div>
+          <div class="unit-input">
+            <input type="text" id="p_fov" name="p_fov">
+            <span class="unit-suffix">mm</span>
+          </div>
         </div>
         <div class="field">
-          <label for="p_matrix"><span class="qnum">&#9679;</span> Acquisition matrix</label>
+          <label for="p_matrix"><span class="qnum">Q26</span> Acquisition matrix</label>
           <div class="example"><span class="tag">Example</span><em>256 x 256</em></div>
           <input type="text" id="p_matrix" name="p_acquisition_matrix" required>
           <p class="error-msg">Please fill in the acquisition matrix.</p>
@@ -784,12 +840,15 @@
 
       <div class="two-up">
         <div class="field">
-          <label for="p_slices"><span class="qnum">&#9679;</span> Number of slices <span class="optional-tag">optional</span></label>
-          <div class="example"><span class="tag">Example</span><em>176 slices</em></div>
-          <input type="text" id="p_slices" name="p_num_slices">
+          <label for="p_slices"><span class="qnum">Q27</span> Number of slices <span class="optional-tag">optional</span></label>
+          <div class="example"><span class="tag">Example</span><em>176</em></div>
+          <div class="unit-input">
+            <input type="text" id="p_slices" name="p_num_slices">
+            <span class="unit-suffix">slices</span>
+          </div>
         </div>
         <div class="field">
-          <label for="p_orientation"><span class="qnum">&#9679;</span> Slice orientation <span class="optional-tag">optional</span></label>
+          <label for="p_orientation"><span class="qnum">Q28</span> Slice orientation <span class="optional-tag">optional</span></label>
           <div class="example"><span class="tag">Example</span><em>Sagittal</em></div>
           <input type="text" id="p_orientation" name="p_slice_orientation">
         </div>
@@ -797,7 +856,7 @@
 
       <div class="two-up">
         <div class="field">
-          <label for="p_2d3d"><span class="qnum">&#9679;</span> 2D or 3D acquisition</label>
+          <label for="p_2d3d"><span class="qnum">Q29</span> 2D or 3D acquisition</label>
           <select id="p_2d3d" name="p_2d_or_3d" required>
             <option value="" disabled selected>Select an answer&hellip;</option>
             <option value="2D">2D</option>
@@ -806,19 +865,28 @@
           <p class="error-msg">Please select 2D or 3D.</p>
         </div>
         <div class="field">
-          <label for="p_acq_time"><span class="qnum">&#9679;</span> Total acquisition time <span class="optional-tag">optional</span></label>
+          <label><span class="qnum">Q30</span> Total acquisition time <span class="optional-tag">optional</span></label>
           <div class="example two-col">
             <span class="tag">Siemens</span><em>5 min 12 sec</em>
             <span class="tag">Philips</span><em>7 min 25 sec</em>
           </div>
-          <input type="text" id="p_acq_time" name="p_acquisition_time">
+          <div class="two-up">
+            <div class="unit-input">
+              <input type="text" id="p_acq_time_min">
+              <span class="unit-suffix">min</span>
+            </div>
+            <div class="unit-input">
+              <input type="text" id="p_acq_time_sec">
+              <span class="unit-suffix">sec</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <h3 class="group-heading">Optional / additional</h3>
 
       <div class="field">
-        <label for="p_software"><span class="qnum">&#9679;</span> Scanner software version <span class="optional-tag">optional</span></label>
+        <label for="p_software"><span class="qnum">Q31</span> Scanner software version <span class="optional-tag">optional</span></label>
         <div class="example two-col">
           <span class="tag">Siemens</span><em>syngo MR E11</em>
           <span class="tag">Philips</span><em>Release 5.1.7</em>
@@ -827,7 +895,7 @@
       </div>
 
       <div class="field">
-        <label for="p_extra"><span class="qnum">&#9679;</span> Anything else about the acquisition you think is relevant <span class="optional-tag">optional</span></label>
+        <label for="p_extra"><span class="qnum">Q32</span> Anything else about the acquisition you think is relevant <span class="optional-tag">optional</span></label>
         <textarea id="p_extra" name="p_acquisition_notes"></textarea>
       </div>
 
@@ -864,82 +932,121 @@ const submitBtn = document.getElementById('submit-btn');
 const statusEl = document.getElementById('form-status');
 
 // ---- Conditional logic ----
-const q5Radios = document.querySelectorAll('input[name="q5_same_day"]');
-const q6Block = document.getElementById('q6-block');
-const q6aRadios = document.querySelectorAll('input[name="q6a_reporting_level"]');
-const q6bField = document.getElementById('q6b-field');
-const q6bInput = document.getElementById('q6b');
-
 function setRequired(el, isRequired){
   if(!el) return;
   if(isRequired){ el.setAttribute('required',''); }
   else { el.removeAttribute('required'); }
 }
 
-function updateQ6Visibility(){
-  const val = document.querySelector('input[name="q5_same_day"]:checked')?.value;
+// ---- Q4 approximate date window ----
+const q4Radios = document.querySelectorAll('input[name="q4_time_window_type"]');
+const q4ApproxBlock = document.getElementById('q4-approx-block');
+const q4StartInput = document.getElementById('q4_start');
+const q4FinishInput = document.getElementById('q4_finish');
+function updateQ4Visibility(){
+  const val = document.querySelector('input[name="q4_time_window_type"]:checked')?.value;
+  const show = val === 'Approximate dates';
+  q4ApproxBlock.hidden = !show;
+  setRequired(q4StartInput, show);
+  setRequired(q4FinishInput, show);
+  if(!show){ q4StartInput.value = ''; q4FinishInput.value = ''; }
+}
+q4Radios.forEach(r => r.addEventListener('change', updateQ4Visibility));
+
+// ---- Q5 "Other" conditional ----
+const q5Radios = document.querySelectorAll('input[name="q5_diagnostic_criteria"]');
+const q5OtherBlock = document.getElementById('q5-other-block');
+const q5OtherInput = document.getElementById('q5_other');
+function updateQ5Visibility(){
+  const val = document.querySelector('input[name="q5_diagnostic_criteria"]:checked')?.value;
+  const show = val === 'Other';
+  q5OtherBlock.hidden = !show;
+  setRequired(q5OtherInput, show);
+  if(!show) q5OtherInput.value = '';
+}
+q5Radios.forEach(r => r.addEventListener('change', updateQ5Visibility));
+
+// ---- Q7 same-day -> Q8a/Q8b interval block ----
+const q7Radios = document.querySelectorAll('input[name="q7_same_day"]');
+const q8Block = document.getElementById('q8-block');
+const q8aRadios = document.querySelectorAll('input[name="q8a_reporting_level"]');
+const q8bField = document.getElementById('q8b-field');
+const q8bInput = document.getElementById('q8b');
+
+function updateQ8Visibility(){
+  const val = document.querySelector('input[name="q7_same_day"]:checked')?.value;
   const show = val === 'No';
-  q6Block.hidden = !show;
-  q6aRadios.forEach(r => setRequired(r, show));
+  q8Block.hidden = !show;
+  q8aRadios.forEach(r => setRequired(r, show));
   if(!show){
-    q6aRadios.forEach(r => r.checked = false);
-    q6bField.hidden = true;
-    setRequired(q6bInput, false);
-    q6bInput.value = '';
+    q8aRadios.forEach(r => r.checked = false);
+    q8bField.hidden = true;
+    setRequired(q8bInput, false);
+    q8bInput.value = '';
   } else {
-    updateQ6bVisibility();
+    updateQ8bVisibility();
   }
 }
 
-function updateQ6bVisibility(){
-  const val = document.querySelector('input[name="q6a_reporting_level"]:checked')?.value;
+function updateQ8bVisibility(){
+  const val = document.querySelector('input[name="q8a_reporting_level"]:checked')?.value;
   const show = val === 'Summary for the whole cohort';
-  q6bField.hidden = !show;
-  setRequired(q6bInput, show);
-  if(!show) q6bInput.value = '';
+  q8bField.hidden = !show;
+  setRequired(q8bInput, show);
+  if(!show) q8bInput.value = '';
 }
 
-q5Radios.forEach(r => r.addEventListener('change', updateQ6Visibility));
-q6aRadios.forEach(r => r.addEventListener('change', updateQ6bVisibility));
+q7Radios.forEach(r => r.addEventListener('change', updateQ8Visibility));
+q8aRadios.forEach(r => r.addEventListener('change', updateQ8bVisibility));
 
-const q11aRadios = document.querySelectorAll('input[name="q11a_other_med_level"]');
-const q11bField = document.getElementById('q11b-field');
-const q11bInput = document.getElementById('q11b');
+// ---- Q11 clinical medication state (details + share-per-subject) ----
+const q11Select = document.getElementById('q11');
+const q11DetailsBlock = document.getElementById('q11-details-block');
+const q11DetailsInput = document.getElementById('q11_details');
+const q11ShareBlock = document.getElementById('q11-share-block');
 
-function updateQ11bVisibility(){
-  const val = document.querySelector('input[name="q11a_other_med_level"]:checked')?.value;
+function updateQ11Blocks(){
+  const val = q11Select.value;
+  const showShare = val === 'Varies per subject' || val === 'Varies by type of assessment' || val === 'Varies by type of assessment and by subject';
+  const showDetails = val === 'Varies by type of assessment' || val === 'Varies by type of assessment and by subject';
+  q11ShareBlock.hidden = !showShare;
+  q11DetailsBlock.hidden = !showDetails;
+  if(!showDetails) q11DetailsInput.value = '';
+}
+q11Select.addEventListener('change', updateQ11Blocks);
+
+// ---- Q12 MRI medication state (share-per-subject) ----
+const q12Select = document.getElementById('q12');
+const q12ShareBlock = document.getElementById('q12-share-block');
+q12Select.addEventListener('change', () => {
+  q12ShareBlock.hidden = q12Select.value !== 'Varies per subject';
+});
+
+// ---- Q13a -> Q13b psychiatric medication summary ----
+const q13aRadios = document.querySelectorAll('input[name="q13a_psych_med"]');
+const q13bField = document.getElementById('q13b-field');
+const q13bInput = document.getElementById('q13b');
+
+function updateQ13bVisibility(){
+  const val = document.querySelector('input[name="q13a_psych_med"]:checked')?.value;
   const show = val === 'Yes, summary for whole cohort';
-  q11bField.hidden = !show;
-  setRequired(q11bInput, show);
-  if(!show) q11bInput.value = '';
+  q13bField.hidden = !show;
+  setRequired(q13bInput, show);
+  if(!show) q13bInput.value = '';
 }
-q11aRadios.forEach(r => r.addEventListener('change', updateQ11bVisibility));
+q13aRadios.forEach(r => r.addEventListener('change', updateQ13bVisibility));
 
-// ---- Q3 "Other" conditional ----
-const q3Radios = document.querySelectorAll('input[name="q3_diagnostic_criteria"]');
-const q3OtherBlock = document.getElementById('q3-other-block');
-const q3OtherInput = document.getElementById('q3_other');
-function updateQ3Visibility(){
-  const val = document.querySelector('input[name="q3_diagnostic_criteria"]:checked')?.value;
+// ---- Voxel size: "Other" conditional ----
+const voxelRadios = document.querySelectorAll('input[name="p_voxel_size_choice"]');
+const voxelOtherBlock = document.getElementById('p-voxel-other-block');
+const voxelOtherInput = document.getElementById('p_voxel_size_other');
+function updateVoxelVisibility(){
+  const val = document.querySelector('input[name="p_voxel_size_choice"]:checked')?.value;
   const show = val === 'Other';
-  q3OtherBlock.hidden = !show;
-  setRequired(q3OtherInput, show);
-  if(!show) q3OtherInput.value = '';
+  voxelOtherBlock.hidden = !show;
+  if(!show) voxelOtherInput.value = '';
 }
-q3Radios.forEach(r => r.addEventListener('change', updateQ3Visibility));
-
-// ---- Q9 / Q10 per-subject sharing follow-up ----
-const q9Select = document.getElementById('q9');
-const q9ShareBlock = document.getElementById('q9-share-block');
-q9Select.addEventListener('change', () => {
-  q9ShareBlock.hidden = q9Select.value !== 'Varies per subject';
-});
-
-const q10Select = document.getElementById('q10');
-const q10ShareBlock = document.getElementById('q10-share-block');
-q10Select.addEventListener('change', () => {
-  q10ShareBlock.hidden = q10Select.value !== 'Varies per subject';
-});
+voxelRadios.forEach(r => r.addEventListener('change', updateVoxelVisibility));
 
 // ---- Progress nav active state ----
 const navLinks = document.querySelectorAll('.progress-nav a');
@@ -1013,6 +1120,15 @@ form.addEventListener('submit', async (e) => {
   const data = {};
   formData.forEach((value, key) => { data[key] = value; });
   data['submitted_at'] = new Date().toISOString();
+
+  // Combine acquisition time minutes/seconds into a single field for export.
+  const acqMin = document.getElementById('p_acq_time_min').value.trim();
+  const acqSec = document.getElementById('p_acq_time_sec').value.trim();
+  if(acqMin || acqSec){
+    data['p_acquisition_time'] = `${acqMin || '0'} min ${acqSec || '0'} sec`;
+  } else {
+    data['p_acquisition_time'] = '';
+  }
 
   submitBtn.disabled = true;
   submitBtn.textContent = 'Submitting…';
