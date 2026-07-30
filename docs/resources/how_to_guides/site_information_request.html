@@ -326,8 +326,15 @@
     grid-template-columns:1fr 1fr;
     gap:16px;
   }
+  .three-up{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:16px;
+  }
+  .three-up input{width:100%;}
   @media (max-width:560px){
     .two-up{grid-template-columns:1fr;}
+    .three-up{grid-template-columns:1fr;}
     .example.two-col{grid-template-columns:1fr;}
   }
 
@@ -617,7 +624,7 @@
           <option value="All subjects ON">All subjects ON</option>
           <option value="All subjects OFF">All subjects OFF</option>
           <option value="Varies per subject">Varies per subject</option>
-          <option value="Varies by type of assessment">Varies by type of assessment (e.g. cognitive test vs. questionnaire)</option>
+          <option value="The same for all subjects but varies by type of assessment">The same for all subjects but varies by type of assessment (e.g. cognitive test vs. questionnaire)</option>
           <option value="Varies by type of assessment and by subject">Varies by type of assessment and by subject</option>
           <option value="Unknown">Unknown</option>
         </select>
@@ -626,7 +633,7 @@
         <div class="subfield" id="q11-details-block" hidden>
           <div class="field">
             <label for="q11_details">If helpful, please describe <span class="optional-tag">optional</span></label>
-            <div class="example"><span class="tag">Example</span><em>All questionnaires ON medication, MoCA OFF medication</em></div>
+            <div class="example"><span class="tag">Example</span><em>For all subjects: all questionnaires ON medication, MoCA OFF medication</em></div>
             <textarea id="q11_details" name="q11_details"></textarea>
           </div>
         </div>
@@ -821,64 +828,69 @@
         </div>
       </div>
 
-      <div class="two-up">
-        <div class="field">
-          <label for="p_fov"><span class="qnum">Q25</span> Field of view (FOV) <span class="optional-tag">optional</span></label>
-          <div class="example"><span class="tag">Example</span><em>256 x 256</em></div>
-          <div class="unit-input">
-            <input type="text" id="p_fov" name="q25_fov">
-            <span class="unit-suffix">mm</span>
-          </div>
+      <div class="field">
+        <label for="p_2d3d"><span class="qnum">Q25</span> 2D or 3D acquisition</label>
+        <select id="p_2d3d" name="q25_2d_or_3d" required>
+          <option value="" disabled selected>Select an answer&hellip;</option>
+          <option value="2D">2D</option>
+          <option value="3D">3D</option>
+        </select>
+        <p class="error-msg">Please select 2D or 3D.</p>
+      </div>
+
+      <div class="field">
+        <label><span class="qnum">Q26</span> Acquisition matrix</label>
+        <p class="help">Number of data points collected along each axis. Enter X and Y for 2D, or X, Y and Z for 3D.</p>
+        <div class="example" id="q26-example"><span class="tag">Example</span><em>256 x 256</em></div>
+        <div class="three-up">
+          <input type="text" id="q26_matrix_x" placeholder="X" required>
+          <input type="text" id="q26_matrix_y" placeholder="Y" required>
+          <input type="text" id="q26_matrix_z" placeholder="Z" hidden>
         </div>
-        <div class="field">
-          <label for="p_matrix"><span class="qnum">Q26</span> Acquisition matrix</label>
-          <div class="example"><span class="tag">Example</span><em>256 x 256</em></div>
-          <input type="text" id="p_matrix" name="q26_acquisition_matrix" required>
-          <p class="error-msg">Please fill in the acquisition matrix.</p>
+        <p class="error-msg">Please fill in the acquisition matrix.</p>
+      </div>
+
+      <div class="field">
+        <label><span class="qnum">Q27</span> Field of view (FOV) <span class="optional-tag">optional</span></label>
+        <p class="help">If you have 1 x 1 x 1 mm isotropic voxels, your acquisition matrix and field of view will be identical.</p>
+        <div class="example" id="q27-example"><span class="tag">Example</span><em>240 x 240</em></div>
+        <div class="three-up">
+          <div class="unit-input"><input type="text" id="q27_fov_x" placeholder="X"><span class="unit-suffix">mm</span></div>
+          <div class="unit-input"><input type="text" id="q27_fov_y" placeholder="Y"><span class="unit-suffix">mm</span></div>
+          <div class="unit-input" id="q27-fov-z-wrap" hidden><input type="text" id="q27_fov_z" placeholder="Z"><span class="unit-suffix">mm</span></div>
         </div>
       </div>
 
       <div class="two-up">
         <div class="field">
-          <label for="p_slices"><span class="qnum">Q27</span> Number of slices <span class="optional-tag">optional</span></label>
+          <label for="p_slices"><span class="qnum">Q28</span> Number of slices <span class="optional-tag">optional</span></label>
           <div class="example"><span class="tag">Example</span><em>176</em></div>
           <div class="unit-input">
-            <input type="text" id="p_slices" name="q27_num_slices">
+            <input type="text" id="p_slices" name="q28_num_slices">
             <span class="unit-suffix">slices</span>
           </div>
         </div>
         <div class="field">
-          <label for="p_orientation"><span class="qnum">Q28</span> Slice orientation <span class="optional-tag">optional</span></label>
+          <label for="p_orientation"><span class="qnum">Q29</span> Slice orientation <span class="optional-tag">optional</span></label>
           <div class="example"><span class="tag">Example</span><em>Sagittal</em></div>
-          <input type="text" id="p_orientation" name="q28_slice_orientation">
+          <input type="text" id="p_orientation" name="q29_slice_orientation">
         </div>
       </div>
 
-      <div class="two-up">
-        <div class="field">
-          <label for="p_2d3d"><span class="qnum">Q29</span> 2D or 3D acquisition</label>
-          <select id="p_2d3d" name="q29_2d_or_3d" required>
-            <option value="" disabled selected>Select an answer&hellip;</option>
-            <option value="2D">2D</option>
-            <option value="3D">3D</option>
-          </select>
-          <p class="error-msg">Please select 2D or 3D.</p>
+      <div class="field">
+        <label><span class="qnum">Q30</span> Total acquisition time <span class="optional-tag">optional</span></label>
+        <div class="example two-col">
+          <span class="tag">Siemens</span><em>5 min 12 sec</em>
+          <span class="tag">Philips</span><em>7 min 25 sec</em>
         </div>
-        <div class="field">
-          <label><span class="qnum">Q30</span> Total acquisition time <span class="optional-tag">optional</span></label>
-          <div class="example two-col">
-            <span class="tag">Siemens</span><em>5 min 12 sec</em>
-            <span class="tag">Philips</span><em>7 min 25 sec</em>
+        <div class="two-up">
+          <div class="unit-input">
+            <input type="text" id="p_acq_time_min">
+            <span class="unit-suffix">min</span>
           </div>
-          <div class="two-up">
-            <div class="unit-input">
-              <input type="text" id="p_acq_time_min">
-              <span class="unit-suffix">min</span>
-            </div>
-            <div class="unit-input">
-              <input type="text" id="p_acq_time_sec">
-              <span class="unit-suffix">sec</span>
-            </div>
+          <div class="unit-input">
+            <input type="text" id="p_acq_time_sec">
+            <span class="unit-suffix">sec</span>
           </div>
         </div>
       </div>
@@ -914,7 +926,7 @@
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 12.5L9.5 18L20 6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
     <h2>Thank you</h2>
-    <p>Your site information has been received. We appreciate you taking the time to complete this. It helps every ENIGMA-PD project that uses your cohort going forward.</p>
+    <p>Your site information has been received. We appreciate you taking the time to complete this. It helps every ENIGMA-PD project that uses your cohort going forward. If you need to make any changes to your submitted answers, please reach out to us at <a href="mailto:enigma-pd@amsterdamumc.nl">enigma-pd@amsterdamumc.nl</a>.</p>
   </div>
 
 </div>
@@ -924,7 +936,7 @@
 <script>
 // ====== CONFIGURE THIS ======
 // Paste the Web App URL you get after deploying the Apps Script (see setup guide).
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxucExcG7oD1loiC6hVEqzooX4ohvRjLgZ3PohtcQe4pL7IeTzJdcB_WTKp4DieHWfb/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxqeYpQep_9OgMU5rIM4wD3lL76OqkTTi5YNGMA24XyOnl-yBDGx2nw2MiXOrz5ciDu/exec";
 // =============================
 
 const form = document.getElementById('site-form');
@@ -1007,8 +1019,8 @@ const q11ShareBlock = document.getElementById('q11-share-block');
 
 function updateQ11Blocks(){
   const val = q11Select.value;
-  const showShare = val === 'Varies per subject' || val === 'Varies by type of assessment' || val === 'Varies by type of assessment and by subject';
-  const showDetails = val === 'Varies by type of assessment' || val === 'Varies by type of assessment and by subject';
+  const showShare = val === 'Varies per subject' || val === 'Varies by type of assessment and by subject';
+  const showDetails = val === 'The same for all subjects but varies by type of assessment' || val === 'Varies by type of assessment and by subject';
   q11ShareBlock.hidden = !showShare;
   q11DetailsBlock.hidden = !showDetails;
   if(!showDetails) q11DetailsInput.value = '';
@@ -1047,6 +1059,29 @@ function updateVoxelVisibility(){
   if(!show) voxelOtherInput.value = '';
 }
 voxelRadios.forEach(r => r.addEventListener('change', updateVoxelVisibility));
+
+// ---- 2D/3D dependent Acquisition matrix and FOV fields ----
+const dim2d3dSelect = document.getElementById('p_2d3d');
+const matrixZInput = document.getElementById('q26_matrix_z');
+const fovZWrap = document.getElementById('q27-fov-z-wrap');
+const fovZInput = document.getElementById('q27_fov_z');
+const q26Example = document.querySelector('#q26-example em');
+const q27Example = document.querySelector('#q27-example em');
+
+function updateDimensionDependentFields(){
+  const is3D = dim2d3dSelect.value === '3D';
+
+  matrixZInput.hidden = !is3D;
+  setRequired(matrixZInput, is3D);
+  if(!is3D) matrixZInput.value = '';
+
+  fovZWrap.hidden = !is3D;
+  if(!is3D) fovZInput.value = '';
+
+  q26Example.textContent = is3D ? '256 x 256 x 192' : '256 x 256';
+  q27Example.textContent = is3D ? '256 x 256 x 192' : '240 x 240';
+}
+dim2d3dSelect.addEventListener('change', updateDimensionDependentFields);
 
 // ---- Progress nav active state ----
 const navLinks = document.querySelectorAll('.progress-nav a');
@@ -1129,6 +1164,19 @@ form.addEventListener('submit', async (e) => {
   } else {
     data['q30_acquisition_time'] = '';
   }
+
+  // Combine acquisition matrix X/Y/Z into a single field for export.
+  const is3D = document.getElementById('p_2d3d').value === '3D';
+  const matX = document.getElementById('q26_matrix_x').value.trim();
+  const matY = document.getElementById('q26_matrix_y').value.trim();
+  const matZ = is3D ? document.getElementById('q26_matrix_z').value.trim() : '';
+  data['q26_acquisition_matrix'] = matZ ? `${matX} x ${matY} x ${matZ}` : (matX || matY ? `${matX} x ${matY}` : '');
+
+  // Combine FOV X/Y/Z into a single field for export.
+  const fovX = document.getElementById('q27_fov_x').value.trim();
+  const fovY = document.getElementById('q27_fov_y').value.trim();
+  const fovZ = is3D ? document.getElementById('q27_fov_z').value.trim() : '';
+  data['q27_fov'] = fovZ ? `${fovX} x ${fovY} x ${fovZ}` : (fovX || fovY ? `${fovX} x ${fovY}` : '');
 
   submitBtn.disabled = true;
   submitBtn.textContent = 'Submitting…';
