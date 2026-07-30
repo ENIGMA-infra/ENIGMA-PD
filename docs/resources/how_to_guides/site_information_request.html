@@ -853,7 +853,7 @@
       <div class="field">
         <label><span class="qnum">Q27</span> Field of view (FOV) <span class="optional-tag">optional</span></label>
         <p class="help">If you have 1 x 1 x 1 mm isotropic voxels, your acquisition matrix and field of view will be identical.</p>
-        <div class="example" id="q27-example"><span class="tag">Example</span><em>240 x 240</em></div>
+        <div class="example" id="q27-example"><span class="tag">Example</span><em>256 x 256</em></div>
         <div class="three-up">
           <div class="unit-input"><input type="text" id="q27_fov_x" placeholder="X"><span class="unit-suffix">mm</span></div>
           <div class="unit-input"><input type="text" id="q27_fov_y" placeholder="Y"><span class="unit-suffix">mm</span></div>
@@ -1079,7 +1079,7 @@ function updateDimensionDependentFields(){
   if(!is3D) fovZInput.value = '';
 
   q26Example.textContent = is3D ? '256 x 256 x 192' : '256 x 256';
-  q27Example.textContent = is3D ? '256 x 256 x 192' : '240 x 240';
+  q27Example.textContent = is3D ? '256 x 256 x 192' : '256 x 256';
 }
 dim2d3dSelect.addEventListener('change', updateDimensionDependentFields);
 
