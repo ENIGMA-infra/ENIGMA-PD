@@ -17,4 +17,5 @@ Meet the people behind ENIGMA-PD!
   University of Southern California, USA
 - ![Emile](../assets/profile_pictures/emile.jpeg){ width="80" } **[Emile d'Angremont](https://pure.amsterdamumc.nl/en/persons/emile-dangremont)**  
   Amsterdam UMC, The Netherlands
+- ![Eloïse](../assets/profile_pictures/Eloise.jpg){ width="80" } **[Eloïse van Alphen](https://www.linkedin.com/in/eloïse-van-alphen/)** Amsterdam UMC, The Netherlands
 </div>
