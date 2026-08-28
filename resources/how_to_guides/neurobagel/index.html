@@ -1,0 +1,1634 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../overview/">
+      
+      
+        <link rel="next" href="../preregistrations/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/logos/enigma_300DPI_small.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Neurobagel Data Annotation - ENIGMA-PD docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#enigmapd-data-annotation-workflow" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ENIGMA-PD docs" class="md-header__button md-logo" aria-label="ENIGMA-PD docs" data-md-component="logo">
+      
+  <img src="../../../assets/logos/enigma_300DPI_small.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ENIGMA-PD docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Neurobagel Data Annotation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ENIGMA-PD docs" class="md-nav__button md-logo" aria-label="ENIGMA-PD docs" data-md-component="logo">
+      
+  <img src="../../../assets/logos/enigma_300DPI_small.png" alt="logo">
+
+    </a>
+    ENIGMA-PD docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About ENIGMA-PD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About ENIGMA-PD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../working_group/core_team/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core team
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../working_group/sites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../working_group/new_sites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information for new sites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ongoing Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ongoing Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/ongoing/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/ongoing/freesurfer7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FreeSurfer 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/ongoing/cognitive_reserve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cognitive reserve
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/ongoing/wml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    White matter lesions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/ongoing/mspm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiple Symptom Progression Modelling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/ongoing/neuropsych/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Neuropsychiatry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/ongoing/spinal_cord/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spinal Cord
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/ongoing/imaging_genetics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Imaging Genetics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/ongoing/normative_modelling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normative modelling (fMRI)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Completed Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Completed Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/completed/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/completed/cort_sub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cortical-Subcortical
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/completed/shape/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subcortical shape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/completed/tbss/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diffusion (TBSS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/completed/py-sustain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySustain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/completed/connectomics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connectomics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Neurobagel Data Annotation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Neurobagel Data Annotation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-enigmapd-custom-variable-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ENIGMA‑PD Custom Variable List
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. ENIGMA‑PD Custom Variable List">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-step-provides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this step provides
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-annotation-using-neurobagel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Annotation using Neurobagel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Annotation using Neurobagel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-sites-do-in-this-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What sites do in this step
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What sites do in this step">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#column-annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Column annotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value-annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Value annotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sharing-the-data-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sharing the data dictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#questions-and-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions and support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-helps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this helps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feedback-from-early-adopters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feedback from early adopters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-next-steps-for-sites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary: next steps for sites
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preregistrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ENIGMA-PD preregistrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_sharing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Sharing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site_information_request.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Site Information Request Form
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-enigmapd-custom-variable-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ENIGMA‑PD Custom Variable List
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. ENIGMA‑PD Custom Variable List">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-step-provides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this step provides
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-annotation-using-neurobagel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Annotation using Neurobagel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Annotation using Neurobagel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-sites-do-in-this-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What sites do in this step
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What sites do in this step">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#column-annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Column annotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value-annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Value annotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sharing-the-data-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sharing the data dictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#questions-and-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions and support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-helps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this helps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feedback-from-early-adopters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feedback from early adopters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-next-steps-for-sites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary: next steps for sites
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="enigmapd-data-annotation-workflow">ENIGMA‑PD Data Annotation Workflow</h1>
+<p><em>This page covers everything you need to get started with the Neurobagel Annotation Tool.</em></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>As ENIGMA‑PD moves toward sharing richer clinical, cognitive, and neuropsychiatric data across sites, we need a consistent and reliable way to interpret variables. Manual data dictionaries in spreadsheets are prone to typos, inconsistent naming, and misunderstandings about what each variable represents.<br />
+The Neurobagel workflow provides a structured, user‑friendly way to standardize how we describe clinical data, making it easier to reuse datasets, combine them across sites, and support ENIGMA-PD projects with more advanced clinical measures.</p>
+<p>In the future, we hope that the standardized annotations will make it easier for ENIGMA-PD to discover data availability across sites for ongoing and new projects.
+You can see a pilot project for this at <a href="https://enigma.neurobagel.org/">enigma.neurobagel.org</a>.</p>
+<hr />
+<h2 id="1-enigmapd-custom-variable-list">1. ENIGMA‑PD Custom Variable List</h2>
+<p>To support harmonized annotation, ENIGMA‑PD created a curated list of PD‑relevant variables. Standard vocabularies in Neurobagel are broad, and many PD‑specific assessments (cognition, motor, neuropsychiatry, behaviour) were missing. The ENIGMA‑PD list fills this gap and ensures that all sites annotate their data using the same shared terminology.</p>
+<div class="admonition info">
+<p class="admonition-title">ENIGMA-PD vocabulary</p>
+<p>We are still expanding our ENIGMA-PD variable list. If you collect variables that other sites may also have, and that could be interesting for future ENIGMA-PD projects, please submit them to us through <a href="https://forms.gle/za9fEQCnhi5GZ4rt6">this form</a>. We would love to expand the list together.</p>
+</div>
+<h3 id="what-this-step-provides">What this step provides</h3>
+<ul>
+<li>A consortium‑wide reference list of PD‑specific assessments and clinical variables.  </li>
+<li>A controlled vocabulary that appears directly inside the Neurobagel Annotation Tool.  </li>
+<li>A mechanism for sites to suggest missing variables.</li>
+</ul>
+<p><strong>Check out the ENIGMA‑PD variable list <a href="https://docs.google.com/spreadsheets/d/1pwi6df8LKc3xFENH9JcOUk1HKHARspt-2lUhsy2JYAE/edit?usp=sharing">here!</a></strong>  </p>
+<hr />
+<h2 id="2-annotation-using-neurobagel">2. Annotation using Neurobagel</h2>
+<p>With the ENIGMA‑PD vocabulary integrated into the tool, sites can annotate their datasets in a structured and intuitive way.</p>
+<div class="admonition info">
+<p class="admonition-title">Privacy note</p>
+<p>Although the annotation interface is a web app, it runs entirely on your computer and Neurobagel <strong>does not upload any data or retain data</strong>. Your data are used only to populate the annotation interface (read columns and possible values).</p>
+</div>
+<h3 id="what-sites-do-in-this-step">What sites do in this step</h3>
+<ul>
+<li>Go to <a href="https://beta-annotate.neurobagel.org/">https://beta-annotate.neurobagel.org/</a></li>
+<li>Select <strong>ENIGMA-PD</strong> as configuration.</li>
+</ul>
+<p><img alt="Neurobagel ENIGMA-PD Configuration" src="../../../assets/figures/Neurobagel_ENIGMA-PD_Configuration.png" /></p>
+<ul>
+<li>Upload a TSV file containing demographic and clinical variables (if you still need to convert your data from CSV or Excel, see the <a href="https://neurobagel.org/glossary/#tsv">Neurobagel documentation on TSVs</a>). Please annotate <strong>all clinical and demographic</strong> variables available in your dataset.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Include item-level data if available</p>
+<p>If your site collected individual item or question scores (e.g., for neuropsychiatry 
+questionnaires, the (MDS-)UPDRS, or related scales), please prioritise sharing and 
+annotating these over total or subscale scores only. Item-level data is required for 
+upcoming ENIGMA-PD projects such as the <a href="https://enigma-infra.github.io/ENIGMA-PD/projects/ongoing/neuropsych/">Neuropsychiatry project</a> 
+and the <a href="https://enigma-infra.github.io/ENIGMA-PD/projects/ongoing/mspm/">Multiple Symptom Progression Modelling project</a>.</p>
+</div>
+<ul>
+<li>New to Neurobagel? Click through the introduction windows to get started.</li>
+</ul>
+<h4 id="column-annotation">Column annotation</h4>
+<p><strong>Goal:</strong> Assign each column or group of columns to a standardized variable by clicking on them.</p>
+<ul>
+<li>Select multiple related columns at once using CTRL+click or SHIFT+click</li>
+<li>Can't find a column? Filter your column list by name using the search bar at the top left</li>
+<li>Can't find a variable? Use the search bar in the assessment tool list to narrow down options</li>
+<li>Note that variable names in the tool may not always match your local naming conventions, for example, what your site calls "disease duration" may be listed as "time since diagnosis". 
+  If a search does not return results, try alternative terms or synonyms. You can also browse the <a href="https://docs.google.com/spreadsheets/d/1pwi6df8LKc3xFENH9JcOUk1HKHARspt-2lUhsy2JYAE/edit?usp=sharing">full ENIGMA-PD variable list</a> to get an overview of all available terms before annotating.</li>
+<li>If no variable fits your column, please use the <em>description</em> field to provide us with more context to understand this column</li>
+</ul>
+<h4 id="value-annotation">Value annotation</h4>
+<p><strong>Goal:</strong> Review all columns annotated in the previous step and describe their values.</p>
+<ul>
+<li>Mark missing values.  </li>
+<li>Optionally add short human‑readable descriptions for uncommon variables.  </li>
+</ul>
+<h4 id="sharing-the-data-dictionary">Sharing the data dictionary</h4>
+<ul>
+<li>Done? Upload the data dictionary to a protected ENIGMA-PD google drive folder or download it locally and share it with the ENIGMA-PD team by email.</li>
+</ul>
+<p><br></p>
+<p>Click "Upload Data Dictionary to ENIGMA-PD":
+<img alt="Neurobagel ENIGMA-PD GDrive upload" src="../../../assets/figures/Neurobagel_ENIGMA-PD_GDrive_upload.png" /></p>
+<p><br></p>
+<p>Select your site from the drop-down menu, provide your cohort name, and type in the password (which was shared with you by email, if you've lost it, please reach out to us):
+<img alt="Neurobagel ENIGMA-PD GDrive upload popup" src="../../../assets/figures/Neurobagel_ENIGMA-PD_GDrive_upload_popup.png" /></p>
+<h3 id="questions-and-support">Questions and support</h3>
+<p>For questions, please reach out to enigma-pd@amsterdamumc.nl and join <a href="https://discord.gg/sxnCT4QJ7a">the Neurobagel discord server</a> for support.</p>
+<h3 id="why-this-helps">Why this helps</h3>
+<ul>
+<li>Produces a consistent, machine‑readable data dictionary for each cohort.  </li>
+<li>Reduces human error compared to manual data dictionaries (if you make a mistake during annotation, you can simply load your data dictionary into the tool again and correct it)</li>
+<li>Makes datasets easier to understand, reuse, and combine.  </li>
+</ul>
+<p><strong>Interested to learn more about Neurobagel?</strong> Check out the Neurobagel documentation <a href="https://neurobagel.org/user_guide/annotation_tool/">here</a></p>
+<hr />
+<h2 id="feedback-from-early-adopters">Feedback from early adopters</h2>
+<ul>
+<li>Annotation is straightforward and user‑friendly. It typically takes under an hour for a dataset of around 100 variables. And if you cannot finish in one go, you can always save your progress and continue later.   </li>
+<li>The main time investment is <strong>the column annotation step</strong>, selecting the correct variable from the ENIGMA‑PD vocabulary.  </li>
+<li>Overall experience: not difficult, but requires some attention to detail.</li>
+</ul>
+<details class="info">
+<summary>Add your feedback to improve the tool</summary>
+<p>The Neurobagel team continues to improve this tool together with us. If you have an idea for an improvement or find something difficult or confusing, please use the purple button "Give us feedback" on the right edge of the screen.</p>
+</details>
+<hr />
+<h2 id="summary-next-steps-for-sites">Summary: next steps for sites</h2>
+<ul>
+<li>Annotate your clinical spreadsheet using the ENIGMA‑PD list and Neurobagel tool.  </li>
+<li>Reach out to enigma-pd@amsterdamumc.nl and join <a href="https://discord.gg/sxnCT4QJ7a">the Neurobagel discord server</a> for support.</li>
+<li>Share feedback on missing variables (through <a href="https://forms.gle/za9fEQCnhi5GZ4rt6">this form</a>) or usability improvements with the Neurobagel team, directly through the tool.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
