@@ -47,10 +47,11 @@ Toolboxes used: [HALPpipe](https://github.com/HALFpipe/HALFpipe) for fMRI prepro
 ## HALFpipe preprocessing pipeline
 
 This study will apply preprocessing of resting-state fMRI using [HALPpipe](https://github.com/HALFpipe/HALFpipe). For the most part, we will apply the standard pipeline settings as outlined in the [HALFpipe documentation](https://fmri.science/halfpipe/new_ui.html).
+
 - We will use [HALFpipe version 1.3.3.dev91+g892515660](https://surfdrive.surf.nl/s/ikDotZQx7YHJLdm). This version fixes important bugs from version 1.3.2 and before. **Please download the container via this link, not via the HALFpipe website (for version control)**
 - For the general pipeline settings, including specifying data locations, whether or not BIDS-organized, and general preprocessing steps such as slice timing correction and initial volume removal, the [HALFpipe pipeline settings](https://fmri.science/halfpipe/new_ui.html#pipeline-settings) can be followed.
 - For the atlas-based connectivity matrix, [the steps outlined in the HALFpipe manual can be followed](https://fmri.science/halfpipe/new_ui.html#atlas-based-connectivity-matrix). **Important note**: we will use two atlases: 1) HALFpipe standard [Schaefer 400P17N + aseg]() - "Schaefer2018Combined", and 2) [Schaefer 400P7N + Melbourne Subcortical Atlas S3]() - "Schaefer400P7NMSAS3". We will additionally use five pre-processing pipelines: 1) aCompCor, 2) Motion parameters with scrubbing, 3) Pipeline 2 + Global Signal (GSR), 4) Motion parameters, 5) Pipeline 4 + Global Signal (GSR).
-- Quality assessment: **coming soon**
+- Quality assessment: Please refer to the [QC manual](https://fmri.science/halfpipe/quality-control.html). **More coming soon**
 - Data sharing: **coming soon**
 
 
