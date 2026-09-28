@@ -7,7 +7,7 @@
 - ![](../../assets/profile_pictures/tim.jpg){ width="120" }  
   **Tim van Balkom**<sup>1</sup> 
 
-- ![](../../assets/profile_pictures/chahd.jpg){ width="120" }  
+- ![](../../assets/profile_pictures/chahd.jpeg){ width="120" }  
   **Chahd el Fassi**<sup>1</sup> 
 
 - ![](../../assets/profile_pictures/chris.png){ width="120" }  
