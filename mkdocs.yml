@@ -42,6 +42,11 @@ nav:
     - ENIGMA-PD preregistrations: resources/how_to_guides/preregistrations.md
     - Data Sharing: resources/how_to_guides/data_sharing.md
     - Site Information Request Form: resources/how_to_guides/site_information_request.html
+    - PPMI quality control:
+      - resources/how_to_guides/ppmi_qc/index.md
+      - T1 quality: resources/how_to_guides/ppmi_qc/t1_quality.md
+      - Cortical: resources/how_to_guides/ppmi_qc/cortical.md
+      - Subcortical: resources/how_to_guides/ppmi_qc/subcortical.md
   
 
 plugins:
