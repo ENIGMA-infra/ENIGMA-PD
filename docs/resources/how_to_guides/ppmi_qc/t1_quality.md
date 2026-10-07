@@ -24,13 +24,17 @@
 
 ### Motion
 
-Severe motion (FAIL):
+### Motion
 
-![Severe motion](../../../assets/qc/t1_motion_severe.png)
+![Motion examples](../../../assets/qc/t1_motion_examples.png)
 
-Moderate motion (FAIL):
+Three scans with increasing motion, from top to bottom:
 
-![Moderate motion](../../../assets/qc/t1_motion_moderate.png)
+- **No motion (PASS):** sharp edges of the gyri and sulci, and a clear gray/white matter border.
+- **Moderate motion (FAIL):** the image looks blurred, and ripple lines run through the brain. The gray/white border is hard to follow in large parts of the brain.
+- **Severe motion (FAIL):** strong blurring and ringing throughout the brain. Gray and white matter can barely be told apart.
+
+*Image adapted from Backhausen, L. L., Herting, M. M., Buse, J., Roessner, V., Smolka, M. N., & Vetter, N. C. (2016). Quality control of structural MRI images applied using FreeSurfer: a hands-on workflow to rate motion artifacts. Frontiers in Neuroscience, 10, 558. [https://doi.org/10.3389/fnins.2016.00558](https://doi.org/10.3389/fnins.2016.00558)*
 
 ### Coverage
 
