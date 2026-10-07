@@ -41,19 +41,19 @@
 | Rating | What it looks like | Example |
 |---|---|---|
 | **Good** | Labels follow known anatomical boundaries, gray matter is properly segmented, no under- or overestimation | ![Good](../../../assets/qc/cortical_good.png){ width="250" } |
-| **Still PASS** | Some regions are slightly over- or underestimated, but the rest of the segmentation looks good | ![Still pass](../../../assets/qc/cortical_still_pass.png){ width="250" } |
-| **FAIL** | Global underestimation, a segmentation that failed because of motion, or pathology that makes the segmentation fail completely | ![Fail](../../../assets/qc/cortical_fail.png){ width="250" } |
+| **FAIL** | Processing error | ![Fail](../../../assets/qc/cortical_fail_processing_error.png){ width="250" } |
+| **FAIL** | Frontal part of the brain missing because of pathology | ![Fail](../../../assets/qc/cortical_fail_pathology.png){ width="250" } |
 
 ### Common problems per lobe
 
 | Lobe | Region | What happens | Rating | Example |
 |---|---|---|---|---|
-| **Frontal** | Frontal pole | Underestimated: the tip of the frontal lobe is not fully labeled (fewer than 10% of scans) | FAIL only if a large part is missing | ![Frontal pole](../../../assets/qc/cortical_frontal_pole.png){ width="250" } |
+| **Frontal** | Frontal pole | Underestimated: the tip of the frontal lobe is not fully labeled (fewer than 10% of scans) | FAIL only if a large part is missing | |
 | **Frontal** | Precentral and postcentral | The two gyri overlap: the labels run into each other, sometimes also into the superior parietal, superior frontal, or caudal middle frontal regions (fewer than 15% of scans) | FAIL frontal and parietal | ![Pre/postcentral overlap](../../../assets/qc/cortical_pre_postcentral_overlap.png){ width="250" } |
-| **Parietal** | Postcentral | Overestimated: extends into the superior parietal and supramarginal regions | FAIL parietal | ![Postcentral](../../../assets/qc/cortical_postcentral_overestimation.png){ width="250" } |
+| **Parietal** | Postcentral | Overestimated: extends into the superior parietal and supramarginal regions | FAIL parietal | See image above. |
 | | Supramarginal | Overestimated: extends into the superior temporal gyrus. Exact borders are hard to judge and anatomy varies | Be lenient. FAIL only if severe | ![Supramarginal](../../../assets/qc/cortical_supramarginal_overestimation.png){ width="250" } |
 | | Superior parietal | Overestimated: extends into the precuneus and cuneus | FAIL parietal if severe. Also fail occipital if the cuneus is clearly affected | ![Superior parietal](../../../assets/qc/cortical_superior_parietal_overestimation.png){ width="250" } |
-| **Temporal** | Temporal pole | Underestimated: the tip of the temporal lobe is not fully labeled (fewer than 10% of scans) | FAIL only if a large part is missing | ![Temporal pole](../../../assets/qc/cortical_temporal_pole.png){ width="250" } |
+| **Temporal** | Temporal pole | Underestimated: the tip of the temporal lobe is not fully labeled (fewer than 10% of scans) | FAIL only if a large part is missing | |
 | | Banks of STS | Appears on the gyral surface instead of in the sulcus (20 to 30% of scans) | PASS. FAIL only if it's so large that it takes over the superior or middle temporal gyrus | ![Banks of STS](../../../assets/qc/cortical_bankssts.png){ width="250" } |
 | | Middle and inferior temporal | The middle temporal gyrus seems to cover the inferior temporal gyrus. This is usually due to the angle of the brain, and some overlap is normal | PASS | ![Middle/inferior temporal](../../../assets/qc/cortical_middle_inferior_temporal.png){ width="250" } |
 | | Entorhinal | Often only partly labeled correctly, in a large share of scans | Be lenient. FAIL only if more than 50% of the region is poorly segmented | ![Entorhinal](../../../assets/qc/cortical_entorhinal.png){ width="250" } |
@@ -71,3 +71,7 @@
 | An overestimated region spills into a region of another lobe | Fail the lobe of the overestimated region, and also the other lobe if the neighbor is clearly affected |
 | The T1 quality was poor, but the labels look correct | PASS. Rate the segmentation, not the scan |
 | A problem visible in only one view | Rate based on that view |
+| The meninges (the membranes around the brain) are included in the segmentation, so the surface looks thickened, lumpy, or smoothed over the gyri (see image below) | PASS if it's a thin or small area. FAIL the affected lobe(s) if it covers a large area |
+
+![Meninges overestimation](../../../assets/qc/cortical_meninges_overestimation.png)
+
