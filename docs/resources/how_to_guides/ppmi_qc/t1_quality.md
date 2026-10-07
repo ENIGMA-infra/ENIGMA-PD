@@ -24,8 +24,6 @@
 
 ### Motion
 
-### Motion
-
 ![Motion examples](../../../assets/qc/t1_motion_examples.png)
 
 Three scans with increasing motion, from top to bottom:
@@ -37,10 +35,6 @@ Three scans with increasing motion, from top to bottom:
 *Image adapted from Backhausen, L. L., Herting, M. M., Buse, J., Roessner, V., Smolka, M. N., & Vetter, N. C. (2016). Quality control of structural MRI images applied using FreeSurfer: a hands-on workflow to rate motion artifacts. Frontiers in Neuroscience, 10, 558. [https://doi.org/10.3389/fnins.2016.00558](https://doi.org/10.3389/fnins.2016.00558)*
 
 ### Coverage
-
-Cropped brain:
-
-![Cropped brain](../../../assets/qc/t1_cropped.png)
 
 Aliasing/wrap-around artefact: hippocampus (inverted) shows up in the middle of the brain
 
@@ -60,11 +54,15 @@ B1 inhomogeneity: the centre of the brain looks darker than the rest (and there 
 
 *Note: this is not a T1-weighted image, but it is shown because it is such a clear example. In T1 scans, the effect is usually milder.*
 
-![B1 inhomogeneity](../../../assets/qc/t1_b1_inhomogeneity.png)
+![B1 inhomogeneity](../../../assets/qc/t1_b1_inhomogeneity.jpg)
+
+*Image  from van der Weijden, C. W., Gutmann, I. W., Somsen, J. F., Luurtsema, G., van der Goot, T., Arzanforoosh, F., ... & van der Hoorn, A. (2025). DSC perfusion MRI artefact reduction strategies: a short overview for clinicians and scientific applications. Journal of Clinical Medicine, 14(13), 4776.*
 
 Dental metal and signal loss: sagittal images with three types of braces, each adding more metal. The more metal there is, the larger the dark, warped area around the mouth, and the closer it gets to the brain.
 
 ![Dental metal and signal loss](../../../assets/qc/t1_dental_metal.png)
+
+*Image  from Latzko, L., Schmit, A., Glodny, B., Grams, A. E., Birkl, C., & Crismani, A. G. (2025). Orthodontic appliances and their diagnostic impact to brain MRI. Clinical Oral Investigations, 29(4), 202.*
 
 ### Other situations
 
