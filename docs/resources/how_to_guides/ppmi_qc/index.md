@@ -49,6 +49,8 @@ At the end of each task you'll get a recap that lists your UNCERTAIN ratings. Go
 - **Always create a checkpoint before closing the browser.** Otherwise your ratings will be lost.
 - Don't use the autoplay function at the beginning
 
+![QC Studio](../../../assets/qc/qc_studio_welcome.png)
+
 ## Credit and version control
 
 These guidelines are adapted from the ENIGMA-PD visual quality control instructions and the ENIGMA-PD cortical and subcortical quality control manuals. Version 1.0, October 2026.
