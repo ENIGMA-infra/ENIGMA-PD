@@ -40,7 +40,7 @@
 
 | Rating | What it looks like | Example |
 |---|---|---|
-| **Good** | Labels follow known anatomical boundaries, gray matter is properly segmented, no under- or overestimation | ![Good](../../../assets/qc/cortical_good.png){ width="250" } |
+| **PASS** | Labels follow known anatomical boundaries, gray matter is properly segmented, no under- or overestimation | ![Good](../../../assets/qc/cortical_good.png){ width="250" } |
 | **FAIL** | Processing error | ![Fail](../../../assets/qc/cortical_fail_processing_error.png){ width="250" } |
 | **FAIL** | Frontal part of the brain missing because of pathology | ![Fail](../../../assets/qc/cortical_fail_pathology.png){ width="250" } |
 
