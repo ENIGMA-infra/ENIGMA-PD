@@ -25,6 +25,8 @@
 
 Not rated: inferior lateral ventricle (purple) and choroid plexus (teal).
 
+![Subcortical](../../../assets/qc/subcortical_regions.png)
+
 ## 2. What you see in QC-Studio
 
 ![QC-Studio subcortical task](../../../assets/qc/subcortical_qcstudio_screenshot.png)
@@ -47,13 +49,9 @@ Every participant is shown at the same slice positions. Because brains differ in
 
 ### Good segmentation
 
-Coronal view, from posterior to anterior:
+![Good segmentation](../../../assets/qc/subcortical_good.png)
 
-![Good segmentation, coronal](../../../assets/qc/subcortical_good_coronal.png)
-
-Horizontal and sagittal views:
-
-![Good segmentation, horizontal and sagittal](../../../assets/qc/subcortical_good_horizontal_sagittal.png)
+Rows from top to bottom: sagittal, coronal, and horizontal views.
 
 ### Common problems
 
