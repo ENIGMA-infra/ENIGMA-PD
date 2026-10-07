@@ -46,9 +46,13 @@ Aliasing/wrap-around artefact: hippocampus (inverted) shows up in the middle of 
 
 ![Aliasing](../../../assets/qc/t1_aliasing.png)
 
-Ghosting artefact: specific type of aliasing artefact, a faint copy of part of the head, often from tissue outside the recorded area, shows up inside the image:
+*Image from [radiopaedia](https://www.google.com/url?q=https://radiopaedia.org/cases/aliasing-artifact-on-mri-wrap-around-2&sa=D&source=docs&ust=1791361954932334&usg=AOvVaw00wS2lkhnOxmf7n8aVyOFI)*
 
-![SENSE ghost](../../../assets/qc/t1_sense_ghost.png)
+SENSE Ghosting artefact: specific type of aliasing artefact, a faint copy of part of the head, often from tissue outside the recorded area, shows up inside the image:
+
+![SENSE ghost](../../../assets/qc/t1_sense_ghost.jpg)
+
+*Image from [MRI questions](https://mriquestions.com/artifacts-in-pi.html)*
 
 ### Signal and contrast
 
