@@ -1,0 +1,1810 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../cortical/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/logos/enigma_300DPI_small.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Subcortical - ENIGMA-PD docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#subcortical" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="ENIGMA-PD docs" class="md-header__button md-logo" aria-label="ENIGMA-PD docs" data-md-component="logo">
+      
+  <img src="../../../../assets/logos/enigma_300DPI_small.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ENIGMA-PD docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Subcortical
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="ENIGMA-PD docs" class="md-nav__button md-logo" aria-label="ENIGMA-PD docs" data-md-component="logo">
+      
+  <img src="../../../../assets/logos/enigma_300DPI_small.png" alt="logo">
+
+    </a>
+    ENIGMA-PD docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About ENIGMA-PD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About ENIGMA-PD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../working_group/core_team/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core team
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../working_group/sites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../working_group/new_sites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information for new sites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ongoing Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ongoing Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/ongoing/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/ongoing/freesurfer7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FreeSurfer 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/ongoing/cognitive_reserve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cognitive reserve
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/ongoing/wml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    White matter lesions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/ongoing/mspm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiple Symptom Progression Modelling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/ongoing/neuropsych/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Neuropsychiatry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/ongoing/spinal_cord/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spinal Cord
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/ongoing/imaging_genetics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Imaging Genetics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/ongoing/normative_modelling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normative modelling (fMRI)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Completed Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Completed Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/completed/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/completed/cort_sub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cortical-Subcortical
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/completed/shape/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subcortical shape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/completed/tbss/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diffusion (TBSS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/completed/py-sustain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySustain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/completed/connectomics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connectomics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../neurobagel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Neurobagel Data Annotation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preregistrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ENIGMA-PD preregistrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_sharing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Sharing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../site_information_request.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Site Information Request Form
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PPMI quality control
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PPMI quality control
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PPMI FreeSurfer Visual QC: Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../t1_quality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    T1 quality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cortical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cortical
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subcortical
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subcortical
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-you-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What you rate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. What you rate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#which-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which regions?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-what-you-see-in-qc-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. What you see in QC-Studio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-what-to-check-and-how-to-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. What to check and how to rate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#good-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Good segmentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common problems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-situations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other situations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-you-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What you rate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. What you rate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#which-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which regions?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-what-you-see-in-qc-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. What you see in QC-Studio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-what-to-check-and-how-to-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. What to check and how to rate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#good-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Good segmentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common problems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-situations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other situations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="subcortical">Subcortical</h1>
+<h2 id="1-what-you-rate">1. What you rate</h2>
+<ul>
+<li>The FreeSurfer subcortical segmentation: the colored labels covering the deep brain structures.</li>
+<li>Look at all the structures together. They are located close together, so one look usually covers all of them.<ul>
+<li>Everything looks fine? PASS all structures and move on.</li>
+<li>Something looks wrong? Figure out which structure(s) are affected, and fail only those. Rate left and right separately (the brainstem is a single region).</li>
+</ul>
+</li>
+</ul>
+<h3 id="which-regions">Which regions?</h3>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Structure</th>
+<th>Color</th>
+<th>Best view</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Basal ganglia</strong></td>
+<td>Caudate</td>
+<td>Light blue-gray</td>
+<td>Anterior coronal, superior horizontal, lateral sagittal</td>
+</tr>
+<tr>
+<td></td>
+<td>Putamen</td>
+<td>Pink</td>
+<td>Coronal, inferior horizontal</td>
+</tr>
+<tr>
+<td></td>
+<td>Pallidum</td>
+<td>Blue</td>
+<td>Posterior coronal, inferior horizontal</td>
+</tr>
+<tr>
+<td></td>
+<td>Accumbens area</td>
+<td>Orange</td>
+<td>Anterior coronal</td>
+</tr>
+<tr>
+<td><strong>Diencephalon</strong></td>
+<td>Thalamus</td>
+<td>Green</td>
+<td>Posterior coronal, inferior horizontal</td>
+</tr>
+<tr>
+<td></td>
+<td>Ventral Diencephalon</td>
+<td>Salmon</td>
+<td>Posterior coronal, medial sagittal</td>
+</tr>
+<tr>
+<td><strong>Limbic</strong></td>
+<td>Hippocampus</td>
+<td>Yellow</td>
+<td>Posterior coronal, lateral sagittal</td>
+</tr>
+<tr>
+<td></td>
+<td>Amygdala</td>
+<td>Cyan</td>
+<td>Posterior coronal, lateral sagittal</td>
+</tr>
+<tr>
+<td><strong>Brainstem</strong></td>
+<td>Brainstem</td>
+<td>Light blue-gray (distinguish from caudate by location)</td>
+<td>Medial sagittal</td>
+</tr>
+<tr>
+<td><strong>Cerebellum</strong></td>
+<td>Cerebellum white matter</td>
+<td>Light yellow-green</td>
+<td>Medial and lateral sagittal</td>
+</tr>
+<tr>
+<td></td>
+<td>Cerebellum cortex</td>
+<td>Brown</td>
+<td>Medial and lateral sagittal</td>
+</tr>
+</tbody>
+</table>
+<p>Not rated: inferior lateral ventricle (purple) and choroid plexus (teal).</p>
+<p><img alt="Subcortical" src="../../../../assets/qc/subcortical_regions.png" /></p>
+<h2 id="2-what-you-see-in-qc-studio">2. What you see in QC-Studio</h2>
+<p><img alt="QC-Studio subcortical task" src="../../../assets/qc/subcortical_qcstudio_screenshot.png" /></p>
+<p>Every participant is shown at the same slice positions. Because brains differ in size and shape, a slice doesn't always land in the same spot in the brain, so a structure may be hard to see in one view. If so, use the other views.</p>
+<h2 id="3-what-to-check-and-how-to-rate">3. What to check and how to rate</h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Question to ask</th>
+<th>What it looks like</th>
+<th>Still PASS</th>
+<th>FAIL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Distorted or misplaced structure</strong></td>
+<td>Does each structure have roughly the right shape and position?</td>
+<td>A label has a very strange shape or sits in the wrong place.</td>
+<td>Minor shape differences or asymmetry between left and right</td>
+<td>Very distorted or clearly misplaced</td>
+</tr>
+<tr>
+<td><strong>Overestimation</strong></td>
+<td>Does each label stay within its structure?</td>
+<td>A label extends into surrounding tissue, for example the caudate spreading over the white matter above the ventricle.</td>
+<td>Slight extension at the edge</td>
+<td>The label clearly extends along a large stretch of the neighboring tissue</td>
+</tr>
+<tr>
+<td><strong>Missing part</strong></td>
+<td>Is the whole structure labeled?</td>
+<td>Part of a structure has no label, often the cerebellum after a failed skull strip.</td>
+<td>Small bits missing</td>
+<td>A large part is missing</td>
+</tr>
+<tr>
+<td><strong>Widespread failure</strong></td>
+<td>Do the labels look reasonable overall?</td>
+<td>Many or all structures look wrong at the same time, often after motion or a failed skull strip.</td>
+<td>—</td>
+<td>Fail each affected structure</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Errors are rare in the subcortex.</strong> Most structures should pass.</li>
+<li><strong>Problems are often widespread.</strong> If one structure fails, check its neighbors.</li>
+</ul>
+<h2 id="4-examples">4. Examples</h2>
+<h3 id="good-segmentation">Good segmentation</h3>
+<p><img alt="Good segmentation" src="../../../../assets/qc/subcortical_good.png" /></p>
+<p>Rows from top to bottom: sagittal, coronal, and horizontal views.</p>
+<h3 id="common-problems">Common problems</h3>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>What happens</th>
+<th>Rating</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All structures failed</td>
+<td>The segmentation failed for all subcortical structures except the cerebellum</td>
+<td>FAIL all affected structures</td>
+<td><img alt="All failed" src="../../../../assets/qc/subcortical_all_failed.png" width="250" /></td>
+</tr>
+<tr>
+<td>Caudate overestimated</td>
+<td>The caudate label spreads over the white matter above the lateral ventricle</td>
+<td>PASS if slight. FAIL if it extends along most of the ventricle</td>
+<td><img alt="Caudate overestimated" src="../../../../assets/qc/subcortical_caudate_overestimation.png" width="250" /></td>
+</tr>
+<tr>
+<td>Failed skull strip</td>
+<td>The bottom of the cerebellum is cut off by the brain mask, so it's not labeled</td>
+<td>FAIL cerebellum white matter and cerebellum cortex</td>
+<td><img alt="Failed skull strip" src="../../../../assets/qc/subcortical_skullstrip_cerebellum.png" width="250" /></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-situations">Other situations</h3>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>White matter hypointensities (light purple, often around the ventricles)</td>
+<td>Not an error. These are white matter spots that look dark on T1</td>
+</tr>
+<tr>
+<td>A structure is hard to see in a view because of the slice position</td>
+<td>Use the other views to judge it</td>
+</tr>
+<tr>
+<td>A problem in one hemisphere only</td>
+<td>Fail only that side</td>
+</tr>
+<tr>
+<td>Part of the cerebellum is cut off in the T1 scan</td>
+<td>FAIL cerebellum white matter and cortex on the affected side</td>
+</tr>
+<tr>
+<td>The T1 quality was poor, but the labels look correct</td>
+<td>PASS. Rate the segmentation, not the scan</td>
+</tr>
+<tr>
+<td>The head was tilted in the scanner, so left and right structures appear at different heights or sizes in the same slice</td>
+<td>PASS if each label fits its structure. Check the other views to confirm</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
