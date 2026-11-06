@@ -27,6 +27,14 @@ Not rated: inferior lateral ventricle (purple) and choroid plexus (teal).
 
 ![Subcortical](../../../assets/qc/subcortical_regions.png)
 
+![Best views per structure](../../../assets/qc/subcortical_best_views.png)
+
+Where to look for each structure. The red arrows point to the structures listed next to each slice.
+
+![Slice positions differ between participants](../../../assets/qc/subcortical_slice_positions.png)
+
+The same coronal slice positions in four participants. In some, the thalamus or accumbens area is barely visible, and in the last one the slice is not useful at all. In these cases, use the sagittal and horizontal views.
+
 ## 2. What you see in QC-Studio
 
 ![QC-Studio subcortical task](../../../assets/qc/subcortical_qcstudio_screenshot.png)
@@ -71,3 +79,7 @@ Rows from top to bottom: sagittal, coronal, and horizontal views.
 | Part of the cerebellum is cut off in the T1 scan | FAIL cerebellum white matter and cortex on the affected side |
 | The T1 quality was poor, but the labels look correct | PASS. Rate the segmentation, not the scan |
 | The head was tilted in the scanner, so left and right structures appear at different heights or sizes in the same slice | PASS if each label fits its structure. Check the other views to confirm |
+
+![White matter hypointensities](../../../assets/qc/subcortical_wm_hypointensities.png)
+
+White matter hypointensities (dark on T1, bright on T2/FLAIR) are shown in lighter purple, here around the ventricles (darker purple). This is not a segmentation error.
